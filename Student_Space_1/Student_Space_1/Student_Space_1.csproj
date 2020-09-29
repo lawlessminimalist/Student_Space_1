@@ -20,6 +20,28 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Images\ArrowDown.png" />
+    <None Remove="Images\Calendar.png" />
+    <None Remove="Images\FullLogo.png" />
+    <None Remove="Images\LogoNoText.png" />
+    <None Remove="Images\MenuBar.png" />
+    <None Remove="Images\Notification.png" />
+    <None Remove="Images\Rectangle.png" />
+    <None Remove="Images\Text Logo Transparent.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Images\ArrowDown.png" />
+    <EmbeddedResource Include="Images\Calendar.png" />
+    <EmbeddedResource Include="Images\FullLogo.png" />
+    <EmbeddedResource Include="Images\LogoNoText.png" />
+    <EmbeddedResource Include="Images\MenuBar.png" />
+    <EmbeddedResource Include="Images\Notification.png" />
+    <EmbeddedResource Include="Images\Rectangle.png" />
+    <EmbeddedResource Include="Images\Text Logo Transparent.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="4.6.0.1141" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
   </ItemGroup>
