@@ -1,12 +1,134 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Student_Space_1.Views.UnitInfo">
+             x:Class="Student_Space_1.Views.UnitInfo"
+             xmlns:local="clr-namespace:Student_Space_1;assembly=Student_Space_1">
+    
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
-</ContentPage>
+            <FlexLayout Direction="Column"
+                AlignItems="Center"
+                JustifyContent="SpaceEvenly">
+
+
+
+
+                <Grid RowSpacing="0" ColumnSpacing="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="250" />
+                        <ColumnDefinition Width="50" />
+                    </Grid.ColumnDefinitions>
+                    <BoxView />
+
+                    <Frame BackgroundColor="#5660a8" Padding="0" HorizontalOptions="Center" WidthRequest="250" HeightRequest="40">
+                        <Label Grid.Column ="0" TextColor="White" Text="CAB203 - Networks" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+                    </Frame>
+
+                    <BoxView Grid.Column="1"/>
+                    <Frame Grid.Column="1" BackgroundColor="#5660a8" Padding="7" HorizontalOptions="Center" WidthRequest="250" HeightRequest="40">
+                        <Image Source="{local:ImageResource Student_Space_1.Images.upsidetriangle.png}"/>
+                    </Frame>
+
+                </Grid>
+
+
+
+
+
+                <Grid RowSpacing="0" ColumnSpacing="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="250" />
+                        <ColumnDefinition Width="50" />
+                    </Grid.ColumnDefinitions>
+                    <BoxView />
+
+                    <Frame BackgroundColor="#3b3f7e" Padding="0" HorizontalOptions="Center" WidthRequest="250" HeightRequest="40">
+                        <Label Grid.Column ="0" TextColor="White" Text="CAB230 - Cryptography" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+                    </Frame>
+
+                    <BoxView Grid.Column="1"/>
+                    <Frame Grid.Column="1" BackgroundColor="#3b3f7e" Padding="7" HorizontalOptions="Center" WidthRequest="250" HeightRequest="40">
+                    <Image HeightRequest="10" WidthRequest="10" Source="{local:ImageResource Student_Space_1.Images.upsidetriangle.png}"/>
+                    </Frame>
+
+
+                    <BoxView Grid.Row="1" Grid.ColumnSpan="2"/>
+                    <Frame Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="40">
+                        <Label Grid.Column ="0" Grid.Row="1" Grid.ColumnSpan="2" TextColor="Black" Text="CAB230 - Cryptography" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+                    </Frame>
+                    <BoxView Grid.Row="2" Grid.ColumnSpan="2"/>
+                    <Frame Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="40">
+                        <Label Grid.Column ="0" Grid.Row="2" Grid.ColumnSpan="2" TextColor="Black" Text="CAB230 - Cryptography" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+                    </Frame>
+                    <BoxView Grid.Row="3" Grid.ColumnSpan="2"/>
+                    <Frame Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="40">
+                        <Label Grid.Column ="0" Grid.Row="3" Grid.ColumnSpan="2" TextColor="Black" Text="CAB230 - Cryptography" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+                    </Frame>
+                    <BoxView Grid.Row="4" Grid.ColumnSpan="2"/>
+                    <Frame Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="40">
+                        <Label Grid.Column ="0" Grid.Row="4" Grid.ColumnSpan="2" TextColor="Black" Text="CAB230 - Cryptography" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+
+                    </Frame>
+
+                </Grid>
+
+
+
+                <Grid RowSpacing="0" ColumnSpacing="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="225" />
+                        <ColumnDefinition Width="75" />
+                    </Grid.ColumnDefinitions>
+                    <BoxView />
+
+                    <Frame BackgroundColor="#f9cb3a" Padding="0" HorizontalOptions="Center" WidthRequest="250" HeightRequest="40">
+                        <Label Grid.Column ="0" TextColor="White" Text="CAB203 - Discrete Structures" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+                    </Frame>
+
+                    <BoxView Grid.Column="1"/>
+                    <Frame Grid.Column="1" BackgroundColor="#f9cb3a" Padding="7" HorizontalOptions="Center" WidthRequest="250" HeightRequest="40">
+                        <Switch IsToggled="true"/>
+                    </Frame>
+                </Grid>
+
+
+
+
+                <Grid RowSpacing="0" ColumnSpacing="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="250" />
+                        <ColumnDefinition Width="50" />
+                    </Grid.ColumnDefinitions>
+                    <BoxView />
+
+                    <Frame BackgroundColor="#f6a635" Padding="0" HorizontalOptions="Center" WidthRequest="250" HeightRequest="40">
+                        <Label Grid.Column ="0" TextColor="White" Text="IAB230 - IT Management" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+                    </Frame>
+
+                    <BoxView Grid.Column="1"/>
+                    <Frame Grid.Column="1" BackgroundColor="#f6a635" Padding="7" HorizontalOptions="Center" WidthRequest="250" HeightRequest="40">
+                    <Image Source="{local:ImageResource Student_Space_1.Images.upsidetriangle.png}"/>
+                    </Frame>
+                </Grid>
+
+
+
+            </FlexLayout>
+
+        </ContentPage.Content>
+    </ContentPage>
