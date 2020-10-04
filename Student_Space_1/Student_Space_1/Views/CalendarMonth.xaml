@@ -5,15 +5,15 @@
     <ContentPage.Content>
         <Grid Margin="7, 7, 7, 7" >
             <Grid.RowDefinitions>
-                <RowDefinition Height="65"/>
-                <RowDefinition Height="60"/>
-                <RowDefinition Height="400"/>
-                <RowDefinition Height="200"/>
+                <RowDefinition Height="65*"/>
+                <RowDefinition Height="60*"/>
+                <RowDefinition Height="400*"/>
+                <RowDefinition Height="160*"/>
             </Grid.RowDefinitions>
             
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="50"/>
-                <ColumnDefinition Width="341"/>
+                <ColumnDefinition Width="50*"/>
+                <ColumnDefinition Width="340*"/>
             </Grid.ColumnDefinitions>
 
             <Frame Grid.ColumnSpan="2" 
