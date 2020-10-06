@@ -105,7 +105,7 @@
         <ShellContent Title="Grades" Route="MainPage" ContentTemplate="{DataTemplate views:Grades}" />
     </FlyoutItem>
     <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
-        <ShellContent Title="Zoom Links" Route="Calendar" ContentTemplate="{DataTemplate views:Zoom}" />
+        <ShellContent Title="Zoom Links" Route="links" ContentTemplate="{DataTemplate views:Zoom}" />
     </FlyoutItem>
     <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
         <ShellContent Title="Unit Contacts"  Route="MainPage" ContentTemplate="{DataTemplate views:Unit_Contacts}" />
