@@ -26,7 +26,7 @@ namespace Student_Space
             routes.Add("CalendarMonth", typeof(CalendarMonth));
             routes.Add("links", typeof(Zoom));
             routes.Add("contacts", typeof(Unit_Contacts));
-
+            routes.Add("grades", typeof(Grades));
 
             foreach (var item in routes)
             {
