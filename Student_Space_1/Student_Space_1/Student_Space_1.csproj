@@ -11,6 +11,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Models\NewFolder\**" />
+    <Compile Remove="NewFolder\**" />
+    <EmbeddedResource Remove="Models\NewFolder\**" />
+    <EmbeddedResource Remove="NewFolder\**" />
+    <None Remove="Models\NewFolder\**" />
+    <None Remove="NewFolder\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="ViewModels\MainPageViewModel - Copy.cs" />
     <Compile Remove="Views\Page1.xaml.cs" />
   </ItemGroup>
@@ -21,8 +30,10 @@
 
   <ItemGroup>
     <None Remove="Images\ArrowDown.png" />
-    <None Remove="Images\ArrowRight.png" />
+    <None Remove="Images\Bin_Delete.png" />
+    <None Remove="Images\Calculator.png" />
     <None Remove="Images\Calendar.png" />
+    <None Remove="Images\Exit.png" />
     <None Remove="Images\FullLogo.png" />
     <None Remove="Images\LogoNoText.png" />
     <None Remove="Images\MenuBar.png" />
@@ -30,23 +41,28 @@
     <None Remove="Images\Plus.png" />
     <None Remove="Images\Rectangle.png" />
     <None Remove="Images\Text Logo Transparent.png" />
+    <None Remove="Images\Transcript.png" />
+    <None Remove="Images\Trans_GPA.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Images\Calculator.png" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Images\ArrowDown.png" />
-    <EmbeddedResource Include="Images\ArrowRight.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
+    <EmbeddedResource Include="Images\Bin_Delete.png" />
     <EmbeddedResource Include="Images\Calendar.png" />
+    <EmbeddedResource Include="Images\Exit.png" />
     <EmbeddedResource Include="Images\FullLogo.png" />
     <EmbeddedResource Include="Images\LogoNoText.png" />
     <EmbeddedResource Include="Images\MenuBar.png" />
     <EmbeddedResource Include="Images\Notification.png" />
-    <EmbeddedResource Include="Images\Plus.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
+    <EmbeddedResource Include="Images\Plus.png" />
     <EmbeddedResource Include="Images\Rectangle.png" />
     <EmbeddedResource Include="Images\Text Logo Transparent.png" />
+    <EmbeddedResource Include="Images\Transcript.png" />
+    <EmbeddedResource Include="Images\Trans_GPA.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -60,6 +76,9 @@
     </Compile>
     <Compile Update="Views\CalendarMonth.xaml.cs">
       <DependentUpon>CalendarMonth.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\UnitContacts.xaml.cs">
+      <DependentUpon>UnitContacts.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
@@ -85,7 +104,7 @@
     <EmbeddedResource Update="Views\ToDo.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Unit Contacts.xaml">
+    <EmbeddedResource Update="Views\UnitContacts.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\UnitInfo.xaml">
@@ -94,10 +113,5 @@
     <EmbeddedResource Update="Views\Zoom.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Models\NewFolder\NewFolder\" />
-    <Folder Include="NewFolder\" />
   </ItemGroup>
 </Project>
