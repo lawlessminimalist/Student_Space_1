@@ -27,7 +27,8 @@ namespace Student_Space
             routes.Add("links", typeof(Zoom));
             routes.Add("contacts", typeof(Unit_Contacts));
             routes.Add("grades", typeof(Grades));
-
+            routes.Add("todolist", typeof(ToDo));
+            
             foreach (var item in routes)
             {
                 Routing.RegisterRoute(item.Key, item.Value);

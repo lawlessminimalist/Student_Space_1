@@ -96,7 +96,7 @@
         <ShellContent Title="Calendar" Route="CalendarMonth" ContentTemplate="{DataTemplate views:CalendarMonth}" />
     </FlyoutItem>
     <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
-        <ShellContent Title="To Do List" Route="MainPage" ContentTemplate="{DataTemplate views:ToDo}" />
+        <ShellContent Title="To Do List" Route="todolist" ContentTemplate="{DataTemplate views:ToDo}" />
     </FlyoutItem>
     <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
         <ShellContent Title="Unit Informtaion" Route="Calendar" ContentTemplate="{DataTemplate views:UnitInfo}" />
