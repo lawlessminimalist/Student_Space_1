@@ -62,6 +62,9 @@
     <Compile Update="Views\CalendarMonth.xaml.cs">
       <DependentUpon>CalendarMonth.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\UnitContacts.xaml.cs">
+      <DependentUpon>UnitContacts.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -86,7 +89,7 @@
     <EmbeddedResource Update="Views\ToDo.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Unit Contacts.xaml">
+    <EmbeddedResource Update="Views\UnitContacts.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\UnitInfo.xaml">
