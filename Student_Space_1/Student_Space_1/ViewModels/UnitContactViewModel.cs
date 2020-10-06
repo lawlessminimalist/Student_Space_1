@@ -92,6 +92,8 @@ namespace Student_Space.ViewModels
                 for (int i = 0; i < DisplayContacts.Count; i++)
                 {
                     Console.WriteLine(string.Concat(DisplayContacts[i].Name, "---", DisplayContacts[i].Code, "---", DisplayContacts[i].Position));
+                    Console.WriteLine(string.Concat("Imageeeeeeeeeeeee Sourceeeee", DisplayContacts[i].Contact_Picture, "---"));
+
                 }
             }
         }
@@ -101,11 +103,16 @@ namespace Student_Space.ViewModels
         public UnitContactViewModel()
         {
             SetupData();
-            //Title = "Unit Contacts";
-            //UnitSelected = new Command(DisplayContacts);
+
             //Get Selected User If there is One
             OnPropertyChanged("DisplayContacts");
 
+        }
+
+        public ImageSource Image(string IconSource)
+        {
+            //OSSV_APPS.Resources.Img
+            return ImageSource.FromResource(string.Format("Student_Space_1.PeopleImages.{0}", IconSource));
         }
 
         //Set Up Mock Unit Contact Data
@@ -149,7 +156,7 @@ namespace Student_Space.ViewModels
                     Email = "amy.phillips@connect.qut.edu.au",
                     Position = "Lectuer",
                     OfficeLocation = "Z123",
-                    Contact_Picture = new Image{ Source = "Amy.jpg" },
+                    Contact_Picture = Image("Amy.jpg"),
                     Code = "CAB303"
                 },
 
@@ -159,7 +166,7 @@ namespace Student_Space.ViewModels
                     Email = "andrew.williams@connect.qut.edu.au",
                     Position = "Tutor",
                     OfficeLocation = "Z234",
-                    Contact_Picture = new Image{ Source = "Andrew.jpg" },
+                    Contact_Picture = Image("Andrew.jpg") ,
                     Code = "CAB303"
                 },
 
@@ -169,7 +176,7 @@ namespace Student_Space.ViewModels
                     Email = "dan.rose@connect.qut.edu.au",
                     Position = "Tutor",
                     OfficeLocation = "C123",
-                    Contact_Picture = new Image{ Source = "Dan.jpg" },
+                    Contact_Picture = Image("Dan.jpg"),
                     Code = "CAB303"
                 },
 
@@ -179,7 +186,7 @@ namespace Student_Space.ViewModels
                     Email = "frank.tiles@connect.qut.edu.au",
                     Position = "Tutor",
                     OfficeLocation = "O985",
-                    Contact_Picture = new Image{ Source = "Frank.jpg" },
+                    Contact_Picture = Image("Frank.jpeg"),
                     Code = "CAB303"
                 },
 
@@ -190,7 +197,7 @@ namespace Student_Space.ViewModels
                     Email = "John.Holmes@connect.qut.edu.au",
                     Position = "Lectuer",
                     OfficeLocation = "Z123",
-                    Contact_Picture = new Image{ Source = "John.jpg" },
+                    Contact_Picture = Image("John.jpg"),
                     Code = "IFB295"
                 },
 
@@ -200,7 +207,7 @@ namespace Student_Space.ViewModels
                     Email = "Ken.Ken@connect.qut.edu.au",
                     Position = "Unit Coordinator",
                     OfficeLocation = "Z104",
-                    Contact_Picture = new Image{ Source = "Ken.jpg" },
+                    Contact_Picture = Image("Ken.jpg"),
                     Code = "IFB295"
                 },
 
@@ -210,7 +217,7 @@ namespace Student_Space.ViewModels
                     Email = "Lily.Bloom@connect.qut.edu.au",
                     Position = "Tutor",
                     OfficeLocation = "P182",
-                    Contact_Picture = new Image{ Source = "Dan.jpg" },
+                    Contact_Picture = Image("Lily.png"),
                     Code = "IFB295"
                 },
 
@@ -220,7 +227,7 @@ namespace Student_Space.ViewModels
                     Email = "Maggie.Li@connect.qut.edu.au",
                     Position = "Tutor",
                     OfficeLocation = "C456",
-                    Contact_Picture = new Image{ Source = "Frank.jpg" },
+                    Contact_Picture = Image("Maggie.jpg"),
                     Code = "IFB295"
                 },
 
@@ -231,7 +238,7 @@ namespace Student_Space.ViewModels
                     Email = "Mark.Filer@connect.qut.edu.au",
                     Position = "Unit Coordinator & Lectuer",
                     OfficeLocation = "A678",
-                    Contact_Picture = new Image{ Source = "Amy.jpg" },
+                    Contact_Picture = Image("Mark.jfif"),
                     Code = "IAB201"
                 },
 
@@ -241,7 +248,7 @@ namespace Student_Space.ViewModels
                     Email = "Peter.Endo@connect.qut.edu.au",
                     Position = "Tutor",
                     OfficeLocation = "Z234",
-                    Contact_Picture = new Image{ Source = "Andrew.jpg" },
+                    Contact_Picture = Image("Peter.jfif") ,
                     Code = "IAB201"
                 },
 
@@ -251,7 +258,7 @@ namespace Student_Space.ViewModels
                     Email = "Steve.Foxy@connect.qut.edu.au",
                     Position = "Tutor",
                     OfficeLocation = "C123",
-                    Contact_Picture = new Image{ Source = "Dan.jpg" },
+                    Contact_Picture = Image("Steve.jfif") ,
                     Code = "IAB201"
                 },
 
@@ -261,7 +268,7 @@ namespace Student_Space.ViewModels
                     Email = "Tony.Hawk@connect.qut.edu.au",
                     Position = "Tutor",
                     OfficeLocation = "O985",
-                    Contact_Picture = new Image{ Source = "Frank.jpg" },
+                    Contact_Picture = Image("Tony.jfif"),
                     Code = "IAB201"
                 },
                 ///////////////////////////////////////////////////////////////
@@ -271,7 +278,7 @@ namespace Student_Space.ViewModels
                     Email = "George.Kelly@connect.qut.edu.au",
                     Position = "Unit Coordinator & Lectuer",
                     OfficeLocation = "K987",
-                    Contact_Picture = new Image{ Source = "George.jpg" },
+                    Contact_Picture = Image("George.jpg"),
                     Code = "IAB330"
                 },
 
@@ -281,7 +288,7 @@ namespace Student_Space.ViewModels
                     Email = "Daffy.Flowers@connect.qut.edu.au",
                     Position = "Tutor",
                     OfficeLocation = "P799",
-                    Contact_Picture = new Image{ Source = "Daffy.jpg" },
+                    Contact_Picture = Image("Daffy.jpeg") ,
                     Code = "IAB330"
                 },
 
@@ -291,7 +298,7 @@ namespace Student_Space.ViewModels
                     Email = "Paul.News@connect.qut.edu.au",
                     Position = "Tutor",
                     OfficeLocation = "L678",
-                    Contact_Picture = new Image{ Source = "Dan.jpg" },
+                    Contact_Picture = Image("Paul.jpg"),
                     Code = "IAB330"
                 },
 
@@ -301,7 +308,7 @@ namespace Student_Space.ViewModels
                     Email = "Vesna.Sparrow@connect.qut.edu.au",
                     Position = "Tutor",
                     OfficeLocation = "H678",
-                    Contact_Picture = new Image{ Source = "Frank.jpg" },
+                    Contact_Picture = Image("Vesna.jpg"),
                     Code = "IAB330"
                 },
             };
