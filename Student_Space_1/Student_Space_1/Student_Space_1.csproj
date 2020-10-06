@@ -21,22 +21,30 @@
 
   <ItemGroup>
     <None Remove="Images\ArrowDown.png" />
+    <None Remove="Images\ArrowRight.png" />
     <None Remove="Images\Calendar.png" />
     <None Remove="Images\FullLogo.png" />
     <None Remove="Images\LogoNoText.png" />
     <None Remove="Images\MenuBar.png" />
     <None Remove="Images\Notification.png" />
+    <None Remove="Images\Plus.png" />
     <None Remove="Images\Rectangle.png" />
     <None Remove="Images\Text Logo Transparent.png" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Images\ArrowDown.png" />
+    <EmbeddedResource Include="Images\ArrowRight.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Images\Calendar.png" />
     <EmbeddedResource Include="Images\FullLogo.png" />
     <EmbeddedResource Include="Images\LogoNoText.png" />
     <EmbeddedResource Include="Images\MenuBar.png" />
     <EmbeddedResource Include="Images\Notification.png" />
+    <EmbeddedResource Include="Images\Plus.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Images\Rectangle.png" />
     <EmbeddedResource Include="Images\Text Logo Transparent.png" />
   </ItemGroup>
