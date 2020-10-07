@@ -19,7 +19,7 @@
     <Shell.Resources>
         <ResourceDictionary>
             <Style x:Key="BaseStyle" TargetType="Element">
-                <Setter Property="Shell.BackgroundColor" Value="{StaticResource Primary}" />
+                <Setter Property="Shell.BackgroundColor" Value="#374B90" />
                 <Setter Property="Shell.ForegroundColor" Value="White" />
                 <Setter Property="Shell.TitleColor" Value="White" />
                 <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
@@ -96,19 +96,19 @@
         <ShellContent Title="Calendar" Route="CalendarMonth" ContentTemplate="{DataTemplate views:CalendarMonth}" />
     </FlyoutItem>
     <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
-        <ShellContent Title="To Do List" Route="MainPage" ContentTemplate="{DataTemplate views:ToDo}" />
+        <ShellContent Title="To Do List" Route="todolist" ContentTemplate="{DataTemplate views:ToDo}" />
     </FlyoutItem>
     <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
         <ShellContent Title="Unit Informtaion" Route="Calendar" ContentTemplate="{DataTemplate views:UnitInfo}" />
     </FlyoutItem>
     <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
-        <ShellContent Title="Grades" Route="MainPage" ContentTemplate="{DataTemplate views:Grades}" />
+        <ShellContent Title="Grades" Route="grades" ContentTemplate="{DataTemplate views:Grades}" />
     </FlyoutItem>
     <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
-        <ShellContent Title="Zoom Links" Route="Calendar" ContentTemplate="{DataTemplate views:Zoom}" />
+        <ShellContent Title="Zoom Links" Route="links" ContentTemplate="{DataTemplate views:Zoom}" />
     </FlyoutItem>
     <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
-        <ShellContent Title="Unit Contacts"  Route="MainPage" ContentTemplate="{DataTemplate views:Unit_Contacts}" />
+        <ShellContent Title="Unit Contacts"  Route="contacts" ContentTemplate="{DataTemplate views:Unit_Contacts}" />
     </FlyoutItem>
     <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
         <ShellContent Title="Calendar" Icon="tab_about.png" Route="Calendar" ContentTemplate="{DataTemplate views:Calendar}" />

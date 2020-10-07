@@ -1,12 +1,82 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Student_Space_1.Views.Grades">
+             x:Class="Student_Space_1.Views.Grades"
+             xmlns:viewmodel="clr-namespace:Student_Space.ViewModels"
+             xmlns:local="clr-namespace:Student_Space_1;assembly=Student_Space_1"
+             Title="{Binding Title}">
+    
+    <ContentPage.BindingContext>
+        <viewmodel:GradesViewModel/>
+    </ContentPage.BindingContext>
+
+    
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Spacing="0" BackgroundColor="#508492A6">
+            <Grid ColumnSpacing="0" RowSpacing="0" HorizontalOptions="CenterAndExpand">
+                <!--Grid Definitions-->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <!--1.5* or Auto-->
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="35*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <BoxView Color="#374B90"  Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="5"/>
+
+                <Image Source="{local:ImageResource Student_Space_1.Images.Rectangle.png}" HeightRequest="60" Aspect="Fill" Grid.Row="1" Grid.ColumnSpan="6" Margin="10"/>
+                <Label VerticalOptions="Center" HorizontalOptions="Center" TextColor="Black" FontSize="Title" Grid.Row="1" Grid.ColumnSpan="5" Text="My Grades"/>
+
+                <!--Add Picker for Selecting Units & Bind to Unit List-->
+                <Picker x:Name="UnitContactPicker" FontSize="Medium"  SelectedItem="{Binding SelectedUnit}" Title="IFB295:  Project Management N/A " ItemsSource="{Binding StudentUnits}" TextColor="White" HorizontalOptions="FillAndExpand" Margin="10,0,10,10" BackgroundColor="#374B90" Grid.ColumnSpan="6" Grid.Row="2" TitleColor="White" />
+
+
+                <!--List Template to Display Assessment Pieces-->
+                <ListView x:Name="AssessmentList" Grid.Row="3" Grid.ColumnSpan="5" SeparatorVisibility="None"
+                ItemsSource="{Binding GetGrades, Mode=OneWay}" RowHeight="50" Margin="30,0,30,0">
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:Name="AssessmentTemplate">
+                            <ViewCell>
+                                <Frame Padding="8" Margin="10,4,10,0">
+                                    <FlexLayout JustifyContent="SpaceBetween">
+                                        <Label Text="{Binding AssessmentName}" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold"/>
+                                        <Label Text="{Binding Mark}" FontSize="Medium" VerticalTextAlignment="Center" />
+                                    </FlexLayout>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <Label VerticalOptions="Center" Margin="0,5,60,0" Grid.Row="4" HorizontalOptions="End" FontAttributes="Bold" TextColor="Black" FontSize="Medium" Grid.ColumnSpan="6" Text="{Binding Percentage, StringFormat='Percentage: {0}'}"/>
+                <Label VerticalOptions="Center" Margin="0,0,60,0" Grid.Row="5" HorizontalOptions="End" FontAttributes="Bold" TextColor="Black" FontSize="Medium" Grid.ColumnSpan="6" Text="{Binding Total, StringFormat='Total: {0}'}"/>
+
+                <!--Display GPA and Button Links to Internet-->
+                <Label VerticalOptions="Center" HorizontalOptions="Center" TextColor="Black" FontSize="Medium" Grid.Row="6" Margin="10" HorizontalTextAlignment="Center" Grid.ColumnSpan="6" Text="{Binding course}"/>
+
+                <!--Display GPA and Links-->
+                <FlexLayout Grid.Row="7" JustifyContent="SpaceAround" Grid.ColumnSpan="6" VerticalOptions="CenterAndExpand">
+                    <Image Source="{local:ImageResource Student_Space_1.Images.Trans_GPA.png}"/>
+                    <StackLayout HorizontalOptions="EndAndExpand">
+                        <ImageButton Source="{local:ImageResource Student_Space_1.Images.Calculator.png}" HeightRequest="35" BackgroundColor="Transparent" Margin="0,0,20,2" Command="{Binding GoCalculator}"/>
+                        <ImageButton Source="{local:ImageResource Student_Space_1.Images.Transcript.png}" HeightRequest="35" BackgroundColor="Transparent" Command="{Binding GoTranscript}" />
+                    </StackLayout>
+                </FlexLayout>
+
+            </Grid>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

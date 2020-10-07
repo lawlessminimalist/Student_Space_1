@@ -11,6 +11,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Models\NewFolder\**" />
+    <EmbeddedResource Remove="Models\NewFolder\**" />
+    <None Remove="Models\NewFolder\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="ViewModels\MainPageViewModel - Copy.cs" />
     <Compile Remove="Views\Page1.xaml.cs" />
   </ItemGroup>
@@ -21,24 +27,74 @@
 
   <ItemGroup>
     <None Remove="Images\ArrowDown.png" />
+    <None Remove="Images\Bin_Delete.png" />
+    <None Remove="Images\Calculator.png" />
     <None Remove="Images\Calendar.png" />
+    <None Remove="Images\Exit.png" />
     <None Remove="Images\FullLogo.png" />
     <None Remove="Images\LogoNoText.png" />
     <None Remove="Images\MenuBar.png" />
     <None Remove="Images\Notification.png" />
+    <None Remove="Images\Plus.png" />
     <None Remove="Images\Rectangle.png" />
     <None Remove="Images\Text Logo Transparent.png" />
+    <None Remove="Images\Transcript.png" />
+    <None Remove="Images\Trans_GPA.png" />
+    <None Remove="PeopleImages\Amy.jpg" />
+    <None Remove="PeopleImages\Andrew.jpg" />
+    <None Remove="PeopleImages\Daffy.jpeg" />
+    <None Remove="PeopleImages\Dan.jpg" />
+    <None Remove="PeopleImages\Frank.jpeg" />
+    <None Remove="PeopleImages\George.jpg" />
+    <None Remove="PeopleImages\John.jpg" />
+    <None Remove="PeopleImages\Ken.jpg" />
+    <None Remove="PeopleImages\Lily.png" />
+    <None Remove="PeopleImages\Maggie.jpg" />
+    <None Remove="PeopleImages\Mark.jfif" />
+    <None Remove="PeopleImages\Paul.jpg" />
+    <None Remove="PeopleImages\Peter.jfif" />
+    <None Remove="PeopleImages\Steve.jfif" />
+    <None Remove="PeopleImages\Tony.jfif" />
+    <None Remove="PeopleImages\Vesna.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="PeopleImages\Andrew.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Images\Calculator.png" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Images\ArrowDown.png" />
+    <EmbeddedResource Include="Images\Bin_Delete.png" />
     <EmbeddedResource Include="Images\Calendar.png" />
+    <EmbeddedResource Include="Images\Exit.png" />
     <EmbeddedResource Include="Images\FullLogo.png" />
     <EmbeddedResource Include="Images\LogoNoText.png" />
     <EmbeddedResource Include="Images\MenuBar.png" />
     <EmbeddedResource Include="Images\Notification.png" />
+    <EmbeddedResource Include="Images\Plus.png" />
     <EmbeddedResource Include="Images\Rectangle.png" />
     <EmbeddedResource Include="Images\Text Logo Transparent.png" />
+    <EmbeddedResource Include="Images\Transcript.png" />
+    <EmbeddedResource Include="Images\Trans_GPA.png" />
+    <EmbeddedResource Include="PeopleImages\Amy.jpg" />
+    <EmbeddedResource Include="PeopleImages\Daffy.jpeg" />
+    <EmbeddedResource Include="PeopleImages\Dan.jpg" />
+    <EmbeddedResource Include="PeopleImages\Frank.jpeg" />
+    <EmbeddedResource Include="PeopleImages\George.jpg" />
+    <EmbeddedResource Include="PeopleImages\John.jpg" />
+    <EmbeddedResource Include="PeopleImages\Ken.jpg" />
+    <EmbeddedResource Include="PeopleImages\Lily.png" />
+    <EmbeddedResource Include="PeopleImages\Maggie.jpg" />
+    <EmbeddedResource Include="PeopleImages\Mark.jfif" />
+    <EmbeddedResource Include="PeopleImages\Paul.jpg" />
+    <EmbeddedResource Include="PeopleImages\Peter.jfif" />
+    <EmbeddedResource Include="PeopleImages\Steve.jfif" />
+    <EmbeddedResource Include="PeopleImages\Tony.jfif" />
+    <EmbeddedResource Include="PeopleImages\Vesna.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -52,6 +108,9 @@
     </Compile>
     <Compile Update="Views\CalendarMonth.xaml.cs">
       <DependentUpon>CalendarMonth.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\UnitContacts.xaml.cs">
+      <DependentUpon>UnitContacts.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
@@ -77,7 +136,7 @@
     <EmbeddedResource Update="Views\ToDo.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Unit Contacts.xaml">
+    <EmbeddedResource Update="Views\UnitContacts.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\UnitInfo.xaml">
@@ -86,10 +145,5 @@
     <EmbeddedResource Update="Views\Zoom.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Models\NewFolder\NewFolder\" />
-    <Folder Include="NewFolder\" />
   </ItemGroup>
 </Project>

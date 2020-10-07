@@ -1,12 +1,85 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Student_Space_1.Views.ToDo">
+             x:Class="Student_Space_1.Views.ToDo"
+             xmlns:viewmodel="clr-namespace:Student_Space.ViewModels"
+             xmlns:local="clr-namespace:Student_Space_1;assembly=Student_Space_1"
+             Title="{Binding Title}">
+
+
+    <ContentPage.BindingContext>
+        <viewmodel:ToDoViewModel/>
+    </ContentPage.BindingContext>
+
+
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Spacing="0" BackgroundColor="#508492A6">
+            <Grid ColumnSpacing="0" RowSpacing="0" HorizontalOptions="CenterAndExpand">
+                <!--Grid Definitions-->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <!--1.5* or Auto-->
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="35*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <BoxView Color="#374B90"  Grid.Row="0" Grid.ColumnSpan="6"/>
+                <Image Source="{local:ImageResource Student_Space_1.Images.Rectangle.png}" HeightRequest="60" Aspect="Fill" Grid.Row="1" Grid.ColumnSpan="6" Margin="10"/>
+                <Label VerticalOptions="Center" HorizontalOptions="Center" TextColor="Black" FontSize="Title" Grid.Row="1" Grid.ColumnSpan="5" Text="To Do List"/>
+
+            </Grid>
+
+            <StackLayout>
+                <FlexLayout Grid.Row="2" JustifyContent="SpaceAround">
+                    <Label VerticalOptions="Center" TextColor="Black" FontSize="Medium" Text="Item"/>
+                    <Label VerticalOptions="Center" TextColor="Black" FontSize="Medium" Text="Priority" Margin="40,0,33,0"/>
+                </FlexLayout>
+            </StackLayout>
+
+
+
+            <ListView x:Name="TaskList" ItemsSource="{Binding Tasks}" BackgroundColor="Transparent">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:Name="TaskTemplate">
+                        <ViewCell>
+                            <Grid HorizontalOptions="StartAndExpand" VerticalOptions="EndAndExpand" ColumnSpacing="5">
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="40*"/>
+                                    <ColumnDefinition Width="15*"/>
+                                    <ColumnDefinition Width="15*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <CheckBox Grid.Column="0" IsChecked="False" Color="Green" />
+                                <Label Grid.Column="1" HorizontalTextAlignment="Start" Text="{Binding TaskName}"  Margin="0,8,0,0" TextColor="Black" FontSize="Small" />
+                                <Button Grid.Column="2" Command="{Binding Path=BindingContext.GoSetting, Source={x:Reference TaskList}}" VerticalOptions="StartAndExpand" HorizontalOptions="EndAndExpand" Margin="0,8,0,0" BackgroundColor="DarkSlateBlue" FontSize="Small" HeightRequest="16" BorderRadius="8"/>
+                                <ImageButton Command="{Binding Path=BindingContext.DeleteTask, Source={x:Reference TaskList}}" CommandParameter="{Binding .}" Grid.Column="3" Source="{local:ImageResource Student_Space_1.Images.Bin_Delete.png}" VerticalOptions="StartAndExpand" BackgroundColor="Transparent" Margin="0,5,0,0" HeightRequest="20" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <ImageButton Source="{local:ImageResource Student_Space_1.Images.Plus.png}" Command="{Binding AddTask}" HeightRequest="60" BackgroundColor="Transparent" HorizontalOptions="End" VerticalOptions="EndAndExpand" Margin="0,0,10,10"/>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
