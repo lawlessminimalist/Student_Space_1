@@ -534,14 +534,14 @@ namespace Student_Space.ViewModels
                 {
                     Code = "CAB203",
                     AssessmentName = "Quiz 4",
-                    Mark = "0/5",
+                    Mark = "5/5",
                 },
 
                 new Assessment
                 {
                     Code = "CAB203",
                     AssessmentName = "Quiz 5",
-                    Mark = "0/5",
+                    Mark = "5/5",
                 },
 
                 new Assessment
@@ -583,28 +583,28 @@ namespace Student_Space.ViewModels
                 {
                     Code = "CAB203",
                     AssessmentName = "Assessment 1",
-                    Mark = "10/20",
+                    Mark = "18/20",
                 },
 
                 new Assessment
                 {
                     Code = "CAB203",
                     AssessmentName = "Assessment 2",
-                    Mark = "10/20",
+                    Mark = "19/20",
                 },
 
                 new Assessment
                 {
                     Code = "CAB203",
                     AssessmentName = "Assessment 3",
-                    Mark = "5/20",
+                    Mark = "15/20",
                 },
 
                 new Assessment
                 {
                     Code = "CAB203",
                     AssessmentName = "Exam",
-                    Mark = "15/30",
+                    Mark = "30/30",
                 },
                 //////IFB102/////////
                 new Assessment

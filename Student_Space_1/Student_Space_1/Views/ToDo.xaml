@@ -20,25 +20,16 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <!--1.5* or Auto-->
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
 
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="35*"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
 
-                <BoxView Color="#374B90"  Grid.Row="0" Grid.ColumnSpan="6"/>
-                <Image Source="{local:ImageResource Student_Space_1.Images.Rectangle.png}" HeightRequest="60" Aspect="Fill" Grid.Row="1" Grid.ColumnSpan="6" Margin="10"/>
-                <Label VerticalOptions="Center" HorizontalOptions="Center" TextColor="Black" FontSize="Title" Grid.Row="1" Grid.ColumnSpan="5" Text="To Do List"/>
+                <Image Source="{local:ImageResource Student_Space_1.Images.Rectangle.png}" HeightRequest="60" Aspect="Fill" Grid.Row="1" Grid.ColumnSpan="1" Margin="10"/>
+                <Label VerticalOptions="Center" HorizontalOptions="Center" TextColor="Black" FontSize="Title" Grid.Row="1" Grid.ColumnSpan="1" Text="To Do List"/>
 
             </Grid>
 

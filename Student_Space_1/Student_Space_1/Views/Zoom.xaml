@@ -17,26 +17,20 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
 
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="35*"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
-
-                <BoxView Color="#374B90"  Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="4"/>
                 
                 
-                <Image Source="{local:ImageResource Student_Space_1.Images.Rectangle.png}" HeightRequest="60" Aspect="Fill" Grid.Row="1" Grid.ColumnSpan="5" Margin="10"/>
-                <Label VerticalOptions="Center" HorizontalOptions="Center" TextColor="Black" FontSize="Title" Grid.Row="1" Grid.ColumnSpan="5" Text="Zoom Links"/>
+                <Image Source="{local:ImageResource Student_Space_1.Images.Rectangle.png}" HeightRequest="60" Aspect="Fill" Grid.Row="1" Grid.ColumnSpan="1" Margin="10"/>
+                <Label VerticalOptions="Center" HorizontalOptions="Center" TextColor="Black" FontSize="Title" Grid.Row="1" Grid.ColumnSpan="1" Text="Zoom Links"/>
 
                 
-                <ListView x:Name="ZoomLink" Grid.Row="2" Grid.ColumnSpan="5" SeparatorVisibility="Default" ItemsSource="{Binding ZoomLinks}" CachingStrategy="RecycleElement" RowHeight="130" Margin="20,0,20,0">
+                <ListView x:Name="ZoomLink" Grid.Row="2" Grid.ColumnSpan="1" SeparatorVisibility="Default" ItemsSource="{Binding ZoomLinks}" CachingStrategy="RecycleElement" RowHeight="130" Margin="20,0,20,0">
 
                     <ListView.ItemTemplate>
                         <DataTemplate>
