@@ -80,9 +80,88 @@
                    Grid.Column="1" 
                    BorderColor="#374B90"
                    CornerRadius="7" 
-                   Padding="7"
+                   Padding="0"
                    HasShadow="False">
 
+                <Grid ColumnSpacing="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button Text="Sun"
+                            Padding="0"
+                            FontSize="16"
+                            BackgroundColor="Transparent"
+                            TextColor="#969FAA"
+                            BorderColor="#374B90"
+                            HorizontalOptions="Center"/>
+
+                    <Button Text="Mon"
+                            Grid.Column="1"
+                            Padding="0"
+                            FontSize="16"
+                            BackgroundColor="Transparent"
+                            TextColor="#969FAA"
+                            BorderColor="#374B90"
+                            BorderWidth="1.5"
+                            HorizontalOptions="Center"/>
+
+                    <Button Text="Tue"
+                            Grid.Column="2"
+                            Padding="0"
+                            FontSize="16"
+                            BackgroundColor="Transparent"
+                            TextColor="#969FAA"
+                            BorderColor="#374B90"
+                            HorizontalOptions="Center"/>
+
+                    <Button Text="Wed"
+                            Grid.Column="3"
+                            Padding="0"
+                            FontSize="16"
+                            BackgroundColor="Transparent"
+                            TextColor="#969FAA"
+                            BorderColor="#374B90"
+                            BorderWidth="1.5"
+                            HorizontalOptions="Center"/>
+
+                    <Button Text="Thu"
+                            Grid.Column="4"
+                            Padding="0"
+                            FontSize="16"
+                            BackgroundColor="Transparent"
+                            TextColor="#969FAA"
+                            BorderColor="#374B90"
+                            HorizontalOptions="Center"/>
+
+                    <Button Text="Fri"
+                            Grid.Column="5"
+                            Padding="0"
+                            FontSize="16"
+                            BackgroundColor="Transparent"
+                            TextColor="#969FAA"
+                            BorderColor="#374B90"
+                            BorderWidth="1.5"
+                            HorizontalOptions="Center"/>
+
+                    <Button Text="Sat"
+                            Grid.Column="6"
+                            Padding="0"
+                            FontSize="16"
+                            BackgroundColor="Transparent"
+                            TextColor="#969FAA"
+                            BorderColor="#374B90"
+                            HorizontalOptions="Center"/>
+                </Grid>
             </Frame>
 
             <!-- This Frame Holds the Calendar Dates -->
@@ -90,9 +169,9 @@
                    Grid.Column="1"
                    BorderColor="#374B90"
                    CornerRadius="7" 
-                   Padding="7"
+                   Padding="0"
                    HasShadow="False">
-
+                
             </Frame>
 
             <!-- This Frame Holds the Colour Filters -->
