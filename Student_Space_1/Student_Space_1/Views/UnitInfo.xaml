@@ -37,7 +37,7 @@
 
                     <BoxView Grid.Column="1"/>
                     <Frame Grid.Column="1" BackgroundColor="#5660a8" Padding="7" HorizontalOptions="Center" WidthRequest="250" HeightRequest="40">
-                        <Image Source="{local:ImageResource Student_Space_1.Images.upsidetriangle.png}"/>
+                        <Image Source="{local:ImageResource Student_Space_1.Images.ArrowDown.png}"/>
                     </Frame>
 
                 </Grid>
@@ -79,7 +79,7 @@
 
                     <BoxView Grid.Column="1"/>
                     <Frame Grid.Column="1" BackgroundColor="#3b3f7e" Padding="7" HorizontalOptions="Center" WidthRequest="250" HeightRequest="40">
-                    <Image HeightRequest="10" WidthRequest="10" Source="{local:ImageResource Student_Space_1.Images.upsidetriangle.png}"/>
+                        <Image HeightRequest="10" WidthRequest="10" Source="{local:ImageResource Student_Space_1.Images.ArrowDown.png}"/>
                     </Frame>
 
 
@@ -163,7 +163,7 @@
 
                     <BoxView Grid.Column="1"/>
                 <Frame Grid.Column="1" BackgroundColor="#f6a635" Padding="7" HorizontalOptions="Center" WidthRequest="250" HeightRequest="40">
-                    <Image HeightRequest="10" WidthRequest="10" Source="{local:ImageResource Student_Space_1.Images.upsidetriangle.png}"/>
+                        <Image HeightRequest="10" WidthRequest="10" Source="{local:ImageResource Student_Space_1.Images.ArrowDown.png}"/>
                 </Frame>
             </Grid>
 
@@ -187,28 +187,28 @@
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnDisplayAlertButtonClicked2031" NumberOfTapsRequired="1" />
                     </Frame.GestureRecognizers>
-                    <Label Grid.Column ="0" Grid.Row="1" Grid.ColumnSpan="2" TextColor="Black" Text="announcement 1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+                    <Label Grid.Column ="0" Grid.Row="1" Grid.ColumnSpan="2" TextColor="Black" Text="Announcement 0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
                 </Frame>
                 <BoxView Grid.Row="2" Grid.ColumnSpan="2"/>
                 <Frame Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="40">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnDisplayAlertButtonClicked2032" NumberOfTapsRequired="1" />
                     </Frame.GestureRecognizers>
-                    <Label Grid.Column ="0" Grid.Row="2" Grid.ColumnSpan="2" TextColor="Black" Text="CAB230 - Cryptography" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+                    <Label Grid.Column ="0" Grid.Row="2" Grid.ColumnSpan="2" TextColor="Black" Text="Announcement 1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
                 </Frame>
                 <BoxView Grid.Row="3" Grid.ColumnSpan="2"/>
                 <Frame Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="40">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnDisplayAlertButtonClicked2033" NumberOfTapsRequired="1" />
                     </Frame.GestureRecognizers>
-                    <Label Grid.Column ="0" Grid.Row="3" Grid.ColumnSpan="2" TextColor="Black" Text="{Binding Title}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+                    <Label Grid.Column ="0" Grid.Row="3" Grid.ColumnSpan="2" TextColor="Black" Text="Announcement 2" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
                 </Frame>
                 <BoxView Grid.Row="4" Grid.ColumnSpan="2"/>
                 <Frame Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="40">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnDisplayAlertButtonClicked2034" NumberOfTapsRequired="1" />
                     </Frame.GestureRecognizers>
-                    <Label Grid.Column ="0" Grid.Row="4" Grid.ColumnSpan="2" TextColor="Black" Text="CAB230 - Cryptography" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+                    <Label Grid.Column ="0" Grid.Row="4" Grid.ColumnSpan="2" TextColor="Black" Text="Announcement 3" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
 
                 </Frame>
             </Grid>
