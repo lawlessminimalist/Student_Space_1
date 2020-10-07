@@ -30,6 +30,7 @@
 
   <ItemGroup>
     <None Remove="Images\ArrowDown.png" />
+    <None Remove="Images\ArrowRight.png" />
     <None Remove="Images\Bin_Delete.png" />
     <None Remove="Images\Calculator.png" />
     <None Remove="Images\Calendar.png" />
@@ -46,6 +47,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Images\ArrowRight.png" />
     <EmbeddedResource Include="Images\Calculator.png" />
   </ItemGroup>
 
