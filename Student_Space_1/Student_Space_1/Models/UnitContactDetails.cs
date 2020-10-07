@@ -18,7 +18,7 @@ namespace Student_Space_1.Models
 		public string Code { get; set; }
 
 		//Image of Person
-		public Image Contact_Picture { get; set; }
+		public ImageSource Contact_Picture { get; set; }
 
 		//Get Contact Code
 		public override string ToString()

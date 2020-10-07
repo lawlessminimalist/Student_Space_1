@@ -12,11 +12,8 @@
 
   <ItemGroup>
     <Compile Remove="Models\NewFolder\**" />
-    <Compile Remove="NewFolder\**" />
     <EmbeddedResource Remove="Models\NewFolder\**" />
-    <EmbeddedResource Remove="NewFolder\**" />
     <None Remove="Models\NewFolder\**" />
-    <None Remove="NewFolder\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -44,6 +41,26 @@
     <None Remove="Images\Text Logo Transparent.png" />
     <None Remove="Images\Transcript.png" />
     <None Remove="Images\Trans_GPA.png" />
+    <None Remove="PeopleImages\Amy.jpg" />
+    <None Remove="PeopleImages\Andrew.jpg" />
+    <None Remove="PeopleImages\Daffy.jpeg" />
+    <None Remove="PeopleImages\Dan.jpg" />
+    <None Remove="PeopleImages\Frank.jpeg" />
+    <None Remove="PeopleImages\George.jpg" />
+    <None Remove="PeopleImages\John.jpg" />
+    <None Remove="PeopleImages\Ken.jpg" />
+    <None Remove="PeopleImages\Lily.png" />
+    <None Remove="PeopleImages\Maggie.jpg" />
+    <None Remove="PeopleImages\Mark.jfif" />
+    <None Remove="PeopleImages\Paul.jpg" />
+    <None Remove="PeopleImages\Peter.jfif" />
+    <None Remove="PeopleImages\Steve.jfif" />
+    <None Remove="PeopleImages\Tony.jfif" />
+    <None Remove="PeopleImages\Vesna.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="PeopleImages\Andrew.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -65,6 +82,21 @@
     <EmbeddedResource Include="Images\Text Logo Transparent.png" />
     <EmbeddedResource Include="Images\Transcript.png" />
     <EmbeddedResource Include="Images\Trans_GPA.png" />
+    <EmbeddedResource Include="PeopleImages\Amy.jpg" />
+    <EmbeddedResource Include="PeopleImages\Daffy.jpeg" />
+    <EmbeddedResource Include="PeopleImages\Dan.jpg" />
+    <EmbeddedResource Include="PeopleImages\Frank.jpeg" />
+    <EmbeddedResource Include="PeopleImages\George.jpg" />
+    <EmbeddedResource Include="PeopleImages\John.jpg" />
+    <EmbeddedResource Include="PeopleImages\Ken.jpg" />
+    <EmbeddedResource Include="PeopleImages\Lily.png" />
+    <EmbeddedResource Include="PeopleImages\Maggie.jpg" />
+    <EmbeddedResource Include="PeopleImages\Mark.jfif" />
+    <EmbeddedResource Include="PeopleImages\Paul.jpg" />
+    <EmbeddedResource Include="PeopleImages\Peter.jfif" />
+    <EmbeddedResource Include="PeopleImages\Steve.jfif" />
+    <EmbeddedResource Include="PeopleImages\Tony.jfif" />
+    <EmbeddedResource Include="PeopleImages\Vesna.jpg" />
   </ItemGroup>
 
   <ItemGroup>
