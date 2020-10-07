@@ -15,6 +15,13 @@ namespace Student_Space_1.Views
         public Grades()
         {
             InitializeComponent();
+
+            //Remove Orange Colour from List View When Item is Selected
+            //Reference: https://forums.xamarin.com/discussion/173232/how-to-remove-the-background-color-orange-from-listview-items-selection
+            AssessmentList.ItemTapped += (object sender, ItemTappedEventArgs e) => {
+                if (e.Item == null) return;
+                if (sender is ListView lv) lv.SelectedItem = null;
+            };
         }
     }
 }

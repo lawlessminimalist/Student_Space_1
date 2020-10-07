@@ -31,12 +31,6 @@
 
                 <BoxView Color="#374B90"  Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="4"/>
                 
-                <!--
-                <Image Source="{local:ImageResource Student_Space.Images.MenuBar.jpg}" Grid.Row="0" Grid.ColumnSpan="5" HeightRequest="45" WidthRequest="45" VerticalOptions="Center" />
-                <ImageButton Source="{local:ImageResource Student_Space_1.Images.MenuBar.png}" BackgroundColor="Transparent" Grid.Row="0" Grid.Column="1" HeightRequest="45" WidthRequest="45" VerticalOptions="Start" Margin="10,10,10,10"  />
-                <ImageButton Source="{local:ImageResource Student_Space_1.Images.Notification.png}" BackgroundColor="Transparent" Grid.Row="0" Grid.Column="4" HeightRequest="45" WidthRequest="45" VerticalOptions="Start" Margin="10,10,10,10"/>
-                <ImageButton Source="{local:ImageResource Student_Space_1.Images.Calendar.png}" BackgroundColor="Transparent" Grid.Row="0" Grid.Column="3" HeightRequest="45" WidthRequest="45" VerticalOptions="Start" Margin="10,10,10,10"/>
-                -->
                 
                 <Image Source="{local:ImageResource Student_Space_1.Images.Rectangle.png}" HeightRequest="60" Aspect="Fill" Grid.Row="1" Grid.ColumnSpan="5" Margin="10"/>
                 <Label VerticalOptions="Center" HorizontalOptions="Center" TextColor="Black" FontSize="Title" Grid.Row="1" Grid.ColumnSpan="5" Text="Zoom Links"/>
