@@ -2,17 +2,22 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Student_Space_1.Views.UnitInfo"
-             xmlns:local="clr-namespace:Student_Space_1;assembly=Student_Space_1">
-    
+             xmlns:viewmodel="clr-namespace:Student_Space.ViewModels"
+             xmlns:local="clr-namespace:Student_Space_1;assembly=Student_Space_1"
+             Title="{Binding Title}"
+             >
+
+    <ContentPage.BindingContext>
+        <viewmodel:UnitInfoViewModel/>
+    </ContentPage.BindingContext>
+
     <ContentPage.Content>
             <FlexLayout Direction="Column"
                 AlignItems="Center"
                 JustifyContent="SpaceEvenly">
 
 
-
-
-                <Grid RowSpacing="0" ColumnSpacing="0">
+            <Grid RowSpacing="0" ColumnSpacing="0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
@@ -52,8 +57,19 @@
                     <BoxView />
 
                     <Frame BackgroundColor="#3b3f7e" Padding="0" HorizontalOptions="Center" WidthRequest="250" HeightRequest="40">
-                        <Label Grid.Column ="0" TextColor="White" Text="CAB230 - Cryptography" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
-                    </Frame>
+                    <Picker x:Name="picker"
+                    Title="CAB 203 - Cryptography"
+                    TitleColor="White">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>CAB203 - Announcements</x:String>
+                                <x:String>CAB203 - Lecture Recordingd</x:String>
+                                <x:String>CAB203 - Assignements</x:String>
+                                <x:String>CAB203 - Learning Resources</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                </Frame>
 
                     <BoxView Grid.Column="1"/>
                     <Frame Grid.Column="1" BackgroundColor="#3b3f7e" Padding="7" HorizontalOptions="Center" WidthRequest="250" HeightRequest="40">
@@ -62,20 +78,29 @@
 
 
                     <BoxView Grid.Row="1" Grid.ColumnSpan="2"/>
-                    <Frame Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="40">
-                        <Label Grid.Column ="0" Grid.Row="1" Grid.ColumnSpan="2" TextColor="Black" Text="CAB230 - Cryptography" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
-                    </Frame>
-                    <BoxView Grid.Row="2" Grid.ColumnSpan="2"/>
+                    <Frame Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="1" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="40">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnDisplayAlertButtonClicked2031" NumberOfTapsRequired="1" />
+                    </Frame.GestureRecognizers>
+                    <Label Grid.Column ="0" Grid.Row="1" Grid.ColumnSpan="2" TextColor="Black" Text="{Binding Source={x:Reference picker}, Path=SelectedItem}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+                </Frame>
+                <Frame Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="1" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="40">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnDisplayAlertButtonClicked2031" NumberOfTapsRequired="1" />
+                    </Frame.GestureRecognizers>
+                    <Label Grid.Column ="1" Grid.Row="1" Grid.ColumnSpan="1" TextColor="Black" Text=" 1 " HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+                </Frame>
+                <BoxView Grid.Row="2" Grid.ColumnSpan="2"/>
                     <Frame Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="40">
-                        <Label Grid.Column ="0" Grid.Row="2" Grid.ColumnSpan="2" TextColor="Black" Text="CAB230 - Cryptography" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+                    <Label Grid.Column ="0" Grid.Row="2" Grid.ColumnSpan="2" TextColor="Black" Text="{Binding Source={x:Reference picker}, Path=SelectedItem}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
                     </Frame>
                     <BoxView Grid.Row="3" Grid.ColumnSpan="2"/>
                     <Frame Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="40">
-                        <Label Grid.Column ="0" Grid.Row="3" Grid.ColumnSpan="2" TextColor="Black" Text="CAB230 - Cryptography" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+                    <Label Grid.Column ="0" Grid.Row="3" Grid.ColumnSpan="2" TextColor="Black" Text="{Binding Source={x:Reference picker}, Path=SelectedItem}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
                     </Frame>
                     <BoxView Grid.Row="4" Grid.ColumnSpan="2"/>
                     <Frame Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="40">
-                        <Label Grid.Column ="0" Grid.Row="4" Grid.ColumnSpan="2" TextColor="Black" Text="CAB230 - Cryptography" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+                    <Label Grid.Column ="0" Grid.Row="4" Grid.ColumnSpan="2" TextColor="Black" Text="{Binding Source={x:Reference picker}, Path=SelectedItem}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
 
                     </Frame>
 
@@ -106,29 +131,71 @@
 
 
 
-                <Grid RowSpacing="0" ColumnSpacing="0">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="250" />
-                        <ColumnDefinition Width="50" />
-                    </Grid.ColumnDefinitions>
-                    <BoxView />
 
-                    <Frame BackgroundColor="#f6a635" Padding="0" HorizontalOptions="Center" WidthRequest="250" HeightRequest="40">
-                        <Label Grid.Column ="0" TextColor="White" Text="IAB230 - IT Management" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
-                    </Frame>
+            <Grid RowSpacing="0" ColumnSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="250" />
+                    <ColumnDefinition Width="50" />
+                </Grid.ColumnDefinitions>
+                <BoxView />
 
-                    <BoxView Grid.Column="1"/>
-                    <Frame Grid.Column="1" BackgroundColor="#f6a635" Padding="7" HorizontalOptions="Center" WidthRequest="250" HeightRequest="40">
-                    <Image Source="{local:ImageResource Student_Space_1.Images.upsidetriangle.png}"/>
-                    </Frame>
-                </Grid>
+                <Frame BackgroundColor="#f6a635" Padding="0" HorizontalOptions="Center" WidthRequest="250" HeightRequest="40">
+
+                    <Picker Title="CAB203 - Cryptography"
+        TitleColor="White"
+        ItemsSource="{Binding Monkey}"
+                />
+                    
+                </Frame>
+
+                <BoxView Grid.Column="1"/>
+                <Frame Grid.Column="1" BackgroundColor="#f6a635" Padding="7" HorizontalOptions="Center" WidthRequest="250" HeightRequest="40">
+                    <Image HeightRequest="10" WidthRequest="10" Source="{local:ImageResource Student_Space_1.Images.upsidetriangle.png}"/>
+                </Frame>
+
+
+                <BoxView Grid.Row="1" Grid.ColumnSpan="2"/>
+                <Frame Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="40">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnDisplayAlertButtonClicked2031" NumberOfTapsRequired="1" />
+                    </Frame.GestureRecognizers>
+                    <Label Grid.Column ="0" Grid.Row="1" Grid.ColumnSpan="2" TextColor="Black" Text="announcement 1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+                </Frame>
+                <BoxView Grid.Row="2" Grid.ColumnSpan="2"/>
+                <Frame Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="40">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnDisplayAlertButtonClicked2032" NumberOfTapsRequired="1" />
+                    </Frame.GestureRecognizers>
+                    <Label Grid.Column ="0" Grid.Row="2" Grid.ColumnSpan="2" TextColor="Black" Text="CAB230 - Cryptography" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+                </Frame>
+                <BoxView Grid.Row="3" Grid.ColumnSpan="2"/>
+                <Frame Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="40">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnDisplayAlertButtonClicked2033" NumberOfTapsRequired="1" />
+                    </Frame.GestureRecognizers>
+                    <Label Grid.Column ="0" Grid.Row="3" Grid.ColumnSpan="2" TextColor="Black" Text="{Binding Title}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+                </Frame>
+                <BoxView Grid.Row="4" Grid.ColumnSpan="2"/>
+                <Frame Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="40">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnDisplayAlertButtonClicked2034" NumberOfTapsRequired="1" />
+                    </Frame.GestureRecognizers>
+                    <Label Grid.Column ="0" Grid.Row="4" Grid.ColumnSpan="2" TextColor="Black" Text="CAB230 - Cryptography" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+
+                </Frame>
+
+            </Grid>
 
 
 
-            </FlexLayout>
+        </FlexLayout>
 
         </ContentPage.Content>
     </ContentPage>
