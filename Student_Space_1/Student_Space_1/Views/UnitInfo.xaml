@@ -12,12 +12,16 @@
     </ContentPage.BindingContext>
 
     <ContentPage.Content>
+        <ScrollView>
             <FlexLayout Direction="Column"
                 AlignItems="Center"
-                JustifyContent="SpaceEvenly">
+                >
 
-
-            <Grid RowSpacing="0" ColumnSpacing="0">
+                <BoxView Color="White"
+             WidthRequest="160"
+             HeightRequest="30" />
+                
+                <Grid RowSpacing="0" ColumnSpacing="0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50" />
                     </Grid.RowDefinitions>
@@ -39,16 +43,18 @@
                 </Grid>
 
 
-
+                <BoxView Color="White"
+             WidthRequest="160"
+             HeightRequest="30" />
 
 
                 <Grid RowSpacing="0" ColumnSpacing="0">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="*" />
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="50" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="250" />
@@ -106,11 +112,13 @@
 
                 </Grid>
 
-
+                <BoxView Color="White"
+             WidthRequest="160"
+             HeightRequest="30" />
 
                 <Grid RowSpacing="0" ColumnSpacing="0">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
+                        <RowDefinition Height="50" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="225" />
@@ -134,7 +142,7 @@
 
             <Grid RowSpacing="0" ColumnSpacing="0">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
+                        <RowDefinition Height="50" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="250" />
@@ -151,7 +159,9 @@
                 </Frame>
 
 
-                <BoxView Grid.Column="1"/>
+                
+
+                    <BoxView Grid.Column="1"/>
                 <Frame Grid.Column="1" BackgroundColor="#f6a635" Padding="7" HorizontalOptions="Center" WidthRequest="250" HeightRequest="40">
                     <Image HeightRequest="10" WidthRequest="10" Source="{local:ImageResource Student_Space_1.Images.upsidetriangle.png}"/>
                 </Frame>
@@ -161,10 +171,10 @@
 
             <Grid RowSpacing="0" ColumnSpacing="0">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
+                            <RowDefinition Height="50" />
+                            <RowDefinition Height="50" />
+                            <RowDefinition Height="50" />
+                            <RowDefinition Height="50" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="250" />
@@ -204,12 +214,15 @@
             </Grid>
             </ContentView>
                 
+                <BoxView Color="White"
+             WidthRequest="160"
+             HeightRequest="30" />
 
         </FlexLayout>
-        
-        
 
-    
-    
+
+
+        </ScrollView>
+
     </ContentPage.Content>
     </ContentPage>
