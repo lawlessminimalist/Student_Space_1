@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Student_Space_1;assembly=Student_Space_1"
              x:Class="Student_Space_1.Views.CalendarMonth">
+   
     
     <ContentPage.Content>
         <Grid Margin="7, 7, 7, 7" >
@@ -44,18 +45,21 @@
                         <!-- Left Arrow -->
                         <ImageButton BackgroundColor="Transparent"
                                      RotationY="180"
-                                     Source="{local:ImageResource Student_Space_1.Images.ArrowRight.png}" />
-                        
+                                     Source="{local:ImageResource Student_Space_1.Images.ArrowRight.png}"
+                                     Command="{Binding PreviousCalendarCommand}"/>
+
                         <!-- Month Button -->
-                        <Button Text="Aug"
+                        <Button Text="{Binding CurrentMonth}"
                                 FontSize="20"
                                 TextColor="#969FAA"
                                 BackgroundColor="Transparent"
+                                HorizontalOptions="CenterAndExpand"
                                 WidthRequest="65"/>
 
                         <!-- Right Arrow -->
                         <ImageButton BackgroundColor="Transparent"
-                                     Source="{local:ImageResource Student_Space_1.Images.ArrowRight.png}" />
+                                     Source="{local:ImageResource Student_Space_1.Images.ArrowRight.png}"
+                                     Command="{Binding NextCalendarCommand}"/>
                     </StackLayout>
 
 

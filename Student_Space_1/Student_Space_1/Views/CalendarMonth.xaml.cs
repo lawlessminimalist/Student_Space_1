@@ -4,6 +4,7 @@ using Student_Space.ViewModels;
 using System.Windows.Input;
 using System.Collections.Specialized;
 using System;
+using Student_Space.ViewModels;
 
 namespace Student_Space_1.Views
 {
@@ -11,12 +12,19 @@ namespace Student_Space_1.Views
     public partial class CalendarMonth : ContentPage
     {
         public static string[] WeekDaysLabel = { "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" };
+        public static string[] Months = { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
+        public DateTime DateNow { get; set; } = DateTime.Now;
+
+        CalendarViewModel cvm;
 
         public CalendarMonth()
         {
             InitializeComponent();
+            cvm = new CalendarViewModel(this);
+            BindingContext = cvm;
             DaysofWeek_Buttons();
             CalendarDates_Buttons();
+
         }
 
         
@@ -73,6 +81,7 @@ namespace Student_Space_1.Views
         public void CalendarDates_Buttons()
         {
 
+            cvm.CurrentMonth = string.Format(Months[DateNow.Month - 1]);
 
             Grid calendardatesgrid = new Grid
             {
@@ -98,8 +107,8 @@ namespace Student_Space_1.Views
 
 
           
-            int currentday = DateTime.Now.Day;
-            int currentmonth = DateTime.Now.Month;
+            int currentday = DateNow.Day;
+            int currentmonth = DateNow.Month;
             int previousmonth = currentmonth - 1;
             if(currentmonth == 1)
             {
@@ -110,7 +119,7 @@ namespace Student_Space_1.Views
             {
                 nextmonth = 1;
             }
-            int currentyear = DateTime.Now.Year;
+            int currentyear = DateNow.Year;
             bool isLeapYear = DateTime.IsLeapYear(currentyear);
             int daysinmonth_current = DateTime.DaysInMonth(currentyear, currentmonth);
             int daysinmonth_previous = DateTime.DaysInMonth(currentyear, previousmonth);
@@ -125,27 +134,50 @@ namespace Student_Space_1.Views
             {
                 for (int col = 0; col < 7; col++)
                 {
-                    Command CalendarDateClick = new Command(() =>
+                    if((row == 0 && col < firstdayofweek) || (row == 5 && counter >= 1))
                     {
-                        //Go to Specified day
-
-                    });
-
-                    Button button = new Button
+                        Button button = new Button
+                        {
+                            Text = counter.ToString(),
+                            Padding = 0,
+                            FontSize = 16,
+                            BackgroundColor = Color.LightGray,
+                            CornerRadius = 0,
+                            TextColor = Color.Gray,
+                            BorderColor = Color.FromHex("#374B90"),
+                            BorderWidth = 1,
+                            HorizontalOptions = LayoutOptions.Center,
+                        };
+                        Grid.SetRow(button, row);
+                        Grid.SetColumn(button, col);
+                        calendardatesgrid.Children.Add(button);
+                    }
+                    else
                     {
-                        Text = counter.ToString(),
-                        Padding = 0,
-                        FontSize = 16,
-                        BackgroundColor = Color.Transparent,
-                        TextColor = Color.FromHex("#969FAA"),
-                        BorderColor = Color.FromHex("#374B90"),
-                        BorderWidth = 1,
-                        HorizontalOptions = LayoutOptions.Center,
-                        Command = CalendarDateClick,
-                    };
-                    Grid.SetRow(button, row);
-                    Grid.SetColumn(button, col);
-                    calendardatesgrid.Children.Add(button);
+                        Command CalendarDateClick = new Command(() =>
+                        {
+                            //Go to Specified day
+
+                        });
+
+                        Button button = new Button
+                        {
+                            Text = counter.ToString(),
+                            Padding = 0,
+                            FontSize = 16,
+                            CornerRadius = 0,
+                            BackgroundColor = Color.Transparent,
+                            TextColor = Color.FromHex("#0f0f0f"),
+                            BorderColor = Color.FromHex("#374B90"),
+                            BorderWidth = 1,
+                            HorizontalOptions = LayoutOptions.Center,
+                            Command = CalendarDateClick,
+                        };
+                        Grid.SetRow(button, row);
+                        Grid.SetColumn(button, col);
+                        calendardatesgrid.Children.Add(button);
+                    }
+
 
                     if(row == 0)
                     {
