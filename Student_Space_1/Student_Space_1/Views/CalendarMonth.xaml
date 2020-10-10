@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Student_Space_1;assembly=Student_Space_1"
              x:Class="Student_Space_1.Views.CalendarMonth">
+   
     
     <ContentPage.Content>
         <Grid Margin="7, 7, 7, 7" >
@@ -44,18 +45,21 @@
                         <!-- Left Arrow -->
                         <ImageButton BackgroundColor="Transparent"
                                      RotationY="180"
-                                     Source="{local:ImageResource Student_Space_1.Images.ArrowRight.png}" />
-                        
+                                     Source="{local:ImageResource Student_Space_1.Images.ArrowRight.png}"
+                                     Command="{Binding PreviousCalendarCommand}"/>
+
                         <!-- Month Button -->
-                        <Button Text="Aug"
+                        <Button Text="{Binding CurrentMonth}"
                                 FontSize="20"
                                 TextColor="#969FAA"
                                 BackgroundColor="Transparent"
+                                HorizontalOptions="CenterAndExpand"
                                 WidthRequest="65"/>
 
                         <!-- Right Arrow -->
                         <ImageButton BackgroundColor="Transparent"
-                                     Source="{local:ImageResource Student_Space_1.Images.ArrowRight.png}" />
+                                     Source="{local:ImageResource Student_Space_1.Images.ArrowRight.png}"
+                                     Command="{Binding NextCalendarCommand}"/>
                     </StackLayout>
 
 
@@ -83,85 +87,8 @@
                    Padding="0"
                    HasShadow="False">
 
-                <Grid ColumnSpacing="0">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <Button Text="Sun"
-                            Padding="0"
-                            FontSize="16"
-                            BackgroundColor="Transparent"
-                            TextColor="#969FAA"
-                            BorderColor="#374B90"
-                            HorizontalOptions="Center"/>
-
-                    <Button Text="Mon"
-                            Grid.Column="1"
-                            Padding="0"
-                            FontSize="16"
-                            BackgroundColor="Transparent"
-                            TextColor="#969FAA"
-                            BorderColor="#374B90"
-                            BorderWidth="1.5"
-                            HorizontalOptions="Center"/>
-
-                    <Button Text="Tue"
-                            Grid.Column="2"
-                            Padding="0"
-                            FontSize="16"
-                            BackgroundColor="Transparent"
-                            TextColor="#969FAA"
-                            BorderColor="#374B90"
-                            HorizontalOptions="Center"/>
-
-                    <Button Text="Wed"
-                            Grid.Column="3"
-                            Padding="0"
-                            FontSize="16"
-                            BackgroundColor="Transparent"
-                            TextColor="#969FAA"
-                            BorderColor="#374B90"
-                            BorderWidth="1.5"
-                            HorizontalOptions="Center"/>
-
-                    <Button Text="Thu"
-                            Grid.Column="4"
-                            Padding="0"
-                            FontSize="16"
-                            BackgroundColor="Transparent"
-                            TextColor="#969FAA"
-                            BorderColor="#374B90"
-                            HorizontalOptions="Center"/>
-
-                    <Button Text="Fri"
-                            Grid.Column="5"
-                            Padding="0"
-                            FontSize="16"
-                            BackgroundColor="Transparent"
-                            TextColor="#969FAA"
-                            BorderColor="#374B90"
-                            BorderWidth="1.5"
-                            HorizontalOptions="Center"/>
-
-                    <Button Text="Sat"
-                            Grid.Column="6"
-                            Padding="0"
-                            FontSize="16"
-                            BackgroundColor="Transparent"
-                            TextColor="#969FAA"
-                            BorderColor="#374B90"
-                            HorizontalOptions="Center"/>
-                </Grid>
+                <StackLayout x:Name="daysofweek" HorizontalOptions="FillAndExpand"  VerticalOptions="FillAndExpand">
+                </StackLayout>
             </Frame>
 
             <!-- This Frame Holds the Calendar Dates -->
@@ -171,7 +98,10 @@
                    CornerRadius="7" 
                    Padding="0"
                    HasShadow="False">
-                
+
+                <StackLayout x:Name="calendardates" HorizontalOptions="FillAndExpand"  VerticalOptions="FillAndExpand">
+                </StackLayout>
+
             </Frame>
 
             <!-- This Frame Holds the Colour Filters -->
