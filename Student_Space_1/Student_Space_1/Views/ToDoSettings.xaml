@@ -16,7 +16,7 @@
     </ContentPage.Resources>
 
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout BackgroundColor="#508492A6">
             <Grid HorizontalOptions="CenterAndExpand">
                 <!--Grid Definitions-->
                 <Grid.RowDefinitions>
