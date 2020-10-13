@@ -26,21 +26,28 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Images\Alarm.png" />
     <None Remove="Images\ArrowDown.png" />
     <None Remove="Images\ArrowRight.png" />
     <None Remove="Images\Bin_Delete.png" />
     <None Remove="Images\Calculator.png" />
     <None Remove="Images\Calendar.png" />
+    <None Remove="Images\Clock.png" />
+    <None Remove="Images\DateTime.png" />
+    <None Remove="Images\Edit_Pencil.png" />
     <None Remove="Images\Exit.png" />
     <None Remove="Images\FullLogo.png" />
     <None Remove="Images\LogoNoText.png" />
     <None Remove="Images\MenuBar.png" />
+    <None Remove="Images\Notes.png" />
     <None Remove="Images\Notification.png" />
     <None Remove="Images\Plus.png" />
     <None Remove="Images\Rectangle.png" />
+    <None Remove="Images\Reminder.png" />
     <None Remove="Images\Text Logo Transparent.png" />
     <None Remove="Images\Transcript.png" />
     <None Remove="Images\Trans_GPA.png" />
+    <None Remove="Images\upsidetriangle.png" />
     <None Remove="PeopleImages\Amy.jpg" />
     <None Remove="PeopleImages\Andrew.jpg" />
     <None Remove="PeopleImages\Daffy.jpeg" />
@@ -60,6 +67,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Images\Alarm.png" />
+    <EmbeddedResource Include="Images\Clock.png" />
+    <EmbeddedResource Include="Images\DateTime.png" />
+    <EmbeddedResource Include="Images\Edit_Pencil.png" />
+    <EmbeddedResource Include="Images\Notes.png" />
+    <EmbeddedResource Include="Images\Reminder.png" />
+    <EmbeddedResource Include="Images\upsidetriangle.png" />
     <EmbeddedResource Include="PeopleImages\Andrew.jpg" />
   </ItemGroup>
 
@@ -100,6 +114,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Refractored.MvvmHelpers" Version="1.6.2" />
     <PackageReference Include="Xamarin.Forms" Version="4.6.0.1141" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
   </ItemGroup>
@@ -136,6 +151,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ToDo.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ToDoSettings.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\UnitContacts.xaml">

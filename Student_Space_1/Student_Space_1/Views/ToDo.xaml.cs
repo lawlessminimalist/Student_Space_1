@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Student_Space_1.Models;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +13,12 @@ namespace Student_Space_1.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ToDo : ContentPage
+
     {
+
+        //private ObservableCollection<Task_Item> Test_Tasks = Task_List.Instance.Tasks_Test;
+
+
         public ToDo()
         {
             InitializeComponent();
@@ -23,5 +30,7 @@ namespace Student_Space_1.Views
                 if (sender is ListView lv) lv.SelectedItem = null;
             };
         }
+
+
     }
 }

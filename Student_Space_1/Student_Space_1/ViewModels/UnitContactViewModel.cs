@@ -87,14 +87,6 @@ namespace Student_Space.ViewModels
                         }
                     }
                 }
-
-                //Testing Display 
-                for (int i = 0; i < DisplayContacts.Count; i++)
-                {
-                    Console.WriteLine(string.Concat(DisplayContacts[i].Name, "---", DisplayContacts[i].Code, "---", DisplayContacts[i].Position));
-                    Console.WriteLine(string.Concat("Imageeeeeeeeeeeee Sourceeeee", DisplayContacts[i].Contact_Picture, "---"));
-
-                }
             }
         }
 

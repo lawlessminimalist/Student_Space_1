@@ -28,7 +28,10 @@ namespace Student_Space
             routes.Add("contacts", typeof(Unit_Contacts));
             routes.Add("grades", typeof(Grades));
             routes.Add("todolist", typeof(ToDo));
-            
+
+            //Routing to Enable Data Passing to the Settings Page
+            Routing.RegisterRoute(nameof(ToDoSettings), typeof(ToDoSettings));
+
             foreach (var item in routes)
             {
                 Routing.RegisterRoute(item.Key, item.Value);

@@ -15,6 +15,13 @@ namespace Student_Space
 
             DependencyService.Register<MockDataStore>();
             MainPage = new AppShell();
+
+
+            //Set Experimental Flags for Radio Buttons
+            Device.SetFlags(new[]
+            {
+                "RadioButton_Experimental",
+            });
         }
 
         protected override void OnStart()
@@ -28,5 +35,7 @@ namespace Student_Space
         protected override void OnResume()
         {
         }
+
+
     }
 }

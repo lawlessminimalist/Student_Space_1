@@ -88,7 +88,7 @@
     <Shell.FlyoutHeader>
         <controls:FlyoutHeader />
     </Shell.FlyoutHeader>
-
+    
     <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
         <ShellContent Title="Home" Route="MainPage" ContentTemplate="{DataTemplate views:AlertPage}" />
     </FlyoutItem>
@@ -113,8 +113,7 @@
     <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
         <ShellContent Title="Calendar" Icon="tab_about.png" Route="Calendar" ContentTemplate="{DataTemplate views:Calendar}" />
     </FlyoutItem>
-     
-    
+
 
     <!-- When the Flyout is visible this will be a menu item you can tie a click behavior to  -->
     <MenuItem Text="Logout" StyleClass="MenuItemLayoutStyle" Clicked="OnMenuItemClicked">

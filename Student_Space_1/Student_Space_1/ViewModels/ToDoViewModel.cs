@@ -10,122 +10,142 @@ using System.Collections.ObjectModel;
 using Student_Space_1.Models;
 using Student_Space_1.Views;
 
+
 namespace Student_Space.ViewModels
 {
-    public class ToDoViewModel : BindableObject
+    public class ToDoViewModel : INotifyPropertyChanged
     {
-        int ID_Num = 0;
+
+        //Implement Property Change
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged([CallerMemberName] string name = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+
+        //Declare Commands
         public ICommand AddTask { get; }
         public ICommand DeleteTask { get; }
 
-        public ICommand GoSetting { get; }
-        public Task_Item SelectedItem { get; set; }
 
-        public ObservableCollection<Task_Item> _Tasks = new ObservableCollection<Task_Item>(); //Initialize List
-
+        //Class Constructor
         public ToDoViewModel()
         {
 
-            Setup();
             AddTask = new Command(AddItem);
             DeleteTask = new Command(DeleteItem);
-            //GoSetting = new Command(OpenSettings);
 
-        }
-
-        public ObservableCollection<Task_Item> Tasks
-        {
-            set
-            {
-                _Tasks = value;
-                OnPropertyChanged();
-            }
-
-            get { return _Tasks; }
+            //Access Shared Observable Collection
+            TaskListDB = TaskDB.Instance;
         }
 
         async void AddItem()
         {
-            string duedate = null;
-            int ID = ID_Num + 1;
-            string priority = null;
+            //Assign Default Task Item Properties
+            DateTime duedate = DateTime.Today;
+            string priority = "#00BCD4";
             string notes = null;
             string reminders = null;
+            TimeSpan duetime = new TimeSpan(4, 15, 26);
+
+            string result = "";
 
             //Open Alert Message to Ask for What Task
-            string result = await App.Current.MainPage.DisplayPromptAsync("Add Task", "What did you want to do?", "Add", "Cancel");
+            result = await App.Current.MainPage.DisplayPromptAsync("Add Task", "What did you want to do?", "Add", "Cancel", "Write Something...");
 
-            //Create a New Task
-            Task_Item new_task = new Task_Item
+            if (String.IsNullOrWhiteSpace(result))
             {
-                TaskName = result,
-                DueDate = duedate,
-                ID = ID_Num,
-                Priority = priority,
-                Notes = notes,
-                Reminders = reminders,
-            };
+                await App.Current.MainPage.DisplayAlert("Error!", "Oh No! You tried to add an empty Task.", "Ok");
+            }
+            else
+            {
+                //Create a New Task
+                Task_Item new_task = new Task_Item
+                {
+                    TaskName = result,
+                    DueDate = duedate,
+                    DueTime = duetime,
+                    Priority = priority,
+                    Notes = notes,
+                    Reminders = reminders,
+                };
 
-            //Add Task to List of Tasks 
-            Tasks.Add(new_task);
-
-            Console.WriteLine("Answer: " + result + "-------" + new_task.ToString());
+                //Add Task to List of Tasks 
+                ToDoTasks.Add(new_task);
+            } 
         }
 
         void DeleteItem(object item)
         {
             //Remove Item from To Do List
-            //Application.Current.MainPage.DisplayAlert("Alert", SelectedItem + " Item Should be Deleted", "Ok"); Testing Purposes
-
             var task = item as Task_Item;
-            Tasks.Remove(task);
+            ToDoTasks.Remove(task);
         }
 
-/*        async void OpenSettings()
-        {
-            var settingspage = new ToDoListSetting(Tasks);
-            settingspage.BindingContext = SelectedItem;
-            await Application.Current.MainPage.Navigation.PushModalAsync(settingspage);
+        public string TaskSetting { get; set; }
 
-        }*/
-
-        //Fake Data for Easier Testing
-        void Setup()
+        async void OpenSettings()
         {
-            Tasks = new ObservableCollection<Task_Item>
+
+            //Reference: https://devblogs.microsoft.com/xamarin/xamarin-forms-shell-query-parameters/
+
+            try
             {
-                new Task_Item
-                {
-                    TaskName = "Watch Lecture 100",
-                    DueDate = null,
-                    ID = 1,
-                    Priority = null,
-                    Notes = null,
-                    Reminders = null,
-                },
 
-                 new Task_Item
-                {
-                    TaskName = "Watch Lecture 2000",
-                    DueDate = null,
-                    ID = 2,
-                    Priority = null,
-                    Notes = null,
-                    Reminders = null,
-                },
+                await Shell.Current.GoToAsync($"{nameof(ToDoSettings)}?TaskSetting={TaskSetting}");
 
-                 new Task_Item
-                {
-                    TaskName = "Watch Lecture 12312312",
-                    DueDate = null,
-                    ID = 3,
-                    Priority = null,
-                    Notes = null,
-                    Reminders = null,
-                },
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
 
-            };
+        }
+        //public Task_Item SelectedItem { get; set; }
+
+        private Task_Item _selectedTask { get; set; }
+        public Task_Item Selected
+        {
+            get { return _selectedTask; }
+            set
+            {
+                try
+                {
+                    if (value != null)
+                    {
+                        _selectedTask = value;
+
+                        TaskSetting = _selectedTask.TaskName;
+                        
+                        OnPropertyChanged(nameof(Selected));
+
+                        //Go to the Settings Page
+                        OpenSettings();
+                    }
+
+                }
+                catch(Exception ex)
+                {
+                    Console.WriteLine(ex);
+                }
+            }
         }
 
+
+        //Handle Data
+        private TaskDB TaskListDB;
+
+        private ObservableCollection<Task_Item> myVar;
+        public ObservableCollection<Task_Item> ToDoTasks //Bind this to the View
+        {
+            get { return TaskListDB.Mylist; }
+            set
+            {
+                myVar = value;
+                OnPropertyChanged();
+            }
+
+        }
     }
 }
