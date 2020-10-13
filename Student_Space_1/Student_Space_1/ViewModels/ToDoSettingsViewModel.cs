@@ -75,8 +75,7 @@ namespace Student_Space_1.ViewModels
                 {
                     _selectedColour = value;
 
-                    //Do What Ever Functionanility you Want Here!!
-                    Colour = _selectedColour.hexValue;
+                    Colour = _selectedColour.hexValue; //Get Colour Hex Value
                 }
             }
         }
@@ -157,7 +156,7 @@ namespace Student_Space_1.ViewModels
             }
         }
 
-        //Get Selected Radio Button
+        //Get Selected Radio Button [Experimental, Added Flags]
         private string _selectedRadio;
         public string SelectedRadio
         {
@@ -165,13 +164,12 @@ namespace Student_Space_1.ViewModels
             set
             {
                 _selectedRadio = value;
-                Console.WriteLine("Selected Radio: " + _selectedRadio);
                 OnPropertyChanged("SelectedRadio");
                 Reminder = _selectedRadio;
             }
         }
 
-        //Store Radio Button Value
+        //Get and Set Reminder Value (Radio Button)
         private string _reminder { get; set; }
         public string Reminder
         {
@@ -185,19 +183,8 @@ namespace Student_Space_1.ViewModels
                 }
             }
         }
-
-        public RadioHelper RadioButtonCommand
-        {
-            get
-            {
-                return new RadioHelper((p) =>
-                {
-                    SelectedRadio = (string)p;
-                });
-            }
-        }
  
-        //Get the Selected Task
+        //Get the Selected Task (Data passed from Preivous Page
         public Task_Item _selectedTask { get; set; }
 
         //Function to return Object
@@ -206,6 +193,7 @@ namespace Student_Space_1.ViewModels
 
             Task_Item selected = null;
 
+            //Find Object matching selected task name from list
             foreach (Task_Item task in ToDoTasks)
             {
                 if (task.TaskName.Equals(name))
@@ -213,13 +201,12 @@ namespace Student_Space_1.ViewModels
                     selected = task;
                 }
 
-                Console.WriteLine(task);
             }
 
             return selected;
         }
 
-        //Testing Count
+        //Get Selected Task Name and Assingment Default Values to Repsective Getter and Setter
         private string _TaskSetting = "";
         public string TaskSetting
         {   get => _TaskSetting; 
@@ -241,8 +228,19 @@ namespace Student_Space_1.ViewModels
             }
         }
 
+        //Helper Funcion for Radio Buttons
+        public RadioHelper RadioButtonCommand
+        {
+            get
+            {
+                return new RadioHelper((p) =>
+                {
+                    SelectedRadio = (string)p;
+                });
+            }
+        }
 
-
+        //Edit Task Name 
         async void Edit()
         {
 
@@ -261,7 +259,6 @@ namespace Student_Space_1.ViewModels
          * --> further research the Observable Collection only updates on changes to list (i.e. add and remove)
          * --> There may be a better method, however, this method is the only method that seemed to work . . .
          * */
-
         public void UpdateList()
         {
             //Create New Task using Inputting Data
@@ -282,10 +279,7 @@ namespace Student_Space_1.ViewModels
             ToDoTasks.Add(update_task);
         }
 
-
-        //Data Handling 
-        private TaskDB TaskListDB;
-
+        //Constructor
         public ToDoSettingsViewModel()
         {
             //Set Up Data
@@ -297,6 +291,9 @@ namespace Student_Space_1.ViewModels
             SaveTask = new Command(UpdateList);
 
         }
+
+        //Data Handling 
+        private TaskDB TaskListDB;
 
         //Enable Settings Page to Read Items from To Do List to get Details//
         private ObservableCollection<Task_Item> myVar;

@@ -18,7 +18,6 @@ namespace Student_Space.ViewModels
 
         //Implement Property Change
         public event PropertyChangedEventHandler PropertyChanged;
-
         protected void OnPropertyChanged([CallerMemberName] string name = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
@@ -32,26 +31,29 @@ namespace Student_Space.ViewModels
         //Class Constructor
         public ToDoViewModel()
         {
-
+            //Commands
             AddTask = new Command(AddItem);
             DeleteTask = new Command(DeleteItem);
 
-            //Access Shared Observable Collection
+            //Access Shared Observable Collection (List of Tasks)
             TaskListDB = TaskDB.Instance;
         }
 
+        /*Add Item to Task List by creating new Object
+         * Object properties (due date, time, notes, reminders) are set to a default value
+         * User can change later
+         */
         async void AddItem()
         {
             //Assign Default Task Item Properties
             DateTime duedate = DateTime.Today;
+            TimeSpan duetime = new TimeSpan(4, 15, 26);
             string priority = "#00BCD4";
             string notes = null;
             string reminders = null;
-            TimeSpan duetime = new TimeSpan(4, 15, 26);
 
+            //Get Task via User Input on Display Prompt
             string result = "";
-
-            //Open Alert Message to Ask for What Task
             result = await App.Current.MainPage.DisplayPromptAsync("Add Task", "What did you want to do?", "Add", "Cancel", "Write Something...");
 
             if (String.IsNullOrWhiteSpace(result))
@@ -76,23 +78,24 @@ namespace Student_Space.ViewModels
             } 
         }
 
+        //Remove Task from List by removing object
         void DeleteItem(object item)
         {
-            //Remove Item from To Do List
+            //Remove Item from Collection
             var task = item as Task_Item;
             ToDoTasks.Remove(task);
         }
 
-        public string TaskSetting { get; set; }
+        public string TaskSetting { get; set; } //Variable that is passed to next page
 
+        //Open a Settings Page for the selected Task
         async void OpenSettings()
         {
-
-            //Reference: https://devblogs.microsoft.com/xamarin/xamarin-forms-shell-query-parameters/
+            //Code Reference: https://devblogs.microsoft.com/xamarin/xamarin-forms-shell-query-parameters/
 
             try
             {
-
+                //Go to Next Page and Pass Selected Task as Data
                 await Shell.Current.GoToAsync($"{nameof(ToDoSettings)}?TaskSetting={TaskSetting}");
 
             }
@@ -127,7 +130,8 @@ namespace Student_Space.ViewModels
                 }
                 catch(Exception ex)
                 {
-                    Console.WriteLine(ex);
+                    App.Current.MainPage.DisplayAlert("Error!", "No one something went wrong!" + ex, "Ok");
+
                 }
             }
         }

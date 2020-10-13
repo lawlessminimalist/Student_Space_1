@@ -12,9 +12,6 @@ namespace Student_Space_1.ViewModels
 {
     public class LoginViewModel : INotifyPropertyChanged
     {
-        //Reference: https://stackoverflow.com/questions/54586621/whats-the-correct-way-to-implement-login-page-in-xamarin-shell
-
-
         //Implement Property Change
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged([CallerMemberName] string name = "")
@@ -26,9 +23,11 @@ namespace Student_Space_1.ViewModels
         public ICommand UserLogin { get; }
         public ICommand GoHelp { get; }
 
+        //Variables
         string InputUser = "";
         string InputPassword = "";
 
+        //Getters and Setters for Password and Username
         private string username { get; set; }
         public string Username
         {
@@ -43,7 +42,6 @@ namespace Student_Space_1.ViewModels
                 }
             }
         }
-
 
         private string password { get; set; }
         public string Password
@@ -60,20 +58,25 @@ namespace Student_Space_1.ViewModels
             }
         }
 
-
+ 
+        //Page Constructor
         public LoginViewModel()
         {
             UserLogin = new Command(OpenApp);
             GoHelp = new Command(OpenHelp);
         }
 
+        //Command Function - Open Hi Q Contacs website 
         public async void OpenHelp()
         {
             string uri = "https://www.qut.edu.au/about/contact";
             await Browser.OpenAsync(uri, BrowserLaunchMode.SystemPreferred);
         }
 
-
+        /*
+         * Command Function - Open the App after the user has logged
+         * Password and Username are any strings, as long as not null user can log in 
+         */
         async void OpenApp()
         {
             //Reference: https://stackoverflow.com/questions/54586621/whats-the-correct-way-to-implement-login-page-in-xamarin-shell

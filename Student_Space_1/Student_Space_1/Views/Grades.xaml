@@ -62,7 +62,6 @@
                     <BoxView BackgroundColor="#374B90" HeightRequest="2" Grid.Column="1" CornerRadius="10"/>
                     <Label VerticalOptions="Center" HorizontalOptions="Center" TextColor="Black" FontSize="Medium" Margin="10" HorizontalTextAlignment="Center" Grid.ColumnSpan="1" Text="{Binding course}"/>
                 </StackLayout>
-                <!--Display GPA and Button Links to Internet-->   
 
                 <!--Display GPA and Links-->
                 <FlexLayout Grid.Row="6" JustifyContent="SpaceAround" Grid.ColumnSpan="6"  HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand">

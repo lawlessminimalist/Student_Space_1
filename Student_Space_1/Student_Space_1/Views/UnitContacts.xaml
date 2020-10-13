@@ -26,12 +26,8 @@
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
 
-                <Image Source="{local:ImageResource Student_Space_1.Images.Rectangle.png}" HeightRequest="60" Aspect="Fill" Grid.Row="1" Grid.ColumnSpan="1" Margin="10"/>
-                    <Label VerticalOptions="Center" HorizontalOptions="Center" TextColor="Black" FontSize="Title" Grid.Row="1" Grid.ColumnSpan="1" Text="Unit Contacts"/>
-
-                    <!--Code to Add Down Arrow (To Fix: Move / Change it when Item Selected)-->
-                    <Image Source="{local:ImageResource Student_Space_1.Images.ArrowDown.png}" Grid.Row="2" Grid.Column="4" HeightRequest="15" WidthRequest="15" VerticalOptions="Start" Margin="10"/>
-
+                    <Image Source="{local:ImageResource Student_Space_1.Images.Rectangle.png}" HeightRequest="60" Aspect="Fill" Grid.Row="1" Grid.ColumnSpan="1" Margin="10"/>
+                <Label VerticalOptions="Center" HorizontalOptions="Center" TextColor="Black" FontSize="Title" Grid.Row="1" Grid.ColumnSpan="1" Text="Unit Contacts"/>
                 <Picker x:Name="UnitContactPicker" SelectedItem="{Binding SelectedUnit}" FontSize="Small" Title="All Contacts" ItemsSource="{Binding UnitContactList}" TextColor="White" HorizontalOptions="FillAndExpand" Margin="10,0,10,0" BackgroundColor="#374B90" Grid.ColumnSpan="5" Grid.Row="2" TitleColor="White"/>
 
                     <!--Display Contacts-->
