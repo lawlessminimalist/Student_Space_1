@@ -17,8 +17,8 @@ namespace Student_Space.ViewModels
 {
     public class UnitContactViewModel : INotifyPropertyChanged
     {
-        //Create Lists to Store Objects
-        public ObservableCollection<Units> UnitContactList { get; set; }
+        //Create Collections to Store Objects
+        public ObservableCollection<Units> UnitContactList { get; set; } //
         public ObservableCollection<UnitContactDetails> ContactDetails { get; set; }
 
         private ObservableCollection<UnitContactDetails> DisplayContacts = new ObservableCollection<UnitContactDetails>();
@@ -31,6 +31,7 @@ namespace Student_Space.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
 
+        //Getters and Setters for Lists 
         public ObservableCollection<UnitContactDetails> GetContacts
         {
             set
@@ -45,16 +46,18 @@ namespace Student_Space.ViewModels
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Exception We Dieeeeeee!!!!!!!!!!!!" + ex);
+                    App.Current.MainPage.DisplayAlert("Alert", "something has gone wrong..." + ex, "Ok");
                 }
             }
-
             get { return DisplayContacts; }
         }
 
-        //Get the Selected Unit
+        //Get the Selected Unit from Picker
         private Units _selectedUnit { get; set; }
-        public Units SelectedUnit
+
+        /* Get the Select Unit and Update the Display List to only contain Contacts the User has selected
+         */
+        public Units SelectedUnit 
         {
             get { return _selectedUnit; }
             set
@@ -62,15 +65,13 @@ namespace Student_Space.ViewModels
                 if (_selectedUnit != value)
                 {
                     _selectedUnit = value;
-                    //Do What Ever Functionanility you Want Here!!
-                    string code = _selectedUnit.UnitCode;
 
-                    //App.Current.MainPage.DisplayAlert("Alert", code + " nearly there.... ", "Ok");  For Testing Purposes 
+                    string code = _selectedUnit.UnitCode;
 
                     //Clear the Display List
                     DisplayContacts.Clear();
 
-                    //Get the Unit Code
+                    //Get the Units Matching the Selected Unit Code
                     foreach (var contact in ContactDetails)
                     {
                         try
@@ -81,44 +82,32 @@ namespace Student_Space.ViewModels
                                 DisplayContacts.Add(contact);
                             }
                         }
-                        catch (Exception Ex)
+                        catch (Exception ex)
                         {
-                            Console.WriteLine("Something Bad has Happened AiYaaaaaaaaaaaaa" + Ex.ToString());
+                            App.Current.MainPage.DisplayAlert("Alert", "something has gone wrong..." + ex, "Ok");
                         }
                     }
-                }
-
-                //Testing Display 
-                for (int i = 0; i < DisplayContacts.Count; i++)
-                {
-                    Console.WriteLine(string.Concat(DisplayContacts[i].Name, "---", DisplayContacts[i].Code, "---", DisplayContacts[i].Position));
-                    Console.WriteLine(string.Concat("Imageeeeeeeeeeeee Sourceeeee", DisplayContacts[i].Contact_Picture, "---"));
-
                 }
             }
         }
 
 
-
+        //Constructor
         public UnitContactViewModel()
         {
             SetupData();
-
-            //Get Selected User If there is One
-            OnPropertyChanged("DisplayContacts");
-
         }
 
+        //Helper Function that returns specific format for Image to be Displayed
         public ImageSource Image(string IconSource)
         {
-            //OSSV_APPS.Resources.Img
             return ImageSource.FromResource(string.Format("Student_Space_1.PeopleImages.{0}", IconSource));
         }
 
-        //Set Up Mock Unit Contact Data
+        //Mock Data
         void SetupData()
         {
-            //List of Units
+            //List of Student's Current Units
             UnitContactList = new ObservableCollection<Units>()
             {
                 new Units
@@ -147,7 +136,7 @@ namespace Student_Space.ViewModels
             };
 
 
-            //List containing Contact Details (Name, Postion, Photo, Office, Email, Unit Code, Image) 
+            //List containing Staff Contact Details (Name, Postion, Photo, Office, Email, Unit Code, Image) 
             ContactDetails = new ObservableCollection<UnitContactDetails>()
             {
                 new UnitContactDetails
@@ -314,7 +303,7 @@ namespace Student_Space.ViewModels
             };
 
 
-            //Copy Get Contacts
+            //Copy Get Contacts to Display Contacts
             foreach (var contact in ContactDetails)
             {
                 //Add to Get Contacts 

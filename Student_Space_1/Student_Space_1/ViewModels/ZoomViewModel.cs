@@ -12,8 +12,10 @@ namespace Student_Space.ViewModels
 {
     public class ZoomViewModel : BaseViewModel
     {
-        public ObservableCollection<ZoomLink> ZoomLinks { get; set; }
+        //Variables 
+        public ObservableCollection<ZoomLink> ZoomLinks { get; set; } //Collection Stores List of Zoom Links and Details (Class Name, Link, ID)
 
+        //Constructor
         public ZoomViewModel()
         {
             SetupData();
@@ -21,6 +23,8 @@ namespace Student_Space.ViewModels
             Title = "Contacts Page";
         }
 
+
+        //Mock Data
         void SetupData()
         {
             ZoomLinks = new ObservableCollection<ZoomLink>()

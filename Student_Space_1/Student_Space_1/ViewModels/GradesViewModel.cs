@@ -19,26 +19,24 @@ namespace Student_Space.ViewModels
 {
     public class GradesViewModel : INotifyPropertyChanged
     {
-        public ObservableCollection<AllUnits> StudentUnits { get; set; } //Contains a List of the Student's Units 
-        public ObservableCollection<Assessment> AssessmentList { get; set; } //Contains a List of the Student's Units 
-
-        private ObservableCollection<Assessment> DisplayGrades = new ObservableCollection<Assessment>();
-
-        public string course { get; set; }
-        public string GPA { get; set; }
-
-
-        //Event Signature for Butter Hyperlink
-
-
         //Implement Property Change
         public event PropertyChangedEventHandler PropertyChanged;
-
         protected void OnPropertyChanged([CallerMemberName] string name = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
 
+        //Declare Collections 
+        public ObservableCollection<AllUnits> StudentUnits { get; set; } //List of the Student's Units 
+        public ObservableCollection<Assessment> AssessmentList { get; set; } //List of the Assessments for each Unit 
+
+        private ObservableCollection<Assessment> DisplayGrades = new ObservableCollection<Assessment>(); //List that is Displayed on the UI
+
+        //Declare Variables
+        public string course { get; set; }
+        public string GPA { get; set; }
+
+        //Getters and Setters 
         public ObservableCollection<Assessment> GetGrades
         {
             set
@@ -53,16 +51,16 @@ namespace Student_Space.ViewModels
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Exception We Dieeeeeee!!!!!!!!!!!!" + ex);
+                    App.Current.MainPage.DisplayAlert("Alert", "something has gone wrong..." + ex, "Ok");
                 }
             }
 
             get { return DisplayGrades; }
         }
 
-        //Get the Selected Unit
+
         private AllUnits _selectedUnit { get; set; }
-        public AllUnits SelectedUnit
+        public AllUnits SelectedUnit //Get Selected Unit from Picker
         {
             get { return _selectedUnit; }
             set
@@ -70,15 +68,13 @@ namespace Student_Space.ViewModels
                 if (_selectedUnit != value)
                 {
                     _selectedUnit = value;
-                    //Do What Ever Functionanility you Want Here!!
-                    string code = _selectedUnit.UnitCode;
 
-                    //App.Current.MainPage.DisplayAlert("Alert", code + " I have No Idea what is going on gg", "Ok");
+                    string code = _selectedUnit.UnitCode;
 
                     //Clear the Display List
                     DisplayGrades.Clear();
 
-                    //Get the Unit Code
+                    //Match Assessment Pieces in list to Selected Unit Code
                     foreach (var piece in AssessmentList)
                     {
                         try
@@ -89,26 +85,20 @@ namespace Student_Space.ViewModels
                                 DisplayGrades.Add(piece);
                             }
                         }
-                        catch (Exception Ex)
+                        catch (Exception ex)
                         {
-                            Console.WriteLine("Something Bad has Happened AiYaaaaaaaaaaaaa" + Ex.ToString());
+                            App.Current.MainPage.DisplayAlert("Alert", "something has gone wrong..." + ex, "Ok");
                         }
                     }
                 }
 
+                //Assign Total and Percentage Variables
                 Total = _selectedUnit.Grade;
                 Percentage = _selectedUnit.Percentage;
-
-                //Testing Display 
-                for (int i = 0; i < DisplayGrades.Count; i++)
-                {
-                    Console.WriteLine(string.Concat(DisplayGrades[i].AssessmentName, "---", DisplayGrades[i].Mark, "------", Percentage, "----", Total));
-                }
             }
         }
 
         public string _total;
-
         public string Total
         {
             get { return _total; }
@@ -124,7 +114,6 @@ namespace Student_Space.ViewModels
         }
 
         public string _percentage;
-
         public string Percentage
         {
             get { return _percentage; }
@@ -139,31 +128,39 @@ namespace Student_Space.ViewModels
             }
         }
 
+        //Contructor
         public GradesViewModel()
         {
             SetUpData();
+
+            //Initialize Total and Percentage 
             Total = "N/A";
             Percentage = "N/A";
-            OnPropertyChanged("DisplayGrades");
+
+            //Commands
             GoCalculator = new Command(OpenCalculator);
             GoTranscript = new Command(OpenQUT);
         }
 
+        //Declare Commands
         public Command GoCalculator { get; }
         public Command GoTranscript { get; }
 
+        //Open link to online GPA Calculator
         public async void OpenCalculator()
         {
             string uri = "https://www.newcastle.edu.au/current-students/study-essentials/assessment-and-exams/results/gpa-calculator";
             await Browser.OpenAsync(uri, BrowserLaunchMode.SystemPreferred);
         }
 
+        //Open Link to QUT Virtual
         public async void OpenQUT()
         {
             string uri = "https://esoe.qut.edu.au/auth/realms/qut/protocol/openid-connect/auth?response_type=code&client_id=shibboleth-2-idp&redirect_uri=https%3A%2F%2Fidp.qut.edu.au%2Fidp%2Fprofile%2FSAML2%2FPOST%2FSSO?execution%3De3s1%26_eventId_proceed%3D1&state=256114%2Fa44af668-5fba-4976-b19a-2cff8c25a575&scope=openid";
             await Browser.OpenAsync(uri, BrowserLaunchMode.SystemPreferred);
         }
 
+        //Mock Data (Assessment Pieces, Student Grade Details, Unit List (Current & Previous Units)
         void SetUpData()
         {
             Student appStudent = new Student

@@ -8,11 +8,10 @@ namespace Student_Space_1.Models
     {
         public string TaskName { get; set; }
 
-        public int ID { get; set; }
-
         public string Priority { get; set; }
 
-        public string DueDate { get; set; }
+        public DateTime DueDate { get; set; }
+        public TimeSpan DueTime { get; set; }
 
         public string Reminders { get; set; }
 
@@ -23,5 +22,7 @@ namespace Student_Space_1.Models
         {
             return TaskName;
         }
+
+       
     }
 }
