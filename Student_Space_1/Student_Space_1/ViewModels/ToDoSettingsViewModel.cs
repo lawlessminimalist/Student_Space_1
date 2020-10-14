@@ -12,6 +12,7 @@ using System.Windows.Input;
 using Student_Space;
 using System.Collections.Specialized;
 using System.Globalization;
+using Student_Space_1.Views;
 
 namespace Student_Space_1.ViewModels
 {
@@ -277,6 +278,12 @@ namespace Student_Space_1.ViewModels
 
             //Add the New Task
             ToDoTasks.Add(update_task);
+
+
+            //Go Back to Previous Page
+            App.Current.MainPage.Navigation.PopAsync();
+
+
         }
 
         //Constructor

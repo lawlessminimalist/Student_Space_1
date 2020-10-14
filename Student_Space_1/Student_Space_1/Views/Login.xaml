@@ -4,6 +4,7 @@
              x:Class="Student_Space_1.Views.Login"
              xmlns:local="clr-namespace:Student_Space_1;assembly=Student_Space_1" 
              xmlns:viewmodel="clr-namespace:Student_Space_1.ViewModels"
+             NavigationPage.HasNavigationBar="False"
              Title="{Binding Title}">
 
     <ContentPage.BindingContext>
@@ -14,7 +15,7 @@
         <StackLayout>
 
             <Grid>
-                <Image Source="{local:ImageResource Student_Space_1.Images.Background.png}" Aspect="Fill"/>
+                <Image Source="{local:ImageResource Student_Space_1.Images.Background.png}" Aspect="AspectFill"/>
 
 
                 <StackLayout VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand">

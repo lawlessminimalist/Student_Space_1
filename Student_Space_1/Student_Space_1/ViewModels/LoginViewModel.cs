@@ -83,7 +83,7 @@ namespace Student_Space_1.ViewModels
 
             if (String.IsNullOrWhiteSpace(InputUser) || String.IsNullOrWhiteSpace(InputPassword))
             {
-                await App.Current.MainPage.DisplayAlert("Error", "You have entered an incorrect Password or Username", "Ok");
+                await App.Current.MainPage.DisplayAlert("Error", "You have entered an incorrect Username or Password", "Ok");
             }
             else
             {

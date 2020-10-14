@@ -18,7 +18,7 @@ namespace Student_Space.ViewModels
     public class UnitContactViewModel : INotifyPropertyChanged
     {
         //Create Collections to Store Objects
-        public ObservableCollection<Units> UnitContactList { get; set; } //
+        public ObservableCollection<Units> UnitContactList { get; set; } 
         public ObservableCollection<UnitContactDetails> ContactDetails { get; set; }
 
         private ObservableCollection<UnitContactDetails> DisplayContacts = new ObservableCollection<UnitContactDetails>();

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Xamarin.Forms;
 
 namespace Student_Space_1.Models
 {
@@ -11,5 +12,10 @@ namespace Student_Space_1.Models
         public string Course { get; set; }
 
         public string GPA { get; set; }
+
+        //Image of Person
+        public ImageSource Picture { get; set; }
+
+        public string ID { get; set; }
     }
 }
