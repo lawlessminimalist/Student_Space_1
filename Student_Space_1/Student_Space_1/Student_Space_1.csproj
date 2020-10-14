@@ -1,5 +1,5 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
+  
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
@@ -26,6 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Fonts\JosefinSans-VariableFont_wght.ttf" />
     <None Remove="Images\Alarm.png" />
     <None Remove="Images\ArrowDown.png" />
     <None Remove="Images\ArrowRight.png" />
@@ -70,6 +71,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Fonts\JosefinSans-VariableFont_wght.ttf" />
     <EmbeddedResource Include="Images\Alarm.png" />
     <EmbeddedResource Include="Images\Background.png" />
     <EmbeddedResource Include="Images\Clock.png" />
@@ -174,5 +176,14 @@
     <EmbeddedResource Update="Views\Zoom.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="NewFolder1\" />
+    <Folder Include="NewFolder\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Fonts\JosefinSans-VariableFont_wght.ttf" />
   </ItemGroup>
 </Project>
