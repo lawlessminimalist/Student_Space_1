@@ -108,28 +108,41 @@ namespace Student_Space_1.Views
 
         }
 
-        private void Open3(object sender, EventArgs e)
+        private void Open2(object sender, EventArgs e)
         {
-            if (MenuOpen.IsVisible == true)
+            if (MenuOpen2.IsVisible == true)
             {
-                MenuOpen.IsVisible = false;
+                MenuOpen2.IsVisible = false;
             }
             else
             {
-                MenuOpen.IsVisible = true;
+                MenuOpen2.IsVisible = true;
+            }
+
+        }
+
+        private void Open3(object sender, EventArgs e)
+        {
+            if (MenuOpen3.IsVisible == true)
+            {
+                MenuOpen3.IsVisible = false;
+            }
+            else
+            {
+                MenuOpen3.IsVisible = true;
             }
 
         }
 
         private void Open4(object sender, EventArgs e)
         {
-            if (MenuOpen.IsVisible == true)
+            if (MenuOpen4.IsVisible == true)
             {
-                MenuOpen.IsVisible = false;
+                MenuOpen4.IsVisible = false;
             }
             else
             {
-                MenuOpen.IsVisible = true;
+                MenuOpen4.IsVisible = true;
             }
 
 
