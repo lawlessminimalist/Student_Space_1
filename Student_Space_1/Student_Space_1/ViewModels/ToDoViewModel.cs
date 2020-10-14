@@ -13,12 +13,12 @@ using Student_Space_1.Views;
 
 namespace Student_Space.ViewModels
 {
-    public class ToDoViewModel : INotifyPropertyChanged
+    public class ToDoViewModel : BaseViewModel, INotifyPropertyChanged
     {
 
         //Implement Property Change
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected void OnPropertyChanged([CallerMemberName] string name = null)
+        public new event PropertyChangedEventHandler PropertyChanged;
+        protected new void OnPropertyChanged([CallerMemberName] string name = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
@@ -37,6 +37,10 @@ namespace Student_Space.ViewModels
 
             //Access Shared Observable Collection (List of Tasks)
             TaskListDB = TaskDB.Instance;
+
+            Title = "To Do List";
+
+
         }
 
         /*Add Item to Task List by creating new Object
@@ -75,7 +79,7 @@ namespace Student_Space.ViewModels
 
                 //Add Task to List of Tasks 
                 ToDoTasks.Add(new_task);
-            } 
+            }
         }
 
         //Remove Task from List by removing object
@@ -108,7 +112,7 @@ namespace Student_Space.ViewModels
         //public Task_Item SelectedItem { get; set; }
 
         private Task_Item _selectedTask { get; set; }
-        public Task_Item Selected
+        public Task_Item Selected_Item
         {
             get { return _selectedTask; }
             set
@@ -120,15 +124,19 @@ namespace Student_Space.ViewModels
                         _selectedTask = value;
 
                         TaskSetting = _selectedTask.TaskName;
-                        
-                        OnPropertyChanged(nameof(Selected));
+                        _selectedTask = null;
+                        OnPropertyChanged(nameof(Selected_Item));
+
 
                         //Go to the Settings Page
                         OpenSettings();
+
+
+                        Console.WriteLine("This Line should be Null no colour la");
                     }
 
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     App.Current.MainPage.DisplayAlert("Error!", "No one something went wrong!" + ex, "Ok");
 

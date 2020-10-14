@@ -3,19 +3,16 @@ using System.ComponentModel;
 using System.Windows.Input;
 using Xamarin.Essentials;
 using Xamarin.Forms;
-
-
 using System.Collections.Generic;
 using System.Text;
 using Student_Space_1.Models;
 using System.Collections.ObjectModel;
 using Student_Space_1.Views;
-
 using System.Runtime.CompilerServices;
 
 namespace Student_Space.ViewModels
 {
-    public class UnitContactViewModel : INotifyPropertyChanged
+    public class UnitContactViewModel : BaseViewModel, INotifyPropertyChanged
     {
         //Create Collections to Store Objects
         public ObservableCollection<Units> UnitContactList { get; set; } 
@@ -24,9 +21,9 @@ namespace Student_Space.ViewModels
         private ObservableCollection<UnitContactDetails> DisplayContacts = new ObservableCollection<UnitContactDetails>();
 
         //Implement Property Change
-        public event PropertyChangedEventHandler PropertyChanged;
+        public new event PropertyChangedEventHandler PropertyChanged;
 
-        protected void OnPropertyChanged([CallerMemberName] string name = null)
+        protected new void OnPropertyChanged([CallerMemberName] string name = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
@@ -41,6 +38,8 @@ namespace Student_Space.ViewModels
                     if (DisplayContacts != value)
                     {
                         DisplayContacts = value;
+
+                        DisplayContacts = null;
                         OnPropertyChanged("GetContacts");
                     }
                 }
@@ -92,10 +91,23 @@ namespace Student_Space.ViewModels
         }
 
 
+        //Function to make selected item null to remove Orange highlight over items 
+        private UnitContactDetails _selected { get; set; }
+        public UnitContactDetails Selected
+        {
+            get { return null; }
+            set 
+            {
+                _selected = null;
+                OnPropertyChanged("Selected");
+            }
+        }
+
         //Constructor
         public UnitContactViewModel()
         {
             SetupData();
+            Title = "Unit Contacts";
         }
 
         //Helper Function that returns specific format for Image to be Displayed
@@ -131,7 +143,7 @@ namespace Student_Space.ViewModels
                 new Units
                 {
                     UnitCode = "IAB201",
-                    UnitName = "Modelling Techniques for Information Systems"
+                    UnitName = "Modelling Techniques for Info. Systems"
                 }
             };
 
@@ -311,6 +323,5 @@ namespace Student_Space.ViewModels
             }
 
         }
-
     }
 }

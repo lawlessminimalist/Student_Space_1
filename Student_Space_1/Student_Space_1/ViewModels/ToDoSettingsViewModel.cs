@@ -18,11 +18,11 @@ namespace Student_Space_1.ViewModels
 {
     [QueryProperty(nameof(TaskSetting), nameof(TaskSetting))]
 
-    class ToDoSettingsViewModel : INotifyPropertyChanged
+    class ToDoSettingsViewModel : MvvmHelpers.BaseViewModel, INotifyPropertyChanged
     {
         //Implement Property Change
-        public event PropertyChangedEventHandler PropertyChanged;
-        private void OnPropertyChanged([CallerMemberName] string name = "")
+        public new event PropertyChangedEventHandler PropertyChanged;
+        private new void OnPropertyChanged([CallerMemberName] string name = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
@@ -297,6 +297,8 @@ namespace Student_Space_1.ViewModels
             EditTask = new Command(Edit);
             SaveTask = new Command(UpdateList);
 
+            Title = "To Do List Settings";
+
         }
 
         //Data Handling 
@@ -355,7 +357,7 @@ namespace Student_Space_1.ViewModels
                 new Colour
                 {
                     ColourName = "Light Blue",
-                    hexValue = "#02A8F3",
+                    hexValue = "#AED6F1",
                 },
 
                 new Colour
@@ -409,7 +411,7 @@ namespace Student_Space_1.ViewModels
                 new Colour
                 {
                     ColourName = "Teal",
-                    hexValue = "#FFEB3B",
+                    hexValue = "#03D5C8",
                 },
 
                 new Colour
@@ -446,6 +448,38 @@ namespace Student_Space_1.ViewModels
                 {
                     ColourName = "Mermaid Green",
                     hexValue = "#CCFFCC",
+                },
+
+                new Colour
+                {
+                    ColourName = "Salmon",
+                    hexValue = "#FA8072",
+                },
+
+
+
+                new Colour
+                {
+                    ColourName = "Midnight Blue",
+                    hexValue = "#191970",
+                },
+
+                new Colour
+                {
+                    ColourName = "Blood Red",
+                    hexValue = "#8b0000",
+                },
+
+                new Colour
+                {
+                    ColourName = "Sand",
+                    hexValue = "#fff68f",
+                },
+
+                new Colour
+                {
+                    ColourName = "Forest Green",
+                    hexValue = "#008080",
                 },
             };
 

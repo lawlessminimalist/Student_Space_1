@@ -19,8 +19,7 @@ namespace Student_Space.ViewModels
         public ZoomViewModel()
         {
             SetupData();
-
-            Title = "Contacts Page";
+            Title = "Zoom Links";
         }
 
 
