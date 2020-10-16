@@ -18,15 +18,18 @@ namespace Student_Space
             InitializeComponent();
 
             DependencyService.Register<MockDataStore>();
-            //MainPage = new AppShell();
 
+
+            //MainPage = new AppShell();
             MainPage = new NavigationPage(new Login());
 
             //Set Experimental Flags for Radio Buttons
+            //Code Reference: https://github.com/xamarin/Xamarin.Forms/issues/10546
             Device.SetFlags(new[]
             {
                 "RadioButton_Experimental",
             });
+
         }
 
         protected override void OnStart()

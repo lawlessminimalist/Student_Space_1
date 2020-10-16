@@ -257,7 +257,7 @@ namespace Student_Space_1.ViewModels
         //Update List by Remove and Adding a New Item
         /*Notes: UI on To Do List Page would not Update upon changes to objects in the collection despite having INotifyPropertyChanged --> did research 
          * --> nothing worked despite the list changing (tested with debug)
-         * --> further research the Observable Collection only updates on changes to list (i.e. add and remove)
+         * --> further research the Observable Collection only updates on add or remove changes to list
          * --> There may be a better method, however, this method is the only method that seemed to work . . .
          * */
         public void UpdateList()
@@ -304,7 +304,7 @@ namespace Student_Space_1.ViewModels
         //Data Handling 
         private TaskDB TaskListDB;
 
-        //Enable Settings Page to Read Items from To Do List to get Details//
+        //Enable Settings Page to Read Items from To Do List to get Details
         private ObservableCollection<Task_Item> myVar;
         public ObservableCollection<Task_Item> ToDoTasks //Bind this to the View
         {

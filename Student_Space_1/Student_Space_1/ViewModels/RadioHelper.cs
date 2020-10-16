@@ -6,7 +6,7 @@ using System.Windows.Input;
 namespace Student_Space_1.ViewModels
 {
     /*
-     * Class that Helps implement Radio Button Code (i.e. viewing, selecting etc.)
+     * Class that Helps implement Radio Button Code (i.e. viewing, selecting, displaying on labels etc.)
      */
     class RadioHelper : ICommand
     {

@@ -66,7 +66,7 @@ namespace Student_Space_1.ViewModels
             GoHelp = new Command(OpenHelp);
         }
 
-        //Command Function - Open Hi Q Contacs website 
+        //Command Function - Open Hi Q Contacts website 
         public async void OpenHelp()
         {
             string uri = "https://www.qut.edu.au/about/contact";
@@ -80,7 +80,7 @@ namespace Student_Space_1.ViewModels
         async void OpenApp()
         {
             //Reference: https://stackoverflow.com/questions/54586621/whats-the-correct-way-to-implement-login-page-in-xamarin-shell
-
+            //Password and Username are any strings that are not empty 
             if (String.IsNullOrWhiteSpace(InputUser) || String.IsNullOrWhiteSpace(InputPassword))
             {
                 await App.Current.MainPage.DisplayAlert("Error", "You have entered an incorrect Username or Password", "Ok");
