@@ -17,5 +17,11 @@ namespace Student_Space_1.Models
         public ImageSource Picture { get; set; }
 
         public string ID { get; set; }
+        public string Password { get; set; }
+
+        public override string ToString()
+        {
+            return Name + ID;
+        }
     }
 }

@@ -4,7 +4,8 @@ using Xamarin.Forms.Xaml;
 using Student_Space.Services;
 using Student_Space.Views;
 using Student_Space_1.Views;
-
+using System.Security.Cryptography.X509Certificates;
+using System.Diagnostics;
 
 [assembly: ExportFont("JosefinSans-VariableFont_wght.ttf")]
 
@@ -12,13 +13,13 @@ namespace Student_Space
 {
     public partial class App : Application
     {
-
+        //Global Variable to tell Which User Logged In 
+        public static string User { get; set; }
         public App()
         {
             InitializeComponent();
 
             DependencyService.Register<MockDataStore>();
-
 
             //MainPage = new AppShell();
             MainPage = new NavigationPage(new Login());

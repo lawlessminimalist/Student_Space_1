@@ -60,7 +60,7 @@ namespace Student_Space_1.Models
 
             Task_Item new_task3 = new Task_Item
             {
-                TaskName = "Impolement App Error Handling",
+                TaskName = "IAB330 App Build",
                 DueDate = DateTime.Today,
                 DueTime = new TimeSpan(15, 30, 00),
                 Priority = "#03D5C8",
