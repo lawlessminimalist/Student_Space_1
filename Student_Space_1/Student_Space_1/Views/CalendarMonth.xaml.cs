@@ -4,7 +4,6 @@ using Student_Space.ViewModels;
 using System.Windows.Input;
 using System.Collections.Specialized;
 using System;
-using Student_Space.ViewModels;
 
 namespace Student_Space_1.Views
 {
