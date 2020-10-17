@@ -15,6 +15,9 @@ namespace Student_Space_1.Views
         public Login()
         {
             InitializeComponent();
+
+            
+            //NavigationPage.SetHasNavigationBar(this, false);
         }
     }
 }

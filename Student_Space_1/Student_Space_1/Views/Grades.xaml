@@ -34,14 +34,13 @@
                 </Grid.ColumnDefinitions>
 
                 <Image Source="{local:ImageResource Student_Space_1.Images.Rectangle.png}" HeightRequest="60" Aspect="Fill" Grid.Row="1" Grid.ColumnSpan="6" Margin="10"/>
-                <Label VerticalOptions="Center" HorizontalOptions="Center" TextColor="Black" FontSize="Title" Grid.Row="1" Grid.ColumnSpan="6" Text="My Grades"/>
+                <Label VerticalOptions="Center" HorizontalOptions="Center" TextColor="Black" FontSize="Title" Grid.Row="1" Grid.ColumnSpan="6" Text="Grades"/>
 
                 <!--Add Picker for Selecting Units & Bind to Unit List-->
-                <Picker x:Name="UnitContactPicker" FontSize="Medium"  SelectedItem="{Binding SelectedUnit}" Title="IFB295:  Project Management N/A " ItemsSource="{Binding StudentUnits}" TextColor="White" HorizontalOptions="FillAndExpand" Margin="10,0,10,10" BackgroundColor="#374B90" Grid.ColumnSpan="6" Grid.Row="2" TitleColor="White" />
+                <Picker x:Name="UnitContactPicker" FontSize="Small"  SelectedItem="{Binding SelectedUnit}" Title="IFB295:  Project Management N/A " ItemsSource="{Binding StudentUnits}" TextColor="White" HorizontalOptions="FillAndExpand" Margin="10,0,10,10" BackgroundColor="#374B90" Grid.ColumnSpan="6" Grid.Row="2" TitleColor="White" />
 
                 <!--List Template to Display Assessment Pieces-->
-                <ListView x:Name="AssessmentList" Grid.Row="3" Grid.ColumnSpan="6" SeparatorVisibility="None"
-                ItemsSource="{Binding GetGrades, Mode=OneWay}" RowHeight="50" Margin="30,0,30,0">
+                <ListView x:Name="AssessmentList" Grid.Row="3" SelectedItem="{Binding SelectedAssessment, Mode=TwoWay}" Grid.ColumnSpan="6" SeparatorVisibility="None" ItemsSource="{Binding GetGrades, Mode=OneWay}" RowHeight="50" Margin="30,0,30,0">
                     <ListView.ItemTemplate>
                         <DataTemplate x:Name="AssessmentTemplate">
                             <ViewCell>

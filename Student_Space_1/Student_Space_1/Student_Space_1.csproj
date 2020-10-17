@@ -1,5 +1,5 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
+  
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
@@ -26,6 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Fonts\JosefinSans-VariableFont_wght.ttf" />
     <None Remove="Images\Alarm.png" />
     <None Remove="Images\ArrowDown.png" />
     <None Remove="Images\ArrowRight.png" />
@@ -53,15 +54,24 @@
     <None Remove="Images\upsidetriangle.png" />
     <None Remove="PeopleImages\Amy.jpg" />
     <None Remove="PeopleImages\Andrew.jpg" />
+    <None Remove="PeopleImages\Bobby.jpg" />
+    <None Remove="PeopleImages\Bobby.png" />
     <None Remove="PeopleImages\Daffy.jpeg" />
     <None Remove="PeopleImages\Dan.jpg" />
     <None Remove="PeopleImages\Frank.jpeg" />
+    <None Remove="PeopleImages\Frank.png" />
+    <None Remove="PeopleImages\Frank2.jpg" />
     <None Remove="PeopleImages\George.jpg" />
+    <None Remove="PeopleImages\Jasmina.jpg" />
+    <None Remove="PeopleImages\Jasmina.png" />
     <None Remove="PeopleImages\John.jpg" />
     <None Remove="PeopleImages\Ken.jpg" />
     <None Remove="PeopleImages\Lily.png" />
     <None Remove="PeopleImages\Maggie.jpg" />
     <None Remove="PeopleImages\Mark.jfif" />
+    <None Remove="PeopleImages\Mira.jpeg" />
+    <None Remove="PeopleImages\Mira.jpg" />
+    <None Remove="PeopleImages\Mira.png" />
     <None Remove="PeopleImages\Paul.jpg" />
     <None Remove="PeopleImages\Peter.jfif" />
     <None Remove="PeopleImages\Steve.jfif" />
@@ -70,6 +80,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Fonts\JosefinSans-VariableFont_wght.ttf" />
     <EmbeddedResource Include="Images\Alarm.png" />
     <EmbeddedResource Include="Images\Background.png" />
     <EmbeddedResource Include="Images\Clock.png" />
@@ -103,15 +114,19 @@
     <EmbeddedResource Include="Images\Transcript.png" />
     <EmbeddedResource Include="Images\Trans_GPA.png" />
     <EmbeddedResource Include="PeopleImages\Amy.jpg" />
+    <EmbeddedResource Include="PeopleImages\Bobby.png" />
     <EmbeddedResource Include="PeopleImages\Daffy.jpeg" />
     <EmbeddedResource Include="PeopleImages\Dan.jpg" />
     <EmbeddedResource Include="PeopleImages\Frank.jpeg" />
+    <EmbeddedResource Include="PeopleImages\Frank.png" />
     <EmbeddedResource Include="PeopleImages\George.jpg" />
+    <EmbeddedResource Include="PeopleImages\Jasmina.png" />
     <EmbeddedResource Include="PeopleImages\John.jpg" />
     <EmbeddedResource Include="PeopleImages\Ken.jpg" />
     <EmbeddedResource Include="PeopleImages\Lily.png" />
     <EmbeddedResource Include="PeopleImages\Maggie.jpg" />
     <EmbeddedResource Include="PeopleImages\Mark.jfif" />
+    <EmbeddedResource Include="PeopleImages\Mira.png" />
     <EmbeddedResource Include="PeopleImages\Paul.jpg" />
     <EmbeddedResource Include="PeopleImages\Peter.jfif" />
     <EmbeddedResource Include="PeopleImages\Steve.jfif" />
@@ -174,5 +189,14 @@
     <EmbeddedResource Update="Views\Zoom.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="NewFolder1\" />
+    <Folder Include="NewFolder\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Fonts\JosefinSans-VariableFont_wght.ttf" />
   </ItemGroup>
 </Project>

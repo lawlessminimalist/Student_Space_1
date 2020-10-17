@@ -17,11 +17,11 @@ using System.Threading.Tasks;
 
 namespace Student_Space.ViewModels
 {
-    public class GradesViewModel : INotifyPropertyChanged
+    public class GradesViewModel : BaseViewModel, INotifyPropertyChanged
     {
         //Implement Property Change
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected void OnPropertyChanged([CallerMemberName] string name = null)
+        public new event PropertyChangedEventHandler PropertyChanged;
+        protected new void OnPropertyChanged([CallerMemberName] string name = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
@@ -58,9 +58,9 @@ namespace Student_Space.ViewModels
             get { return DisplayGrades; }
         }
 
-
+        //Get Selected Unit from Picker
         private AllUnits _selectedUnit { get; set; }
-        public AllUnits SelectedUnit //Get Selected Unit from Picker
+        public AllUnits SelectedUnit 
         {
             get { return _selectedUnit; }
             set
@@ -128,6 +128,20 @@ namespace Student_Space.ViewModels
             }
         }
 
+        //Function to make selected item null to remove Orange highlight over items 
+        private Assessment _selectedA { get; set; }
+        public Assessment SelectedAssessment
+        {
+            get { return null; }
+            set
+            {
+                _selectedA = null;
+                OnPropertyChanged("SelectedAssessment");
+            }
+        }
+
+
+
         //Contructor
         public GradesViewModel()
         {
@@ -140,6 +154,8 @@ namespace Student_Space.ViewModels
             //Commands
             GoCalculator = new Command(OpenCalculator);
             GoTranscript = new Command(OpenQUT);
+
+            Title = "Grades";
         }
 
         //Declare Commands

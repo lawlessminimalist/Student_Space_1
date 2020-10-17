@@ -1,7 +1,10 @@
 ﻿using Student_Space;
+using Student_Space_1.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Windows.Input;
@@ -64,9 +67,15 @@ namespace Student_Space_1.ViewModels
         {
             UserLogin = new Command(OpenApp);
             GoHelp = new Command(OpenHelp);
+
+            //Access Shared Observable Collection (List of Students)
+            StudentListDB = StudentDB.Instance;
+
+            App.User = null;
+
         }
 
-        //Command Function - Open Hi Q Contacs website 
+        //Command Function - Open Hi Q Contacts website 
         public async void OpenHelp()
         {
             string uri = "https://www.qut.edu.au/about/contact";
@@ -77,18 +86,108 @@ namespace Student_Space_1.ViewModels
          * Command Function - Open the App after the user has logged
          * Password and Username are any strings, as long as not null user can log in 
          */
-        async void OpenApp()
+        public async void OpenApp()
         {
-            //Reference: https://stackoverflow.com/questions/54586621/whats-the-correct-way-to-implement-login-page-in-xamarin-shell
 
-            if (String.IsNullOrWhiteSpace(InputUser) || String.IsNullOrWhiteSpace(InputPassword))
+            try
             {
-                await App.Current.MainPage.DisplayAlert("Error", "You have entered an incorrect Password or Username", "Ok");
+                bool loggedIn = false;
+                while (loggedIn == false)
+                {
+
+                    foreach (Student user in ListStudent)
+                    {
+                        if (InputUser.Equals(user.ID) && InputPassword.Equals(user.Password))
+                        {
+                            App.User = user.ID;
+                            Console.WriteLine("Logged in: " + user.Name);
+                            break;
+                        }
+
+                    }
+
+
+                    //Check the User 
+                    if (App.User != null)
+                    {
+                        loggedIn = true;
+                        Application.Current.MainPage = new AppShell();
+                    }
+                    else
+                    {
+
+                        var answer = await App.Current.MainPage.DisplayAlert("Error", "You have entered an incorrect Username or Password", "Ok", "Logout");
+                        if (answer)
+                        {
+                            return;
+                        }
+                        else
+                        {
+                            //Close the App
+                            System.Diagnostics.Process.GetCurrentProcess().CloseMainWindow();
+                        }
+
+                    }
+
+                }
+
             }
-            else
+            catch (Exception ex)
             {
-                Application.Current.MainPage = new AppShell();
+                Console.WriteLine(ex);
             }
         }
+
+        //Access List of Users
+        //Handle Data
+        private StudentDB StudentListDB;
+
+        private ObservableCollection<Student> myVar;
+        public ObservableCollection<Student> ListStudent //Bind this to the View
+        {
+            get { return StudentListDB.Studentlist; }
+            set
+            {
+                myVar = value;
+                OnPropertyChanged("ListStudent");
+            }
+
+        }
+
     }
 }
+
+/*if (InputUser.Equals(user.ID) && InputPassword.Equals(user.Password))
+{
+
+    Application.Current.MainPage = new AppShell();
+    Console.WriteLine("Logged in: " + user.Name);
+    loggedIn = true;
+    break;
+}
+else if ((!InputUser.Equals(user.ID)) && (!InputPassword.Equals(user.Password)))
+{
+    Console.WriteLine("Casuing next error....... the heck " + user.Name);
+    await App.Current.MainPage.DisplayAlert("Error", "You have entered an incorrect Username or Password", "Cancel");
+}
+*/
+
+
+/*var result = ListStudent.Where(s => s.Name.Equals(InputUser) && s.Password.Equals(InputPassword));
+
+var test = ListStudent.Where(s => s.Name.Equals(InputUser) && s.Password.Equals(InputPassword)).OfType<Student>().Select(Name => Name.Name).ToList();
+
+
+if (result != null)
+{
+
+    Console.WriteLine("Found a user?" + result.ToList());
+    Console.WriteLine("Name Test" + test);
+
+    foreach (var student in result)
+    {
+        Console.WriteLine("Trying to get Student Name" + student.Name);
+    }
+
+    loggedIn = true;
+}*/

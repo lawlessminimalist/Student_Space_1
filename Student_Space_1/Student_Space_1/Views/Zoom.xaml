@@ -30,7 +30,7 @@
                 <Label VerticalOptions="Center" HorizontalOptions="Center" TextColor="Black" FontSize="Title" Grid.Row="1" Grid.ColumnSpan="1" Text="Zoom Links"/>
 
                 
-                <ListView x:Name="ZoomLink" Grid.Row="2" Grid.ColumnSpan="1" SeparatorVisibility="Default" ItemsSource="{Binding ZoomLinks}" CachingStrategy="RecycleElement" RowHeight="130" Margin="20,0,20,0">
+                <ListView x:Name="ZoomLink" IsEnabled="False" Grid.Row="2" Grid.ColumnSpan="1" SeparatorVisibility="Default" ItemsSource="{Binding ZoomLinks}" CachingStrategy="RecycleElement" RowHeight="130" Margin="20,0,20,0">
 
                     <ListView.ItemTemplate>
                         <DataTemplate>

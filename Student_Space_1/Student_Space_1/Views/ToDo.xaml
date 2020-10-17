@@ -45,12 +45,11 @@
 
 
 
-            <ListView x:Name="TaskList" ItemsSource="{Binding ToDoTasks}" BackgroundColor="Transparent" SelectedItem="{Binding Selected}">
+            <ListView x:Name="TaskList" ItemsSource="{Binding ToDoTasks}" BackgroundColor="Transparent" SelectedItem="{Binding Selected_Item, Mode=TwoWay}">
                 <ListView.ItemTemplate>
                     <DataTemplate x:Name="TaskTemplate">
                         <ViewCell>
                             <Grid HorizontalOptions="StartAndExpand" VerticalOptions="EndAndExpand" ColumnSpacing="5">
-
                                 <Grid.RowDefinitions>
                                     <RowDefinition/>
                                 </Grid.RowDefinitions>
@@ -63,9 +62,10 @@
                                 </Grid.ColumnDefinitions>
 
                                 <CheckBox Grid.Column="0" IsChecked="False" Color="Green" />
-                                <Label Grid.Column="1" HorizontalTextAlignment="Start" Text="{Binding TaskName}"  Margin="0,8,0,0" TextColor="Black" FontSize="Small" />
+                                <Label Grid.Column="1" HorizontalTextAlignment="Start" Text="{Binding TaskName}"  Margin="0,2,0,0" TextColor="Black" FontSize="Small" />
                                 <Button Grid.Column="2" Command="{Binding Path=BindingContext.GoSetting, Source={x:Reference TaskList}}" VerticalOptions="StartAndExpand" HorizontalOptions="EndAndExpand" Margin="0,8,0,0" BackgroundColor="{Binding Priority, Converter={StaticResource Converter}}" FontSize="Small" HeightRequest="16" BorderRadius="8"/>
                                 <ImageButton Command="{Binding Path=BindingContext.DeleteTask, Source={x:Reference TaskList}}" CommandParameter="{Binding .}" Grid.Column="3" Source="{local:ImageResource Student_Space_1.Images.Bin_Delete.png}" VerticalOptions="StartAndExpand" BackgroundColor="Transparent" Margin="0,5,0,0" HeightRequest="20" />
+
                             </Grid>
                         </ViewCell>
                     </DataTemplate>

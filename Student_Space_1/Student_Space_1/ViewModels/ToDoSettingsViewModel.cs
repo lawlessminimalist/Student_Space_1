@@ -12,16 +12,17 @@ using System.Windows.Input;
 using Student_Space;
 using System.Collections.Specialized;
 using System.Globalization;
+using Student_Space_1.Views;
 
 namespace Student_Space_1.ViewModels
 {
     [QueryProperty(nameof(TaskSetting), nameof(TaskSetting))]
 
-    class ToDoSettingsViewModel : INotifyPropertyChanged
+    class ToDoSettingsViewModel : MvvmHelpers.BaseViewModel, INotifyPropertyChanged
     {
         //Implement Property Change
-        public event PropertyChangedEventHandler PropertyChanged;
-        private void OnPropertyChanged([CallerMemberName] string name = "")
+        public new event PropertyChangedEventHandler PropertyChanged;
+        private new void OnPropertyChanged([CallerMemberName] string name = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
@@ -256,7 +257,7 @@ namespace Student_Space_1.ViewModels
         //Update List by Remove and Adding a New Item
         /*Notes: UI on To Do List Page would not Update upon changes to objects in the collection despite having INotifyPropertyChanged --> did research 
          * --> nothing worked despite the list changing (tested with debug)
-         * --> further research the Observable Collection only updates on changes to list (i.e. add and remove)
+         * --> further research the Observable Collection only updates on add or remove changes to list
          * --> There may be a better method, however, this method is the only method that seemed to work . . .
          * */
         public void UpdateList()
@@ -277,6 +278,12 @@ namespace Student_Space_1.ViewModels
 
             //Add the New Task
             ToDoTasks.Add(update_task);
+
+
+            //Go Back to Previous Page
+            App.Current.MainPage.Navigation.PopAsync();
+
+
         }
 
         //Constructor
@@ -290,12 +297,14 @@ namespace Student_Space_1.ViewModels
             EditTask = new Command(Edit);
             SaveTask = new Command(UpdateList);
 
+            Title = "To Do List Settings";
+
         }
 
         //Data Handling 
         private TaskDB TaskListDB;
 
-        //Enable Settings Page to Read Items from To Do List to get Details//
+        //Enable Settings Page to Read Items from To Do List to get Details
         private ObservableCollection<Task_Item> myVar;
         public ObservableCollection<Task_Item> ToDoTasks //Bind this to the View
         {
@@ -348,7 +357,7 @@ namespace Student_Space_1.ViewModels
                 new Colour
                 {
                     ColourName = "Light Blue",
-                    hexValue = "#02A8F3",
+                    hexValue = "#AED6F1",
                 },
 
                 new Colour
@@ -402,7 +411,7 @@ namespace Student_Space_1.ViewModels
                 new Colour
                 {
                     ColourName = "Teal",
-                    hexValue = "#FFEB3B",
+                    hexValue = "#03D5C8",
                 },
 
                 new Colour
@@ -439,6 +448,38 @@ namespace Student_Space_1.ViewModels
                 {
                     ColourName = "Mermaid Green",
                     hexValue = "#CCFFCC",
+                },
+
+                new Colour
+                {
+                    ColourName = "Salmon",
+                    hexValue = "#FA8072",
+                },
+
+
+
+                new Colour
+                {
+                    ColourName = "Midnight Blue",
+                    hexValue = "#191970",
+                },
+
+                new Colour
+                {
+                    ColourName = "Blood Red",
+                    hexValue = "#8b0000",
+                },
+
+                new Colour
+                {
+                    ColourName = "Sand",
+                    hexValue = "#fff68f",
+                },
+
+                new Colour
+                {
+                    ColourName = "Forest Green",
+                    hexValue = "#008080",
                 },
             };
 

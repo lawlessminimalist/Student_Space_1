@@ -2,16 +2,29 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Student_Space_1.Controls.FlyoutHeader"
+             xmlns:local="clr-namespace:Student_Space_1;assembly=Student_Space_1" 
+             xmlns:viewmodel="clr-namespace:Student_Space_1.Controls"
              HeightRequest="200">
-    <Grid BackgroundColor="{StaticResource Primary}">
-        <Image Aspect="AspectFill" 
-               Source="flyoutheader.jpg" 
-               Opacity="0.6" />       
-        <Label Text="Put Login Icon Here"
-               FontSize="30" 
-               TextColor="White" 
-               FontAttributes="Bold" 
-               HorizontalTextAlignment="Center"
-               VerticalTextAlignment="Center" />
+
+    <ContentView.BindingContext>
+        <viewmodel:FlyoutHeaderViewModel/>
+    </ContentView.BindingContext>
+ 
+    <Grid BackgroundColor="#374B90">
+
+        <StackLayout Padding="10" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+            <Image HeightRequest="50" WidthRequest="50" HorizontalOptions="CenterAndExpand" VerticalOptions="Start"
+               Source="{local:ImageResource Student_Space_1.Images.LogoNoText.png}"  />
+
+            <FlexLayout JustifyContent="Center">
+                <Image HeightRequest="90" WidthRequest="100" Source="{Binding Picture}"/>
+                <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Margin="0,20,0,0">
+                    <Label Text="{Binding Name}" TextColor="White" FontSize="Subtitle" FontAttributes="Bold" />
+                    <Label Text="{Binding UserID}" TextColor="White" FontSize="Subtitle" FontAttributes="Bold"/>
+                </StackLayout>
+            </FlexLayout>
+            
+        </StackLayout>
+
     </Grid>
 </ContentView>
