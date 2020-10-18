@@ -894,10 +894,10 @@
 
                 <Grid x:Name ="MenuOpen4" IsVisible="false" RowSpacing="0" ColumnSpacing="0">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="50" />
-                        <RowDefinition Height="50" />
-                        <RowDefinition Height="50" />
-                        <RowDefinition Height="50" />
+                        <RowDefinition Height="60" />
+                        <RowDefinition Height="60" />
+                        <RowDefinition Height="60" />
+                        <RowDefinition Height="60" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="250" />
@@ -906,38 +906,33 @@
                     <BoxView />
 
                     <BoxView Grid.Row="1" Grid.ColumnSpan="2"/>
-                    <Frame Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="40">
+                    <Frame Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="50">
                         
-                        <Picker Title="Select an Announcement" 
+                        <Picker Title="Select Announcement Field" 
                     TitleColor="Black"
-                    ItemsSource="{Binding Announcements}" 
-                    ItemDisplayBinding="{Binding AnnouncementName}"
-                    SelectedItem="{Binding SelectedAnnouncement}"/>
+                    ItemsSource="{Binding SubjectFieldsList}" 
+                    ItemDisplayBinding="{Binding SubjectFieldName}"
+                    SelectedItem="{Binding SelectedField}"/>
 
                     </Frame>
-                    
+
                     <BoxView Grid.Row="2" Grid.ColumnSpan="2"/>
-                    <Frame Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="40">
+                    <Frame Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="50">
+                        <Picker Title="Select Announcement" 
+                    TitleColor="Black"
+                    ItemsSource="{Binding GetAnnouncements}" 
+                    ItemDisplayBinding="{Binding AnnouncementName}"
+                    SelectedItem="{Binding SelectedAnnouncement}"/>
+                    </Frame>
+                    <BoxView Grid.Row="3" Grid.ColumnSpan="2"/>
+                    <Frame Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="50">
                         <Frame.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding PickerAlert4}" NumberOfTapsRequired="1" />
                         </Frame.GestureRecognizers>
-                        <Label Grid.Column ="0" Grid.Row="2" Grid.ColumnSpan="2" TextColor="Black" Text="{Binding SelectedAnnouncement.AnnouncementInfo}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
-                    </Frame>
-                    <BoxView Grid.Row="3" Grid.ColumnSpan="2"/>
-                    <Frame Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="40">
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnDisplayAlertButtonClicked2033" NumberOfTapsRequired="1" />
-                        </Frame.GestureRecognizers>
-                        <Label Grid.Column ="0" Grid.Row="3" Grid.ColumnSpan="2" TextColor="Black" Text="Announcement 2" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
-                    </Frame>
-                    <BoxView Grid.Row="4" Grid.ColumnSpan="2"/>
-                    <Frame Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="40">
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnDisplayAlertButtonClicked2034" NumberOfTapsRequired="1" />
-                        </Frame.GestureRecognizers>
-                        <Label Grid.Column ="0" Grid.Row="4" Grid.ColumnSpan="2" TextColor="Black" Text="Announcement 3" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+                        <Label Grid.Column ="0" Grid.Row="4" Grid.ColumnSpan="2" TextColor="Black" Text="{Binding SelectedAnnouncement.AnnouncementName}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
 
                     </Frame>
+                    
                 </Grid>
 
                 <BoxView Color="White"

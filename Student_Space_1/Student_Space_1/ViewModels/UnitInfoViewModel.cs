@@ -7,8 +7,6 @@ using System.ComponentModel;
 using System.Windows.Input;
 using Xamarin.Essentials;
 using Xamarin.Forms;
-using Student_Space_1.Models;
-using System.Collections.ObjectModel;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 
@@ -18,28 +16,96 @@ namespace Student_Space.ViewModels
     {
 
 
+
         public ICommand PickerAlert4 { get; set; }
         public ObservableCollection<Announcement> Announcements{ get; set; }
 
-        Announcement selectedAnnouncement;
-        public Announcement SelectedAnnouncement
+        public ObservableCollection<Subject> Subjects { get; set; }
+
+        public ObservableCollection<SubjectField> SubjectFieldsList { get; set; }
+
+        public ObservableCollection<Announcement> DisplayAnnouncements = new ObservableCollection<Announcement>();
+
+        private SubjectField _selectedField{ get; set; }
+
+        public ObservableCollection<Announcement> GetAnnouncements
         {
-            get { return selectedAnnouncement; }
             set
             {
-                if (selectedAnnouncement != value)
+                try
                 {
-                    selectedAnnouncement = value;
-                    OnPropertyChanged();
+                    if (DisplayAnnouncements != value)
+                    {
+                        DisplayAnnouncements = value;
+
+                        DisplayAnnouncements = null;
+                        OnPropertyChanged("GetAnnouncements");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    App.Current.MainPage.DisplayAlert("Alert", "something has gone wrong..." + ex, "Ok");
+                }
+            }
+            get { return DisplayAnnouncements; }
+        }
+
+
+        public SubjectField SelectedField
+        {
+            get { return _selectedField; }
+            set
+            {
+                if (_selectedField != value)
+                {
+                    _selectedField = value;
+
+                    string field = _selectedField.SubjectFieldName;
+
+                    DisplayAnnouncements.Clear();
+
+                    foreach (var Announcement in Announcements)
+                    {
+                        try
+                        {
+                            if (Announcement.AnnouncementField == field)
+                            {
+                                DisplayAnnouncements.Add(Announcement);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            App.Current.MainPage.DisplayAlert("Alert", "something has gone wrong..." + ex, "Ok");
+                        }
+                    }
                 }
             }
         }
 
-        void MakeAlter()
+        private Announcement _selectedAnnouncement { get; set; }
+
+        public Announcement SelectedAnnouncement
         {
-            Application.Current.MainPage.DisplayAlert("Alert", SelectedAnnouncement.AnnouncementInfo, "Cancel", "ok");
+
+            get { return _selectedAnnouncement; }
+            set
+            {
+                if (_selectedAnnouncement != value)
+                {
+                    _selectedAnnouncement = value;
+                    OnPropertyChanged();
+
+                }
+            }
+
         }
 
+        
+        void MakeAlter()
+        {
+            Application.Current.MainPage.DisplayAlert(SelectedAnnouncement.AnnouncementName, SelectedAnnouncement.AnnouncementInfo , "Cancel", "ok") ;
+        }
+        
 
 
         public UnitInfoViewModel()
@@ -49,8 +115,6 @@ namespace Student_Space.ViewModels
             OpenWebCommand = new Command(async () => await Browser.OpenAsync("https://aka.ms/xamain-quickstart"));
             PickerAlert4 = new Command(get => MakeAlter());
             SetupData();
-
-
     }
 
 
@@ -63,38 +127,119 @@ namespace Student_Space.ViewModels
 
         void SetupData()
         {
+            
+            Subjects = new ObservableCollection<Subject>()
+            {
+
+                new Subject{
+                    SubjectID = "CAB203",
+                    SubjectName ="Networks"
+
+                },
+                new Subject{
+                    SubjectID = "CAB230",
+                    SubjectName ="Cryptography"
+
+                },
+                new Subject{
+                    SubjectID = "CAB302",
+                    SubjectName ="Discrete Structures"
+
+                },
+                new Subject{
+                    SubjectID = "IAB230",
+                    SubjectName ="IT Management"
+
+                }
+
+            };
+
+
+            SubjectFieldsList = new ObservableCollection<SubjectField>()
+            {
+
+                new SubjectField{
+                    SubjectFieldName = "Announcement"
+
+                },
+                new SubjectField{
+                    SubjectFieldName = "Lecture Recording"
+
+                },
+                new SubjectField{
+                    SubjectFieldName = "Assignment"
+
+                },
+                new SubjectField{
+                    SubjectFieldName = "Learning Resource"
+
+                }
+
+
+            };
+
+
+
             Announcements = new ObservableCollection<Announcement>()
             {
                 new Announcement
             {
+                AnnouncementName = "CAB303 exam is online only",
+                AnnouncementInfo = "CAB303 exam is online only, please look at your individual ",
+                AnnouncementField = "Announcement",
+                AnnouncementSubject = "CAB303"
+
+            },
+                new Announcement
+            {
+                AnnouncementName = "Exam 1 results have been released",
+                AnnouncementInfo = "This is the first announcement info page i really don tknow what else to write on this",
+                AnnouncementField = "Announcement",
+                AnnouncementSubject = "CAB303"
+
+            },
+                new Announcement
+            {
+                AnnouncementName = "Announcement ",
+                AnnouncementInfo = "This is the first announcement info page i really don tknow what else to write on this",
+                AnnouncementField = "Announcement",
+                AnnouncementSubject = "CAB303"
+
+            },
+                new Announcement
+            {
                 AnnouncementName = "Announcement numero uno",
                 AnnouncementInfo = "This is the first announcement info page i really don tknow what else to write on this",
+                AnnouncementField = "Announcement",
+                AnnouncementSubject = "CAB303"
 
             },
                 new Announcement
             {
-                AnnouncementName = "Announcement numero twqo",
+                AnnouncementName = "Announcement numero uno",
                 AnnouncementInfo = "This is the first announcement info page i really don tknow what else to write on this",
+                AnnouncementField = "Announcement",
+                AnnouncementSubject = "CAB340"
 
             },
                 new Announcement
             {
-                AnnouncementName = "Announcement numero three",
-                AnnouncementInfo = "This is the first announcement info page i really don tknow what else to write on this",
+                AnnouncementName = "Lecture recording week 1: ",
+                AnnouncementInfo = "Your Week 1 lecture has been uploaded and can be seen at ",
+                AnnouncementField = "Lecture Recording",
+                AnnouncementSubject = "CAB303"
 
-            },
-                new Announcement
-            {
-                AnnouncementName = "Announcement numero four",
-                AnnouncementInfo = "This is the first announcement info page i really don tknow what else to write on this",
-                
             }
 
             };
+
+
         }
 
+        
 
 
 
-    }
+
+}
 }
