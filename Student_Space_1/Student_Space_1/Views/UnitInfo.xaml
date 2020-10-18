@@ -14,9 +14,10 @@
         <ScrollView>
             <FlexLayout Direction="Column"
                 AlignItems="Center"
+                        BackgroundColor="#508492A6"
                 >
 
-                <BoxView Color="White"
+                <BoxView Color="Transparent"
              WidthRequest="160"
              HeightRequest="30" />
 
@@ -411,13 +412,13 @@
                 </Grid>
 
 
-                <BoxView Color="White"
-             WidthRequest="160"
+                <BoxView Color="Transparent"
+             WidthRequest="300"
              HeightRequest="30" 
                          />
 
 
-                <Grid RowSpacing="0" ColumnSpacing="0">
+                <Grid x:Name="MenuClose2" RowSpacing="0" ColumnSpacing="0" BackgroundColor="#5660a8">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50" />
                     </Grid.RowDefinitions>
@@ -428,7 +429,7 @@
                     <BoxView />
 
                     <Frame BackgroundColor="#5660a8" Padding="0" HorizontalOptions="Center" WidthRequest="250" HeightRequest="40">
-                        <Label Grid.Column ="0" TextColor="White" Text="CAB340 - Cryptography" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+                        <Label Grid.Column ="0" TextColor="White" Text="CAB230 - Cryptography" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
                         <Frame.GestureRecognizers>
                             <TapGestureRecognizer Tapped="Open2" NumberOfTapsRequired="1" />
                         </Frame.GestureRecognizers>
@@ -444,379 +445,100 @@
 
                 </Grid>
 
-                <Grid x:Name="MenuOpen2" IsVisible="false" RowSpacing="0" ColumnSpacing="0">
+                <Grid x:Name="MenuOpen2" IsVisible="false" RowSpacing="0" ColumnSpacing="0"  BackgroundColor="#5660a8">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50" />
-                        <RowDefinition Height="50" />
-                        <RowDefinition Height="50" />
-                        <RowDefinition Height="50" />
+                        <RowDefinition Height="60" />
+                        <RowDefinition Height="60" />
+                        <RowDefinition Height="60" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="250" />
                         <ColumnDefinition Width="50" />
                     </Grid.ColumnDefinitions>
                     <BoxView />
-
-                    <BoxView Grid.Row="1" Grid.ColumnSpan="2"/>
-                    <Frame Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="40">
+                    
+                    <Frame BackgroundColor="#5660a8" Padding="0" HorizontalOptions="Center" WidthRequest="250" HeightRequest="40">
+                        <Label Grid.Column ="0" TextColor="White" Text="CAB230 - Cryptography" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
                         <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="Open11" NumberOfTapsRequired="1" />
+                            <TapGestureRecognizer Tapped="Open2" NumberOfTapsRequired="1" />
                         </Frame.GestureRecognizers>
-                        <Label Grid.Column ="0" Grid.Row="1" Grid.ColumnSpan="2" TextColor="Black" Text="Announcements" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
                     </Frame>
-                    <BoxView Grid.Row="2" Grid.ColumnSpan="2"/>
-                    <Frame Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="40">
+
+                    <BoxView Grid.Column="1"/>
+                    <Frame Grid.Column="1" BackgroundColor="#5660a8" Padding="7" HorizontalOptions="Center" WidthRequest="250" HeightRequest="40">
+                        <Image Source="{local:ImageResource Student_Space_1.Images.ArrowDown.png}"  RotationX="180"/>
                         <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="Open12" NumberOfTapsRequired="1" />
+                            <TapGestureRecognizer Tapped="Open2" NumberOfTapsRequired="1" />
                         </Frame.GestureRecognizers>
-                        <Label Grid.Column ="0" Grid.Row="2" Grid.ColumnSpan="2" TextColor="Black" Text="Lecture Recordings" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+                    </Frame>
+                    <BoxView Grid.Row="1" Grid.ColumnSpan="2"/>
+                    <Frame Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="50">
+
+                        <Picker Title="Select Announcement Field" 
+                    TitleColor="Black"
+                    ItemsSource="{Binding SubjectFieldsList}" 
+                    ItemDisplayBinding="{Binding SubjectFieldName}"
+                    SelectedItem="{Binding SelectedField}"/>
+
+                    </Frame>
+
+                    <BoxView Grid.Row="2" Grid.ColumnSpan="2"/>
+                    <Frame Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="50">
+                        <Picker Title="Select Announcement" 
+                    TitleColor="Black"
+                    ItemsSource="{Binding GetAnnouncements}" 
+                    ItemDisplayBinding="{Binding AnnouncementName}"
+                    SelectedItem="{Binding SelectedAnnouncement}"/>
                     </Frame>
                     <BoxView Grid.Row="3" Grid.ColumnSpan="2"/>
-                    <Frame Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="40">
+                    <Frame Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="50">
                         <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="Open13" NumberOfTapsRequired="1" />
+                            <TapGestureRecognizer Command="{Binding PickerAlert4}" NumberOfTapsRequired="1" />
                         </Frame.GestureRecognizers>
-                        <Label Grid.Column ="0" Grid.Row="3" Grid.ColumnSpan="2" TextColor="Black" Text="Assignments" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
-                    </Frame>
-                    <BoxView Grid.Row="4" Grid.ColumnSpan="2"/>
-                    <Frame Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="40">
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="Open14" NumberOfTapsRequired="1" />
-                        </Frame.GestureRecognizers>
-                        <Label Grid.Column ="0" Grid.Row="4" Grid.ColumnSpan="2" TextColor="Black" Text="Learning Resources" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+                        <Label Grid.Column ="0" Grid.Row="4" Grid.ColumnSpan="2" TextColor="Black" Text="{Binding SelectedAnnouncement.AnnouncementName}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
 
                     </Frame>
+                    
                 </Grid>
 
 
-                <Grid x:Name="MenuOpen21" IsVisible="false" RowSpacing="0" ColumnSpacing="0">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="50" />
-                        <RowDefinition Height="50" />
-                        <RowDefinition Height="50" />
-                        <RowDefinition Height="50" />
-                        <RowDefinition Height="50" />
-                        <RowDefinition Height="50" />
-                        <RowDefinition Height="50" />
-                        <RowDefinition Height="50" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="250" />
-                        <ColumnDefinition Width="50" />
-                    </Grid.ColumnDefinitions>
-                    <BoxView />
-
-                    <BoxView Grid.Row="1" Grid.ColumnSpan="2"/>
-                    <Frame Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="40">
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="Open11" NumberOfTapsRequired="1" />
-                        </Frame.GestureRecognizers>
-                        <Label Grid.Column ="0" Grid.Row="1" Grid.ColumnSpan="2" TextColor="Black" Text="Announcements" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
-                    </Frame>
-
-                    <BoxView Grid.Row="2" Grid.ColumnSpan="2"/>
-                    <Frame Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" BackgroundColor="#5660a8" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="40">
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnDisplayAlertButtonClicked2032" NumberOfTapsRequired="1" />
-                        </Frame.GestureRecognizers>
-                        <Label Grid.Column ="0" Grid.Row="2" Grid.ColumnSpan="2" TextColor="Black" Text="Announcement 1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
-                    </Frame>
-                    <BoxView Grid.Row="3" Grid.ColumnSpan="2"/>
-                    <Frame Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" BackgroundColor="#5660a8" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="40">
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnDisplayAlertButtonClicked2033" NumberOfTapsRequired="1" />
-                        </Frame.GestureRecognizers>
-                        <Label Grid.Column ="0" Grid.Row="3" Grid.ColumnSpan="2" TextColor="Black" Text="Announcement 2" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
-                    </Frame>
-                    <BoxView Grid.Row="4" Grid.ColumnSpan="2"/>
-                    <Frame Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" BackgroundColor="#5660a8" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="40">
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnDisplayAlertButtonClicked2034" NumberOfTapsRequired="1" />
-                        </Frame.GestureRecognizers>
-                        <Label Grid.Column ="0" Grid.Row="4" Grid.ColumnSpan="2" TextColor="Black" Text="Announcement 3" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
-
-                    </Frame>
-                    <BoxView Grid.Row="5" Grid.ColumnSpan="2"/>
-                    <Frame Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2" BackgroundColor="#5660a8" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="40">
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnDisplayAlertButtonClicked2034" NumberOfTapsRequired="1" />
-                        </Frame.GestureRecognizers>
-                        <Label Grid.Column ="0" Grid.Row="4" Grid.ColumnSpan="2" TextColor="Black" Text="Announcement 4" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
-
-                    </Frame>
-                    <BoxView Grid.Row="2" Grid.ColumnSpan="2"/>
-                    <Frame Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="40">
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="Open12" NumberOfTapsRequired="1" />
-                        </Frame.GestureRecognizers>
-                        <Label Grid.Column ="0" Grid.Row="2" Grid.ColumnSpan="2" TextColor="Black" Text="Lecture Recordings" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
-                    </Frame>
-                    <BoxView Grid.Row="3" Grid.ColumnSpan="2"/>
-                    <Frame Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="2" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="40">
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="Open13" NumberOfTapsRequired="1" />
-                        </Frame.GestureRecognizers>
-                        <Label Grid.Column ="0" Grid.Row="3" Grid.ColumnSpan="2" TextColor="Black" Text="Assignments" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
-                    </Frame>
-                    <BoxView Grid.Row="4" Grid.ColumnSpan="2"/>
-                    <Frame Grid.Column="0" Grid.Row="8" Grid.ColumnSpan="2" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="40">
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="Open14" NumberOfTapsRequired="1" />
-                        </Frame.GestureRecognizers>
-                        <Label Grid.Column ="0" Grid.Row="4" Grid.ColumnSpan="2" TextColor="Black" Text="Learning Resources" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
-
-                    </Frame>
-                </Grid>
-
-                <Grid x:Name="MenuOpen22" IsVisible="false" RowSpacing="0" ColumnSpacing="0">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="50" />
-                        <RowDefinition Height="50" />
-                        <RowDefinition Height="50" />
-                        <RowDefinition Height="50" />
-                        <RowDefinition Height="50" />
-                        <RowDefinition Height="50" />
-                        <RowDefinition Height="50" />
-                        <RowDefinition Height="50" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="250" />
-                        <ColumnDefinition Width="50" />
-                    </Grid.ColumnDefinitions>
-                    <BoxView />
-
-                    <BoxView Grid.Row="1" Grid.ColumnSpan="2"/>
-                    <Frame Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="40">
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="Open12" NumberOfTapsRequired="1" />
-                        </Frame.GestureRecognizers>
-                        <Label Grid.Column ="0" Grid.Row="1" Grid.ColumnSpan="2" TextColor="Black" Text="Announcements" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
-                    </Frame>
-
-                    <BoxView Grid.Row="1" Grid.ColumnSpan="2"/>
-                    <Frame Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="40">
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="Open12" NumberOfTapsRequired="1" />
-                        </Frame.GestureRecognizers>
-                        <Label Grid.Column ="0" Grid.Row="1" Grid.ColumnSpan="2" TextColor="Black" Text="Lecture Recordings" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
-                    </Frame>
-
-                    <BoxView Grid.Row="2" Grid.ColumnSpan="2"/>
-                    <Frame Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" BackgroundColor="#5660a8" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="40">
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="Open12" NumberOfTapsRequired="1" />
-                        </Frame.GestureRecognizers>
-                        <Label Grid.Column ="0" Grid.Row="2" Grid.ColumnSpan="2" TextColor="Black" Text="Announcement 1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
-                    </Frame>
-                    <BoxView Grid.Row="3" Grid.ColumnSpan="2"/>
-                    <Frame Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" BackgroundColor="#5660a8" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="40">
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnDisplayAlertButtonClicked2033" NumberOfTapsRequired="1" />
-                        </Frame.GestureRecognizers>
-                        <Label Grid.Column ="0" Grid.Row="3" Grid.ColumnSpan="2" TextColor="Black" Text="Announcement 2" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
-                    </Frame>
-                    <BoxView Grid.Row="4" Grid.ColumnSpan="2"/>
-                    <Frame Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2" BackgroundColor="#5660a8" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="40">
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnDisplayAlertButtonClicked2034" NumberOfTapsRequired="1" />
-                        </Frame.GestureRecognizers>
-                        <Label Grid.Column ="0" Grid.Row="4" Grid.ColumnSpan="2" TextColor="Black" Text="Announcement 3" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
-
-                    </Frame>
-                    <BoxView Grid.Row="5" Grid.ColumnSpan="2"/>
-                    <Frame Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" BackgroundColor="#5660a8" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="40">
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnDisplayAlertButtonClicked2034" NumberOfTapsRequired="1" />
-                        </Frame.GestureRecognizers>
-                        <Label Grid.Column ="0" Grid.Row="4" Grid.ColumnSpan="2" TextColor="Black" Text="Announcement 4" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
-
-                    </Frame>
-
-                    <BoxView Grid.Row="3" Grid.ColumnSpan="2"/>
-                    <Frame Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="2" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="40">
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="Open13" NumberOfTapsRequired="1" />
-                        </Frame.GestureRecognizers>
-                        <Label Grid.Column ="0" Grid.Row="3" Grid.ColumnSpan="2" TextColor="Black" Text="Assignments" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
-                    </Frame>
-                    <BoxView Grid.Row="4" Grid.ColumnSpan="2"/>
-                    <Frame Grid.Column="0" Grid.Row="8" Grid.ColumnSpan="2" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="40">
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="Open14" NumberOfTapsRequired="1" />
-                        </Frame.GestureRecognizers>
-                        <Label Grid.Column ="0" Grid.Row="4" Grid.ColumnSpan="2" TextColor="Black" Text="Learning Resources" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
-
-                    </Frame>
-                </Grid>
-
-                <Grid x:Name="MenuOpen23" IsVisible="false" RowSpacing="0" ColumnSpacing="0">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="50" />
-                        <RowDefinition Height="50" />
-                        <RowDefinition Height="50" />
-                        <RowDefinition Height="50" />
-                        <RowDefinition Height="50" />
-                        <RowDefinition Height="50" />
-                        <RowDefinition Height="50" />
-                        <RowDefinition Height="50" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="250" />
-                        <ColumnDefinition Width="50" />
-                    </Grid.ColumnDefinitions>
-                    <BoxView />
-
-                    <BoxView Grid.Row="1" Grid.ColumnSpan="2"/>
-                    <Frame Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="40">
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="Open12" NumberOfTapsRequired="1" />
-                        </Frame.GestureRecognizers>
-                        <Label Grid.Column ="0" Grid.Row="1" Grid.ColumnSpan="2" TextColor="Black" Text="Announcements" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
-                    </Frame>
-
-                    <BoxView Grid.Row="2" Grid.ColumnSpan="2"/>
-                    <Frame Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="40">
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="Open12" NumberOfTapsRequired="1" />
-                        </Frame.GestureRecognizers>
-                        <Label Grid.Column ="0" Grid.Row="1" Grid.ColumnSpan="2" TextColor="Black" Text="Lecture Recordings" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
-                    </Frame>
-
-                    <BoxView Grid.Row="3" Grid.ColumnSpan="2"/>
-                    <Frame Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="40">
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="Open13" NumberOfTapsRequired="1" />
-                        </Frame.GestureRecognizers>
-                        <Label Grid.Column ="0" Grid.Row="1" Grid.ColumnSpan="2" TextColor="Black" Text="Assignments" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
-                    </Frame>
-
-                    <BoxView Grid.Row="4" Grid.ColumnSpan="2"/>
-                    <Frame Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" BackgroundColor="#5660a8" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="40">
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnDisplayAlertButtonClicked2032" NumberOfTapsRequired="1" />
-                        </Frame.GestureRecognizers>
-                        <Label Grid.Column ="0" Grid.Row="2" Grid.ColumnSpan="2" TextColor="Black" Text="Announcement 1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
-                    </Frame>
-                    <BoxView Grid.Row="5" Grid.ColumnSpan="2"/>
-                    <Frame Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" BackgroundColor="#5660a8" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="40">
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnDisplayAlertButtonClicked2033" NumberOfTapsRequired="1" />
-                        </Frame.GestureRecognizers>
-                        <Label Grid.Column ="0" Grid.Row="3" Grid.ColumnSpan="2" TextColor="Black" Text="Announcement 2" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
-                    </Frame>
-                    <BoxView Grid.Row="6" Grid.ColumnSpan="2"/>
-                    <Frame Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" BackgroundColor="#5660a8" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="40">
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnDisplayAlertButtonClicked2034" NumberOfTapsRequired="1" />
-                        </Frame.GestureRecognizers>
-                        <Label Grid.Column ="0" Grid.Row="4" Grid.ColumnSpan="2" TextColor="Black" Text="Announcement 3" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
-
-                    </Frame>
-                    <BoxView Grid.Row="7" Grid.ColumnSpan="2"/>
-                    <Frame Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2" BackgroundColor="#5660a8" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="40">
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnDisplayAlertButtonClicked2034" NumberOfTapsRequired="1" />
-                        </Frame.GestureRecognizers>
-                        <Label Grid.Column ="0" Grid.Row="4" Grid.ColumnSpan="2" TextColor="Black" Text="Announcement 4" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
-
-                    </Frame>
-                    <BoxView Grid.Row="8" Grid.ColumnSpan="2"/>
-                    <Frame Grid.Column="0" Grid.Row="8" Grid.ColumnSpan="2" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="40">
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="Open14" NumberOfTapsRequired="1" />
-                        </Frame.GestureRecognizers>
-                        <Label Grid.Column ="0" Grid.Row="4" Grid.ColumnSpan="2" TextColor="Black" Text="Learning Resources" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
-
-                    </Frame>
-                </Grid>
-
-                <Grid x:Name="MenuOpen24" IsVisible="false" RowSpacing="0" ColumnSpacing="0">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="50" />
-                        <RowDefinition Height="50" />
-                        <RowDefinition Height="50" />
-                        <RowDefinition Height="50" />
-                        <RowDefinition Height="50" />
-                        <RowDefinition Height="50" />
-                        <RowDefinition Height="50" />
-                        <RowDefinition Height="50" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="250" />
-                        <ColumnDefinition Width="50" />
-                    </Grid.ColumnDefinitions>
-                    <BoxView />
-
-                    <BoxView Grid.Row="1" Grid.ColumnSpan="2"/>
-                    <Frame Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="40">
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="Open14" NumberOfTapsRequired="1" />
-                        </Frame.GestureRecognizers>
-                        <Label Grid.Column ="0" Grid.Row="1" Grid.ColumnSpan="2" TextColor="Black" Text="Learning Resources" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
-                    </Frame>
-
-                    <BoxView Grid.Row="2" Grid.ColumnSpan="2"/>
-                    <Frame Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" BackgroundColor="#5660a8" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="40">
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnDisplayAlertButtonClicked2032" NumberOfTapsRequired="1" />
-                        </Frame.GestureRecognizers>
-                        <Label Grid.Column ="0" Grid.Row="2" Grid.ColumnSpan="2" TextColor="Black" Text="Announcement 1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
-                    </Frame>
-                    <BoxView Grid.Row="3" Grid.ColumnSpan="2"/>
-                    <Frame Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" BackgroundColor="#5660a8" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="40">
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnDisplayAlertButtonClicked2033" NumberOfTapsRequired="1" />
-                        </Frame.GestureRecognizers>
-                        <Label Grid.Column ="0" Grid.Row="3" Grid.ColumnSpan="2" TextColor="Black" Text="Announcement 2" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
-                    </Frame>
-                    <BoxView Grid.Row="4" Grid.ColumnSpan="2"/>
-                    <Frame Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" BackgroundColor="#5660a8" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="40">
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnDisplayAlertButtonClicked2034" NumberOfTapsRequired="1" />
-                        </Frame.GestureRecognizers>
-                        <Label Grid.Column ="0" Grid.Row="4" Grid.ColumnSpan="2" TextColor="Black" Text="Announcement 3" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
-
-                    </Frame>
-                    <BoxView Grid.Row="5" Grid.ColumnSpan="2"/>
-                    <Frame Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2" BackgroundColor="#5660a8" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="40">
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnDisplayAlertButtonClicked2034" NumberOfTapsRequired="1" />
-                        </Frame.GestureRecognizers>
-                        <Label Grid.Column ="0" Grid.Row="4" Grid.ColumnSpan="2" TextColor="Black" Text="Announcement 4" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
-
-                    </Frame>
-                </Grid>
-
-                <BoxView Color="White"
-             WidthRequest="160"
+                <BoxView Color="Transparent"
+             WidthRequest="300"
              HeightRequest="30" />
 
-                <Grid RowSpacing="0" ColumnSpacing="0">
+                <Grid  x:Name ="MenuClose3" RowSpacing="0" ColumnSpacing="0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="225" />
-                        <ColumnDefinition Width="75" />
+                        <ColumnDefinition Width="250" />
+                        <ColumnDefinition Width="50" />
                     </Grid.ColumnDefinitions>
                     <BoxView />
 
                     <Frame BackgroundColor="#f9cb3a" Padding="0" HorizontalOptions="Center" WidthRequest="250" HeightRequest="40">
-                        <Label Grid.Column ="0" TextColor="White" Text="CAB203 - Discrete Structures" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Open3" NumberOfTapsRequired="1" />
+                        </Frame.GestureRecognizers>
+                        <Label Grid.Column ="0" TextColor="White" Text="CAB302 - Discrete Structures" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
                     </Frame>
 
                     <BoxView Grid.Column="1"/>
                     <Frame Grid.Column="1" BackgroundColor="#f9cb3a" Padding="7" HorizontalOptions="Center" WidthRequest="250" HeightRequest="40">
-                        <Switch IsToggled="true"/>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Open3" NumberOfTapsRequired="1" />
+                        </Frame.GestureRecognizers>
+                        <Image HeightRequest="10" WidthRequest="10" Source="{local:ImageResource Student_Space_1.Images.ArrowDown.png}"/>
                     </Frame>
                 </Grid>
 
                 <Grid x:Name ="MenuOpen3" IsVisible="false" RowSpacing="0" ColumnSpacing="0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50" />
-                        <RowDefinition Height="50" />
-                        <RowDefinition Height="50" />
-                        <RowDefinition Height="50" />
+                        <RowDefinition Height="60" />
+                        <RowDefinition Height="60" />
+                        <RowDefinition Height="60" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="250" />
@@ -824,42 +546,61 @@
                     </Grid.ColumnDefinitions>
                     <BoxView />
 
-                    <BoxView Grid.Row="1" Grid.ColumnSpan="2"/>
-                    <Frame Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="40">
+                    <Frame BackgroundColor="#f9cb3a" Padding="0" HorizontalOptions="Center" WidthRequest="250" HeightRequest="40">
                         <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnDisplayAlertButtonClicked2031" NumberOfTapsRequired="1" />
+                            <TapGestureRecognizer Tapped="Open3" NumberOfTapsRequired="1" />
                         </Frame.GestureRecognizers>
-                        <Label Grid.Column ="0" Grid.Row="1" Grid.ColumnSpan="2" TextColor="Black" Text="Announcement 0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+                        <Label Grid.Column ="0" TextColor="White" Text="CAB302 - Discrete Structures" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
                     </Frame>
-                    <BoxView Grid.Row="2" Grid.ColumnSpan="2"/>
-                    <Frame Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="40">
+
+                    <BoxView Grid.Column="1"/>
+                    <Frame Grid.Column="1" BackgroundColor="#f9cb3a" Padding="7" HorizontalOptions="Center" WidthRequest="250" HeightRequest="40">
                         <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnDisplayAlertButtonClicked2032" NumberOfTapsRequired="1" />
+                            <TapGestureRecognizer Tapped="Open3" NumberOfTapsRequired="1" />
                         </Frame.GestureRecognizers>
-                        <Label Grid.Column ="0" Grid.Row="2" Grid.ColumnSpan="2" TextColor="Black" Text="Announcement 1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+                        <Image HeightRequest="10" WidthRequest="10" Source="{local:ImageResource Student_Space_1.Images.ArrowDown.png}" RotationX="180"/>
+                        
+                    </Frame>
+
+
+                    <BoxView Grid.Row="1" Grid.ColumnSpan="2"/>
+                    <Frame Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="50">
+
+                        <Picker Title="Select Announcement Field" 
+                    TitleColor="Black"
+                    ItemsSource="{Binding SubjectFieldsList}" 
+                    ItemDisplayBinding="{Binding SubjectFieldName}"
+                    SelectedItem="{Binding SelectedField}"/>
+
+                    </Frame>
+
+                    <BoxView Grid.Row="2" Grid.ColumnSpan="2"/>
+                    <Frame Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="50">
+                        <Picker Title="Select Announcement" 
+                    TitleColor="Black"
+                    ItemsSource="{Binding GetAnnouncements}" 
+                    ItemDisplayBinding="{Binding AnnouncementName}"
+                    SelectedItem="{Binding SelectedAnnouncement}"/>
                     </Frame>
                     <BoxView Grid.Row="3" Grid.ColumnSpan="2"/>
-                    <Frame Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="40">
+                    <Frame Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="50">
                         <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnDisplayAlertButtonClicked2033" NumberOfTapsRequired="1" />
+                            <TapGestureRecognizer Command="{Binding PickerAlert4}" NumberOfTapsRequired="1" />
                         </Frame.GestureRecognizers>
-                        <Label Grid.Column ="0" Grid.Row="3" Grid.ColumnSpan="2" TextColor="Black" Text="Announcement 2" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
-                    </Frame>
-                    <BoxView Grid.Row="4" Grid.ColumnSpan="2"/>
-                    <Frame Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="40">
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnDisplayAlertButtonClicked2034" NumberOfTapsRequired="1" />
-                        </Frame.GestureRecognizers>
-                        <Label Grid.Column ="0" Grid.Row="4" Grid.ColumnSpan="2" TextColor="Black" Text="Announcement 3" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+                        <Label Grid.Column ="0" Grid.Row="4" Grid.ColumnSpan="2" TextColor="Black" Text="{Binding SelectedAnnouncement.AnnouncementName}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
 
                     </Frame>
+
                 </Grid>
 
+                <BoxView Color="Transparent"
+             WidthRequest="300"
+             HeightRequest="30" />
 
 
 
 
-                <Grid RowSpacing="0" ColumnSpacing="0">
+                <Grid x:Name ="MenuClose4" RowSpacing="0" ColumnSpacing="0">
                 <Grid.RowDefinitions>
                     
                         <RowDefinition Height="50" />
@@ -873,7 +614,7 @@
                 <BoxView />
 
                 <Frame BackgroundColor="#f6a635" Padding="0" HorizontalOptions="Center" WidthRequest="250" HeightRequest="40">
-                    <Label Grid.Column ="0" TextColor="White" Text="CAB303 - " HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+                    <Label Grid.Column ="0" TextColor="White" Text="IAB230 - IT Management" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="Open4" NumberOfTapsRequired="1" />
                     </Frame.GestureRecognizers>
@@ -894,6 +635,7 @@
 
                 <Grid x:Name ="MenuOpen4" IsVisible="false" RowSpacing="0" ColumnSpacing="0">
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="50" />
                         <RowDefinition Height="60" />
                         <RowDefinition Height="60" />
                         <RowDefinition Height="60" />
@@ -904,6 +646,24 @@
                         <ColumnDefinition Width="50" />
                     </Grid.ColumnDefinitions>
                     <BoxView />
+
+                    <BoxView />
+
+                    <Frame BackgroundColor="#f6a635" Padding="0" HorizontalOptions="Center" WidthRequest="250" HeightRequest="40">
+                        <Label Grid.Column ="0" TextColor="White" Text="IAB230 - IT Management" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Open4" NumberOfTapsRequired="1" />
+                        </Frame.GestureRecognizers>
+
+                    </Frame>
+
+
+                    <BoxView Grid.Column="1"/>
+                    <Frame Grid.Column="1" BackgroundColor="#f6a635" Padding="7" HorizontalOptions="Center" WidthRequest="250" HeightRequest="40">
+                        <Image HeightRequest="10" WidthRequest="10" Source="{local:ImageResource Student_Space_1.Images.ArrowDown.png}" RotationX="180"/>
+                    </Frame>
+                    
+                    
 
                     <BoxView Grid.Row="1" Grid.ColumnSpan="2"/>
                     <Frame Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" BorderColor="Gray" Padding="7" HorizontalOptions="Center" WidthRequest="300" HeightRequest="50">
@@ -935,8 +695,8 @@
                     
                 </Grid>
 
-                <BoxView Color="White"
-             WidthRequest="160"
+                <BoxView Color="Transparent"
+             WidthRequest="300"
              HeightRequest="30" />
 
 

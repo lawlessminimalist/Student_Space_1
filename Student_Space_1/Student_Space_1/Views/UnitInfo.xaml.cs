@@ -115,10 +115,12 @@ namespace Student_Space_1.Views
             if (MenuOpen2.IsVisible == true)
             {
                 MenuOpen2.IsVisible = false;
+                MenuClose2.IsVisible = true;
             }
             else
             {
                 MenuOpen2.IsVisible = true;
+                MenuClose2.IsVisible = false;
             }
 
         }
@@ -128,10 +130,12 @@ namespace Student_Space_1.Views
             if (MenuOpen3.IsVisible == true)
             {
                 MenuOpen3.IsVisible = false;
+                MenuClose3.IsVisible = true;
             }
             else
             {
                 MenuOpen3.IsVisible = true;
+                MenuClose3.IsVisible = false;
             }
 
         }
@@ -141,10 +145,12 @@ namespace Student_Space_1.Views
             if (MenuOpen4.IsVisible == true)
             {
                 MenuOpen4.IsVisible = false;
+                MenuClose4.IsVisible = true;
             }
             else
             {
                 MenuOpen4.IsVisible = true;
+                MenuClose4.IsVisible = false;
             }
 
 

@@ -103,7 +103,15 @@ namespace Student_Space.ViewModels
         
         void MakeAlter()
         {
-            Application.Current.MainPage.DisplayAlert(SelectedAnnouncement.AnnouncementName, SelectedAnnouncement.AnnouncementInfo , "Cancel", "ok") ;
+            try
+            {
+                Application.Current.MainPage.DisplayAlert(SelectedAnnouncement.AnnouncementName, SelectedAnnouncement.AnnouncementInfo, "Cancel", "ok");
+
+            }
+            catch (Exception ex)
+            {
+                App.Current.MainPage.DisplayAlert("Alert", "something has gone wrong..." + ex, "Ok");
+            }
         }
         
 
