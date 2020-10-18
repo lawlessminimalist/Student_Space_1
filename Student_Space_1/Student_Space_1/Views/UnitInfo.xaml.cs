@@ -99,10 +99,12 @@ namespace Student_Space_1.Views
         {
             if (MenuOpen1.IsVisible == true)
             {
+                MenuClose1.IsVisible = true;
                 MenuOpen1.IsVisible = false;
             }
             else
             {
+                MenuClose1.IsVisible = false;
                 MenuOpen1.IsVisible = true;
             }
 
@@ -160,20 +162,6 @@ namespace Student_Space_1.Views
             */
 
         }
-
-        
-        private void OpenAnnounce(object sender, EventArgs e)
-        {
-            if (PopupAnnouncement.IsVisible == true)
-            {
-                PopupAnnouncement.IsVisible = false;
-            }
-            else
-            {
-                PopupAnnouncement.IsVisible = true;
-            }
-
-        }
         
 
         async void OnDisplayAlertButtonClicked2031(object sender, EventArgs e)
@@ -195,6 +183,7 @@ namespace Student_Space_1.Views
         {
             await DisplayAlert("CAB 203 Announcement number 4", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", "Close");
         }
+
 
         async void OnDisplayAlertQuestionButtonClicked(object sender, EventArgs e)
         {
