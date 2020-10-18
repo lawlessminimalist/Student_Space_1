@@ -41,7 +41,7 @@ namespace Student_Space_1.Controls
 
             }
 
-        }
+        }  
 
 
         //Helper Function that returns specific format for Image to be Displayed

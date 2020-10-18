@@ -16,76 +16,78 @@
     </ContentPage.Resources>
 
     <ContentPage.Content>
-        <StackLayout BackgroundColor="#508492A6" Padding="10">
-            <Grid HorizontalOptions="CenterAndExpand">
-                <!--Grid Definitions-->
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
+        <ScrollView>
+            <StackLayout BackgroundColor="#508492A6" Padding="10">
+                <Grid HorizontalOptions="CenterAndExpand">
+                    <!--Grid Definitions-->
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
 
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
 
-                <Image Source="{local:ImageResource Student_Space_1.Images.Rectangle.png}" HeightRequest="60" Aspect="Fill" Margin="10"/>
-                <Label VerticalOptions="Center" HorizontalOptions="Center" TextColor="Black" FontSize="Title" Text="Settings"/>
-            </Grid>
+                    <Image Source="{local:ImageResource Student_Space_1.Images.Rectangle.png}" HeightRequest="60" Aspect="Fill" Margin="10"/>
+                    <Label VerticalOptions="Center" HorizontalOptions="Center" TextColor="Black" FontSize="Title" Text="Settings"/>
+                </Grid>
 
-            <StackLayout Spacing="25">
-                <!--Display Task Name with Edit Button-->
-                <FlexLayout JustifyContent="Center" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-                    <Label TextColor="Black" FontSize="Small" Text="{Binding Name}"/>
-                    <ImageButton BackgroundColor="Transparent" Source="{local:ImageResource Student_Space_1.Images.Edit_Pencil.png}" WidthRequest="30" HeightRequest="20" Command="{Binding EditTask}"/>
-                </FlexLayout>
-
-                <!--Display Priority Setting-->
-                <FlexLayout JustifyContent="Start" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
-                    <Label TextColor="Black" FontSize="Small" Text="Priority: " Margin="0,0,10,0"/>
-                    <Picker Title="Select a Colour: " Margin="0,-10,0,0" ItemsSource="{Binding ColourList}" SelectedItem="{Binding SelectedColour}" />
-                    <Button VerticalOptions="StartAndExpand" HorizontalOptions="EndAndExpand" Margin="0,5,0,0" BackgroundColor="{Binding Colour,  Converter={StaticResource Converter}}"  FontSize="Small" HeightRequest="15" WidthRequest="100" BorderRadius="10"/>
-                </FlexLayout>
-
-
-                <!--Display Due Time Setting-->
-                <FlexLayout JustifyContent="Start" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
-                    <Image Source="{local:ImageResource Student_Space_1.Images.DateTime.png}" HeightRequest="30" WidthRequest="30" Margin="0,0,10,0"/>
-                    <Label TextColor="Black" FontSize="Small" Text="Due Time: "/>
-                    <TimePicker Margin="0,-10,0,0" Time="{Binding Time}"/>
-                </FlexLayout>
-
-                <!--Display Due Date Setting-->
-                <FlexLayout JustifyContent="Start" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
-                    <Image Source="{local:ImageResource Student_Space_1.Images.DateTime.png}" HeightRequest="30" WidthRequest="30" Margin="0,0,10,0"/>
-                    <Label TextColor="Black" FontSize="Small" Text="Due Date: "/>
-                    <DatePicker Margin="0,-10,0,0" Date="{Binding Date}" Format="dddd, MMMM d, yyyy" />
-                </FlexLayout>
-
-                <!--Display Reminders Setting using Radio Buttons-->
-                <FlexLayout JustifyContent="Start" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
-                    <Image Source="{local:ImageResource Student_Space_1.Images.Reminder.png}" HeightRequest="30" WidthRequest="30" Margin="0,0,10,0"/>
-                    <Label TextColor="Black" FontSize="Small" Text="Reminders: "/>
-
-                    <StackLayout Spacing="0" Padding="0">
-                        <Label TextColor="Black" FontSize="Small" Text="{Binding Reminder, StringFormat='Selected: {0}'}"/>
-                        <RadioButton Text="30 Mins Before" Command="{Binding RadioButtonCommand}" CommandParameter="{Binding Text, Source={RelativeSource Self}}" GroupName="reminders"/>
-                        <RadioButton Text="1 Day Before" Command="{Binding RadioButtonCommand}" CommandParameter="{Binding Text, Source={RelativeSource Self}}" GroupName="reminders"/>
-                        <RadioButton Text="1 Week Before" Command="{Binding RadioButtonCommand}" CommandParameter="{Binding Text, Source={RelativeSource Self}}" GroupName="reminders"/>
-                        <RadioButton Text="2 Weeks Before" Command="{Binding RadioButtonCommand}" CommandParameter="{Binding Text, Source={RelativeSource Self}}" GroupName="reminders"/>
-                    </StackLayout>
-                </FlexLayout>
-
-                <!--Display Notes Setting using Radio Buttons-->
-                <StackLayout>
-                    <FlexLayout>
-                        <Image Source="{local:ImageResource Student_Space_1.Images.Notes.png}" HeightRequest="30" WidthRequest="30" Margin="0,0,10,0"/>
-                        <Label TextColor="Black" FontSize="Small" Text="Notes: "/>
+                <StackLayout Spacing="25">
+                    <!--Display Task Name with Edit Button-->
+                    <FlexLayout JustifyContent="Center" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                        <Label TextColor="Black" FontSize="Small" Text="{Binding Name}"/>
+                        <ImageButton BackgroundColor="Transparent" Source="{local:ImageResource Student_Space_1.Images.Edit_Pencil.png}" WidthRequest="30" HeightRequest="20" Command="{Binding EditTask}"/>
                     </FlexLayout>
-                    <Editor Placeholder="Add Notes..." FontSize="Small" HeightRequest="100" Text="{Binding UserNotes}" />
-                </StackLayout>
-            </StackLayout>
-            
-            <Button Text="Save" BackgroundColor="#374B90" FontSize="Medium" HorizontalOptions="CenterAndExpand" WidthRequest="200" VerticalOptions="EndAndExpand" Margin="0,0,0,10" Command="{Binding SaveTask}"/>
 
-        </StackLayout>
+                    <!--Display Priority Setting-->
+                    <FlexLayout JustifyContent="Start" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
+                        <Label TextColor="Black" FontSize="Small" Text="Priority: " Margin="0,0,10,0"/>
+                        <Picker Title="Select a Colour: " Margin="0,-10,0,0" ItemsSource="{Binding ColourList}" SelectedItem="{Binding SelectedColour}" />
+                        <Button VerticalOptions="StartAndExpand" HorizontalOptions="EndAndExpand" Margin="0,5,0,0" BackgroundColor="{Binding Colour,  Converter={StaticResource Converter}}"  FontSize="Small" HeightRequest="15" WidthRequest="100" BorderRadius="10"/>
+                    </FlexLayout>
+
+
+                    <!--Display Due Time Setting-->
+                    <FlexLayout JustifyContent="Start" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
+                        <Image Source="{local:ImageResource Student_Space_1.Images.DateTime.png}" HeightRequest="30" WidthRequest="30" Margin="0,0,10,0"/>
+                        <Label TextColor="Black" FontSize="Small" Text="Due Time: "/>
+                        <TimePicker Margin="0,-10,0,0" Time="{Binding Time}"/>
+                    </FlexLayout>
+
+                    <!--Display Due Date Setting-->
+                    <FlexLayout JustifyContent="Start" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
+                        <Image Source="{local:ImageResource Student_Space_1.Images.DateTime.png}" HeightRequest="30" WidthRequest="30" Margin="0,0,10,0"/>
+                        <Label TextColor="Black" FontSize="Small" Text="Due Date: "/>
+                        <DatePicker Margin="0,-10,0,0" Date="{Binding Date}" Format="dddd, MMMM d, yyyy" />
+                    </FlexLayout>
+
+                    <!--Display Reminders Setting using Radio Buttons-->
+                    <FlexLayout JustifyContent="Start" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
+                        <Image Source="{local:ImageResource Student_Space_1.Images.Reminder.png}" HeightRequest="30" WidthRequest="30" Margin="0,0,10,0"/>
+                        <Label TextColor="Black" FontSize="Small" Text="Reminders: "/>
+
+                        <StackLayout Spacing="0" Padding="0">
+                            <Label TextColor="Black" FontSize="Small" Text="{Binding Reminder, StringFormat='Selected: {0}'}"/>
+                            <RadioButton Text="30 Mins Before" Command="{Binding RadioButtonCommand}" CommandParameter="{Binding Text, Source={RelativeSource Self}}" GroupName="reminders"/>
+                            <RadioButton Text="1 Day Before" Command="{Binding RadioButtonCommand}" CommandParameter="{Binding Text, Source={RelativeSource Self}}" GroupName="reminders"/>
+                            <RadioButton Text="1 Week Before" Command="{Binding RadioButtonCommand}" CommandParameter="{Binding Text, Source={RelativeSource Self}}" GroupName="reminders"/>
+                            <RadioButton Text="2 Weeks Before" Command="{Binding RadioButtonCommand}" CommandParameter="{Binding Text, Source={RelativeSource Self}}" GroupName="reminders"/>
+                        </StackLayout>
+                    </FlexLayout>
+
+                    <!--Display Notes Setting using Radio Buttons-->
+                    <StackLayout>
+                        <FlexLayout>
+                            <Image Source="{local:ImageResource Student_Space_1.Images.Notes.png}" HeightRequest="30" WidthRequest="30" Margin="0,0,10,0"/>
+                            <Label TextColor="Black" FontSize="Small" Text="Notes: "/>
+                        </FlexLayout>
+                        <Editor Placeholder="Add Notes..." FontSize="Small" HeightRequest="100" Text="{Binding UserNotes}" />
+                    </StackLayout>
+                </StackLayout>
+
+                <Button Text="Save" BackgroundColor="#374B90" FontSize="Medium" HorizontalOptions="CenterAndExpand" WidthRequest="200" VerticalOptions="EndAndExpand" Margin="0,0,0,10" Command="{Binding SaveTask}"/>
+
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
