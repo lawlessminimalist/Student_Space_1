@@ -418,7 +418,7 @@
                          />
 
 
-                <Grid x:Name="MenuClose2" RowSpacing="0" ColumnSpacing="0" BackgroundColor="#5660a8">
+                <Grid x:Name="MenuClose2" IsVisible="{Binding Menu2isntVisible}" RowSpacing="0" ColumnSpacing="0" BackgroundColor="#5660a8">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50" />
                     </Grid.RowDefinitions>
@@ -431,7 +431,7 @@
                     <Frame BackgroundColor="#5660a8" Padding="0" HorizontalOptions="Center" WidthRequest="250" HeightRequest="40">
                         <Label Grid.Column ="0" TextColor="White" Text="CAB230 - Cryptography" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
                         <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="Open2" NumberOfTapsRequired="1" />
+                            <TapGestureRecognizer Command="{Binding Open2}" NumberOfTapsRequired="1" />
                         </Frame.GestureRecognizers>
                     </Frame>
 
@@ -439,13 +439,13 @@
                     <Frame Grid.Column="1" BackgroundColor="#5660a8" Padding="7" HorizontalOptions="Center" WidthRequest="250" HeightRequest="40">
                         <Image Source="{local:ImageResource Student_Space_1.Images.ArrowDown.png}"/>
                         <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="Open2" NumberOfTapsRequired="1" />
+                            <TapGestureRecognizer Command="{Binding Open2}" NumberOfTapsRequired="1" />
                         </Frame.GestureRecognizers>
                     </Frame>
 
                 </Grid>
 
-                <Grid x:Name="MenuOpen2" IsVisible="false" RowSpacing="0" ColumnSpacing="0"  BackgroundColor="#5660a8">
+                <Grid x:Name="MenuOpen2" IsVisible="{Binding Menu2isVisible}" RowSpacing="0" ColumnSpacing="0"  BackgroundColor="#5660a8">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50" />
                         <RowDefinition Height="60" />
@@ -461,7 +461,7 @@
                     <Frame BackgroundColor="#5660a8" Padding="0" HorizontalOptions="Center" WidthRequest="250" HeightRequest="40">
                         <Label Grid.Column ="0" TextColor="White" Text="CAB230 - Cryptography" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
                         <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="Open2" NumberOfTapsRequired="1" />
+                            <TapGestureRecognizer Command="{Binding Open2}" NumberOfTapsRequired="1" />
                         </Frame.GestureRecognizers>
                     </Frame>
 
@@ -469,7 +469,7 @@
                     <Frame Grid.Column="1" BackgroundColor="#5660a8" Padding="7" HorizontalOptions="Center" WidthRequest="250" HeightRequest="40">
                         <Image Source="{local:ImageResource Student_Space_1.Images.ArrowDown.png}"  RotationX="180"/>
                         <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="Open2" NumberOfTapsRequired="1" />
+                            <TapGestureRecognizer Command="{Binding Open2}" NumberOfTapsRequired="1" />
                         </Frame.GestureRecognizers>
                     </Frame>
                     <BoxView Grid.Row="1" Grid.ColumnSpan="2"/>
@@ -507,7 +507,7 @@
              WidthRequest="300"
              HeightRequest="30" />
 
-                <Grid  x:Name ="MenuClose3" RowSpacing="0" ColumnSpacing="0">
+                <Grid  x:Name ="MenuClose3" IsVisible="{Binding Menu3isntVisible}" RowSpacing="0" ColumnSpacing="0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50" />
                     </Grid.RowDefinitions>
@@ -519,7 +519,7 @@
 
                     <Frame BackgroundColor="#f9cb3a" Padding="0" HorizontalOptions="Center" WidthRequest="250" HeightRequest="40">
                         <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="Open3" NumberOfTapsRequired="1" />
+                            <TapGestureRecognizer Command="{Binding Open3}" NumberOfTapsRequired="1" />
                         </Frame.GestureRecognizers>
                         <Label Grid.Column ="0" TextColor="White" Text="CAB302 - Discrete Structures" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
                     </Frame>
@@ -527,13 +527,13 @@
                     <BoxView Grid.Column="1"/>
                     <Frame Grid.Column="1" BackgroundColor="#f9cb3a" Padding="7" HorizontalOptions="Center" WidthRequest="250" HeightRequest="40">
                         <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="Open3" NumberOfTapsRequired="1" />
+                            <TapGestureRecognizer Command="{Binding Open3}" NumberOfTapsRequired="1" />
                         </Frame.GestureRecognizers>
                         <Image HeightRequest="10" WidthRequest="10" Source="{local:ImageResource Student_Space_1.Images.ArrowDown.png}"/>
                     </Frame>
                 </Grid>
 
-                <Grid x:Name ="MenuOpen3" IsVisible="false" RowSpacing="0" ColumnSpacing="0">
+                <Grid x:Name ="MenuOpen3" IsVisible="{Binding Menu3isVisible}" RowSpacing="0" ColumnSpacing="0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50" />
                         <RowDefinition Height="60" />
@@ -548,7 +548,7 @@
 
                     <Frame BackgroundColor="#f9cb3a" Padding="0" HorizontalOptions="Center" WidthRequest="250" HeightRequest="40">
                         <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="Open3" NumberOfTapsRequired="1" />
+                            <TapGestureRecognizer Command="{Binding Open3}" NumberOfTapsRequired="1" />
                         </Frame.GestureRecognizers>
                         <Label Grid.Column ="0" TextColor="White" Text="CAB302 - Discrete Structures" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
                     </Frame>
@@ -556,7 +556,7 @@
                     <BoxView Grid.Column="1"/>
                     <Frame Grid.Column="1" BackgroundColor="#f9cb3a" Padding="7" HorizontalOptions="Center" WidthRequest="250" HeightRequest="40">
                         <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="Open3" NumberOfTapsRequired="1" />
+                            <TapGestureRecognizer Command="{Binding Open3}" NumberOfTapsRequired="1" />
                         </Frame.GestureRecognizers>
                         <Image HeightRequest="10" WidthRequest="10" Source="{local:ImageResource Student_Space_1.Images.ArrowDown.png}" RotationX="180"/>
                         
@@ -600,7 +600,7 @@
 
 
 
-                <Grid x:Name ="MenuClose4" RowSpacing="0" ColumnSpacing="0">
+                <Grid x:Name ="MenuClose4" IsVisible="{Binding Menu4isntVisible}" RowSpacing="0" ColumnSpacing="0">
                 <Grid.RowDefinitions>
                     
                         <RowDefinition Height="50" />
@@ -616,7 +616,7 @@
                 <Frame BackgroundColor="#f6a635" Padding="0" HorizontalOptions="Center" WidthRequest="250" HeightRequest="40">
                     <Label Grid.Column ="0" TextColor="White" Text="IAB230 - IT Management" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
                     <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="Open4" NumberOfTapsRequired="1" />
+                            <TapGestureRecognizer Command="{Binding Open4}" NumberOfTapsRequired="1" />
                     </Frame.GestureRecognizers>
 
                 </Frame>
@@ -633,7 +633,7 @@
             </Grid>
 
 
-                <Grid x:Name ="MenuOpen4" IsVisible="false" RowSpacing="0" ColumnSpacing="0">
+                <Grid x:Name ="MenuOpen4" IsVisible="{Binding Menu4isVisible}" RowSpacing="0" ColumnSpacing="0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50" />
                         <RowDefinition Height="60" />
@@ -652,7 +652,7 @@
                     <Frame BackgroundColor="#f6a635" Padding="0" HorizontalOptions="Center" WidthRequest="250" HeightRequest="40">
                         <Label Grid.Column ="0" TextColor="White" Text="IAB230 - IT Management" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
                         <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="Open4" NumberOfTapsRequired="1" />
+                            <TapGestureRecognizer Command="{Binding Open4}" NumberOfTapsRequired="1" />
                         </Frame.GestureRecognizers>
 
                     </Frame>
@@ -699,9 +699,6 @@
              WidthRequest="300"
              HeightRequest="30" />
 
-
-
-                
             </FlexLayout>
 </ScrollView>
 
