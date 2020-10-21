@@ -10,6 +10,12 @@
         <viewmodel:UnitInfoViewModel/>
     </ContentPage.BindingContext>
 
+    <Shell.TitleView>
+        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="1" Margin="0,0,80,0">
+            <Image Source="{local:ImageResource Student_Space_1.Images.LogoNoText.png}" WidthRequest="50" HeightRequest="50" HorizontalOptions="Center" VerticalOptions="Center"/>
+        </StackLayout>
+    </Shell.TitleView>
+
     <ContentPage.Content>
         <ScrollView>
             <FlexLayout Direction="Column"

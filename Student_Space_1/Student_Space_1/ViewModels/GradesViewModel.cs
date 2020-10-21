@@ -155,7 +155,7 @@ namespace Student_Space.ViewModels
             GoCalculator = new Command(OpenCalculator);
             GoTranscript = new Command(OpenQUT);
 
-            Title = "Grades";
+            //Title = "Grades";
         }
 
         //Declare Commands

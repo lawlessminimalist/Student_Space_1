@@ -303,7 +303,7 @@ namespace Student_Space_1.ViewModels
             EditTask = new Command(Edit);
             SaveTask = new Command(UpdateList);
 
-            Title = "To Do List Settings";
+            //Title = "To Do List Settings";
 
         }
 

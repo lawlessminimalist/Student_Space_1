@@ -107,7 +107,7 @@ namespace Student_Space.ViewModels
         public UnitContactViewModel()
         {
             SetupData();
-            Title = "Unit Contacts";
+            //Title = "Unit Contacts";
         }
 
         //Helper Function that returns specific format for Image to be Displayed

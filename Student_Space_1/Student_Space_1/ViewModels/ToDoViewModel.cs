@@ -38,7 +38,7 @@ namespace Student_Space.ViewModels
             //Access Shared Observable Collection (List of Tasks)
             TaskListDB = TaskDB.Instance;
 
-            Title = "To Do List";
+            //Title = "To Do List";
 
 
         }
