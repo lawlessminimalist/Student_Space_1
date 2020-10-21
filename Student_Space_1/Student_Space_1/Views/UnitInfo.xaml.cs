@@ -110,58 +110,6 @@ namespace Student_Space_1.Views
 
         }
 
-        private void Open2(object sender, EventArgs e)
-        {
-            if (MenuOpen2.IsVisible == true)
-            {
-                MenuOpen2.IsVisible = false;
-            }
-            else
-            {
-                MenuOpen2.IsVisible = true;
-            }
-
-        }
-
-        private void Open3(object sender, EventArgs e)
-        {
-            if (MenuOpen3.IsVisible == true)
-            {
-                MenuOpen3.IsVisible = false;
-            }
-            else
-            {
-                MenuOpen3.IsVisible = true;
-            }
-
-        }
-
-        private void Open4(object sender, EventArgs e)
-        {
-            if (MenuOpen4.IsVisible == true)
-            {
-                MenuOpen4.IsVisible = false;
-            }
-            else
-            {
-                MenuOpen4.IsVisible = true;
-            }
-
-
-            /*
-            if (4Menu.IsVisible == true)
-            {
-                4Menu.IsVisible = false;
-            
-            }
-            else
-            {
-                4Menu.IsVisible = true;
-
-            }
-            */
-
-        }
         
 
         async void OnDisplayAlertButtonClicked2031(object sender, EventArgs e)
@@ -184,12 +132,6 @@ namespace Student_Space_1.Views
             await DisplayAlert("CAB 203 Announcement number 4", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", "Close");
         }
 
-
-        async void OnDisplayAlertQuestionButtonClicked(object sender, EventArgs e)
-        {
-            bool response = await DisplayAlert("Save?", "Would you like to save your data?", "Yes", "No");
-            Console.WriteLine("Save data: " + response);
-        }
 
 
         
