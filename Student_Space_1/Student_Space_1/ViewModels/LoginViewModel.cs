@@ -134,7 +134,7 @@ namespace Student_Space_1.ViewModels
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                await App.Current.MainPage.DisplayAlert("Error!", "Something went wrong!" + ex, "Ok");
             }
         }
 

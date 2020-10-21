@@ -4,11 +4,11 @@
              x:Class="Student_Space.Views.MainPage"
              xmlns:vm="clr-namespace:Student_Space.ViewModels"
              Title="{Binding Title}">
-    
+
     <ContentPage.BindingContext>
         <vm:MainPageViewModel />
     </ContentPage.BindingContext>
-    
+
     <ContentPage.Resources>
         <ResourceDictionary>
             <Color x:Key="Accent">#96d1ff</Color>

@@ -165,15 +165,30 @@ namespace Student_Space.ViewModels
         //Open link to online GPA Calculator
         public async void OpenCalculator()
         {
-            string uri = "https://www.newcastle.edu.au/current-students/study-essentials/assessment-and-exams/results/gpa-calculator";
-            await Browser.OpenAsync(uri, BrowserLaunchMode.SystemPreferred);
+            try
+            {
+                string uri = "https://www.newcastle.edu.au/current-students/study-essentials/assessment-and-exams/results/gpa-calculator";
+                await Browser.OpenAsync(uri, BrowserLaunchMode.SystemPreferred);
+            }
+            catch (Exception ex)
+            {
+                await App.Current.MainPage.DisplayAlert("Error!", "Something went wrong!" + ex, "Ok");
+            }
         }
 
         //Open Link to QUT Virtual
         public async void OpenQUT()
         {
-            string uri = "https://esoe.qut.edu.au/auth/realms/qut/protocol/openid-connect/auth?response_type=code&client_id=shibboleth-2-idp&redirect_uri=https%3A%2F%2Fidp.qut.edu.au%2Fidp%2Fprofile%2FSAML2%2FPOST%2FSSO?execution%3De3s1%26_eventId_proceed%3D1&state=256114%2Fa44af668-5fba-4976-b19a-2cff8c25a575&scope=openid";
-            await Browser.OpenAsync(uri, BrowserLaunchMode.SystemPreferred);
+            try
+            {
+                string uri = "https://esoe.qut.edu.au/auth/realms/qut/protocol/openid-connect/auth?response_type=code&client_id=shibboleth-2-idp&redirect_uri=https%3A%2F%2Fidp.qut.edu.au%2Fidp%2Fprofile%2FSAML2%2FPOST%2FSSO?execution%3De3s1%26_eventId_proceed%3D1&state=256114%2Fa44af668-5fba-4976-b19a-2cff8c25a575&scope=openid";
+                await Browser.OpenAsync(uri, BrowserLaunchMode.SystemPreferred);
+
+            }
+            catch (Exception ex)
+            {
+                await App.Current.MainPage.DisplayAlert("Error!", "Something went wrong!" + ex, "Ok");
+            }
         }
 
         //Mock Data (Assessment Pieces, Student Grade Details, Unit List (Current & Previous Units)

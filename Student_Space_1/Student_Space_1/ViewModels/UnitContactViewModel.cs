@@ -45,7 +45,7 @@ namespace Student_Space.ViewModels
                 }
                 catch (Exception ex)
                 {
-                    App.Current.MainPage.DisplayAlert("Alert", "something has gone wrong..." + ex, "Ok");
+                    App.Current.MainPage.DisplayAlert("Alert", "Error! Unable to get Data.." + ex, "Ok");
                 }
             }
             get { return DisplayContacts; }

@@ -9,7 +9,7 @@
     <ContentPage.BindingContext>
         <viewmodel:ZoomViewModel/>
     </ContentPage.BindingContext>
-    
+        
     <ContentPage.Content>
         <StackLayout Spacing="0" BackgroundColor="#508492A6">
             <Grid ColumnSpacing="0" RowSpacing="0" HorizontalOptions="CenterAndExpand">
