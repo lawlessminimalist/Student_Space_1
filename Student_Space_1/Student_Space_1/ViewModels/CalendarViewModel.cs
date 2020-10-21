@@ -9,9 +9,21 @@ namespace Student_Space.ViewModels
     public class CalendarViewModel : BaseViewModel
     {
         public string month;
+        public int firstdayofweek;
         CalendarMonth calendar;
-        public Command<string> PreviousCalendarCommand { get; }
-        public Command<string> NextCalendarCommand { get; }
+
+        public ICommand GoToCurrentWeek { get; }
+        public ICommand AddEvent { get; }
+
+        public int firstdayofweekselected
+        {
+            get { return firstdayofweek;  }
+            set
+            {
+                firstdayofweek = value;
+                OnPropertyChanged();
+            }
+        }
         public string CurrentMonth
         {
             get { return month; }
@@ -19,8 +31,6 @@ namespace Student_Space.ViewModels
             {
                 month = value;
                 OnPropertyChanged();
-                PreviousCalendarCommand.ChangeCanExecute();
-                NextCalendarCommand.ChangeCanExecute();
             }
         }
 
@@ -28,26 +38,20 @@ namespace Student_Space.ViewModels
         {
 
             this.calendar = calendar;
-            PreviousCalendarCommand = new Command<string>(Prev, CanExecute);
-            NextCalendarCommand = new Command<string>(Next, CanExecute);
+            GoToCurrentWeek = new Command(OpenCalendarWeek);
+            AddEvent = new Command(OpenAddEvent);
         }
 
-        public bool CanExecute(string arg)
+        async void OpenAddEvent()
         {
-            bool isEnabled = true;
-            return isEnabled;
+            await Shell.Current.GoToAsync(nameof(AddEvent));
         }
 
-        public void Prev(string arg)
+        async void OpenCalendarWeek()
         {
-            calendar.DateNow.AddMonths(-1);
+            await Shell.Current.GoToAsync(nameof(CalendarWeek));
         }
 
-        public void Next(string changeType)
-        {
-            calendar.DateNow.AddMonths(+1);
-        }
-        public ICommand OpenWebCommand { get; }
 
         
 

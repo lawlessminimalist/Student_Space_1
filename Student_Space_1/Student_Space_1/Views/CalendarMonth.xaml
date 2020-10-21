@@ -73,7 +73,8 @@
                                  Padding="0,0,20,0">
                         
                         <ImageButton BackgroundColor="Transparent"
-                                     Source="{local:ImageResource Student_Space_1.Images.Plus.png}" />
+                                     Source="{local:ImageResource Student_Space_1.Images.Plus.png}" 
+                                     Command="{Binding AddEvent}"/>
                         
                     </StackLayout>
                 </Grid>

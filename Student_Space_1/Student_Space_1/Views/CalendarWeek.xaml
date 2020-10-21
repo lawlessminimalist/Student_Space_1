@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Student_Space_1;assembly=Student_Space_1"
+             x:Class="Student_Space_1.Views.CalendarWeek">
+
+
+
+    <ContentPage.Content>
+        <Grid Margin="7, 7, 7, 7" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="65"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="400*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60*"/>
+                <ColumnDefinition Width="340*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--This Frame holds the Month Changer and the Add Event Button-->
+            <Frame Grid.ColumnSpan="2" 
+                   BorderColor="#374B90"
+                   CornerRadius="7" 
+                   HasShadow="False"
+                   Padding="7">
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- The Center Buttons for the Month Selector -->
+                    <StackLayout Orientation="Horizontal"
+                                 Spacing="0"
+                                 Grid.ColumnSpan="2"
+                                 HorizontalOptions="Center">
+
+                        <!-- Left Arrow -->
+                        <ImageButton BackgroundColor="Transparent"
+                                     RotationY="180"
+                                     Source="{local:ImageResource Student_Space_1.Images.ArrowRight.png}"
+                                     Command="{Binding PreviousCalendarCommand}"/>
+
+                        <!-- Month Button -->
+                        <Button Text="{Binding CurrentMonth}"
+                                FontSize="20"
+                                TextColor="#969FAA"
+                                BackgroundColor="Transparent"
+                                HorizontalOptions="CenterAndExpand"
+                                WidthRequest="65"/>
+
+                        <!-- Right Arrow -->
+                        <ImageButton BackgroundColor="Transparent"
+                                     Source="{local:ImageResource Student_Space_1.Images.ArrowRight.png}"
+                                     Command="{Binding NextCalendarCommand}"/>
+                    </StackLayout>
+
+
+                    <!-- The Add Event Button -->
+                    <StackLayout Orientation="Horizontal"
+                                 Spacing="0"
+                                 Grid.Column="1"
+                                 HorizontalOptions="End"
+                                 VerticalOptions="Center"
+                                 HeightRequest="25"
+                                 Padding="0,0,20,0">
+
+                        <ImageButton BackgroundColor="Transparent"
+                                     Source="{local:ImageResource Student_Space_1.Images.Plus.png}"
+                                     Command="{Binding GotoAddEvent}"/>
+
+                    </StackLayout>
+                </Grid>
+            </Frame>
+
+            <!-- This Frame Holds the Days of the Week -->
+            <Frame Grid.Row="1" 
+                   Grid.Column="1" 
+                   BorderColor="#374B90"
+                   CornerRadius="7" 
+                   Padding="0"
+                   HasShadow="False">
+
+                <StackLayout x:Name="daysofweek" HorizontalOptions="FillAndExpand"  VerticalOptions="FillAndExpand">
+                </StackLayout>
+            </Frame>
+            <!-- This Frame Holds the Calendar Dates -->
+            <Frame Grid.Row="2" 
+                   Grid.Column="1"
+                   BorderColor="#374B90"
+                   CornerRadius="7" 
+                   Padding="0"
+                   HasShadow="False">
+                
+                
+
+                <StackLayout x:Name="calendarframes" HorizontalOptions="FillAndExpand"  VerticalOptions="FillAndExpand">
+                </StackLayout>
+
+            </Frame>
+
+            <!-- This Frame Holds the Colour Filters -->
+            <Frame Grid.Row="2"  
+                   BorderColor="#374B90"
+                   CornerRadius="7" 
+                   Padding="0,26,0,28"
+                   HasShadow="False">
+
+                <StackLayout x:Name="timeframes" HorizontalOptions="FillAndExpand"  VerticalOptions="FillAndExpand">
+                    <Grid RowSpacing="0"
+                          ColumnSpacing="0"
+                          HorizontalOptions="FillAndExpand"
+                          VerticalOptions="FillAndExpand">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Frame BorderColor="Transparent"
+                               HorizontalOptions="FillAndExpand"
+                               Grid.Row="0"
+                               Padding="1">
+                            <Label Text="9am"
+                                   TextColor="#969FAA"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center"/>
+                        </Frame>
+                        <Frame BorderColor="Transparent"
+                               HorizontalOptions="FillAndExpand"
+                               Grid.Row="1"
+                               Padding="1">
+                            <Label Text="10am"
+                                   TextColor="#969FAA"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center"/>
+                        </Frame>
+                        <Frame BorderColor="Transparent"
+                               HorizontalOptions="FillAndExpand"
+                               Grid.Row="2"
+                               Padding="1">
+                            <Label Text="11am"
+                                   TextColor="#969FAA"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center"/>
+                        </Frame>
+                        <Frame BorderColor="Transparent"
+                               HorizontalOptions="FillAndExpand"
+                               Grid.Row="3"
+                               Padding="1">
+                            <Label Text="12am"
+                                   TextColor="#969FAA"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center"/>
+                        </Frame>
+                        <Frame BorderColor="Transparent"
+                               HorizontalOptions="FillAndExpand"
+                               Grid.Row="4"
+                               Padding="1">
+                            <Label Text="1pm"
+                                   TextColor="#969FAA"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center"/>
+                        </Frame>
+                        <Frame BorderColor="Transparent"
+                               HorizontalOptions="FillAndExpand"
+                               Grid.Row="5"
+                               Padding="1">
+                            <Label Text="2pm"
+                                   TextColor="#969FAA"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center"/>
+                        </Frame>
+                        <Frame BorderColor="Transparent"
+                               HorizontalOptions="FillAndExpand"
+                               Grid.Row="6"
+                               Padding="1">
+                            <Label Text="3pm"
+                                   TextColor="#969FAA"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center"/>
+                        </Frame>
+                        <Frame BorderColor="Transparent"
+                               HorizontalOptions="FillAndExpand"
+                               Grid.Row="7"
+                               Padding="1">
+                            <Label Text="4pm"
+                                   TextColor="#969FAA"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center"/>
+                        </Frame>
+                        <Frame BorderColor="Transparent"
+                               HorizontalOptions="FillAndExpand"
+                               Grid.Row="8"
+                               Padding="1">
+                            <Label Text="5pm"
+                                   TextColor="#969FAA"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center"/>
+                        </Frame>
+
+                    </Grid>
+                </StackLayout>
+
+               
+
+            </Frame>
+
+            <!-- This Frame Holds the Information for the Current Day -->
+
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
