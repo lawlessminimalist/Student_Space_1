@@ -3,6 +3,7 @@ using System;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using Xamarin.Forms;
+using Xamarin.Essentials;
 
 
 namespace Student_Space.ViewModels
@@ -11,86 +12,101 @@ namespace Student_Space.ViewModels
     {
 
         public ICommand AddTask { get; }
-        public ICommand DeleteTask { get; }
 
-        public ObservableCollection<Task_Item> _Tasks = new ObservableCollection<Task_Item>(); //Initialize List
 
 
 
         public AlertPageViewModel()
         {
 
-            Setup();
+            //Commands
             AddTask = new Command(AddItem);
-            DeleteTask = new Command(DeleteItem);
-        }
-        public ObservableCollection<Task_Item> Tasks
-        {
-            set
-            {
-                _Tasks = value;
-                OnPropertyChanged();
-            }
 
-            get { return _Tasks; }
+            //Access Shared Observable Collection (List of Tasks)
+            TaskListDB = TaskDB.Instance;
+
+            GenerateToday();
+
+
+        }
+
+
+        public void GenerateToday()
+        {
+            for (int x = 0; x < _tasks.Count; x++) 
+            {
+                if (_tasks[x].DueDate.Date == DateTime.Now.Date) 
+                {
+                    Task_Item e = _tasks[x];
+                    _todayList.Add(e);
+                }
+
+            }
+        }
+
+
+
+
+        private async void NavigateButton_OnClicked()
+        {        
+            await Shell.Current.GoToAsync("//ToDo");
         }
 
         async void AddItem()
         {
+            //Assign Default Task Item Properties
+            DateTime duedate = DateTime.Today;
+            TimeSpan duetime = new TimeSpan(4, 15, 26);
+            string priority = "#00BCD4";
+            string notes = null;
+            string reminders = null;
 
-            //Open Alert Message to Ask for What Task
-            string result = await App.Current.MainPage.DisplayPromptAsync("Add Task", "What did you want to do?", "Add", "Cancel");
+            //Get Task via User Input on Display Prompt
+            string result = "";
+            result = await App.Current.MainPage.DisplayPromptAsync("Add Task", "What did you want to do?", "Add", "Cancel", "Write Something...");
 
-            //Create a New Task
-            Task_Item new_task = new Task_Item
+            if (String.IsNullOrWhiteSpace(result))
             {
-                TaskName = result,
-            };
-
-            //Add Task to List of Tasks 
-            Tasks.Add(new_task);
-
-        }
-
-        void DeleteItem(object item)
-        {
-            //Remove Item from To Do List
-
-            var task = item as Task_Item;
-            Tasks.Remove(task);
-        }
-
-        //Fake Data for Easier Testing
-        void Setup()
-        {
-            Tasks = new ObservableCollection<Task_Item>
+                await App.Current.MainPage.DisplayAlert("Error!", "Oh No! You tried to add an empty Task.", "Ok");
+            }
+            else
             {
-                new Task_Item
+                //Create a New Task
+                Task_Item new_task = new Task_Item
                 {
-                    TaskName = "Hello",
+                    TaskName = result,
+                    DueTime = duetime,
+                    Priority = priority,
+                    Notes = notes,
+                    Reminders = reminders,
+                };
 
-                },
-
-                 new Task_Item
-                {
-                    TaskName = "Watch Lecture 2000",
-
-                },
-
-                 new Task_Item
-                {
-                    TaskName = "Watch Lecture 12312312",
-
-                },
-                 new Task_Item
-                {
-                    TaskName = "Watch Lecture 12312312",
-
-                },
-
-            };
+                //Add Task to List of Tasks 
+                _tasks.Add(new_task);
+            }
         }
 
+
+
+            //Handle Data
+        private TaskDB TaskListDB;
+
+        private ObservableCollection<Task_Item> TodayList = new ObservableCollection<Task_Item>();
+
+        private ObservableCollection<Task_Item> myVar;
+        public ObservableCollection<Task_Item> _tasks //Bind this to the View
+        {
+            get { return TaskListDB.Mylist; }
+            set
+            {
+                myVar = value;
+                OnPropertyChanged();
+            }
+
+        }
+
+        public ObservableCollection<Task_Item> _todayList { get => TodayList; set { TodayList = value; OnPropertyChanged();}
+        }
     }
 }
 

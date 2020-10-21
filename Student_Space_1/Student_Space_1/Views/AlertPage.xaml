@@ -22,7 +22,7 @@
                 <RowDefinition Height="15*" /><!-- Alerts 6 -->
                 <RowDefinition Height="2*" /><!-- Calendar Title 7 -->
                 <RowDefinition Height="12*" /><!-- Calendar 8-->
-                <RowDefinition Height="7*" /> <!-- Space 9 -->
+                <RowDefinition Height="11*" /> <!-- Space 9 -->
 
             </Grid.RowDefinitions>
 
@@ -30,7 +30,8 @@
                 <ColumnDefinition Width="1.5*"/>
                 <ColumnDefinition Width="15*"/>
                 <ColumnDefinition Width="5*"/>
-                <ColumnDefinition Width="15*"/>
+                <ColumnDefinition Width="12*"/>
+                <ColumnDefinition Width="3*"/>
                 <ColumnDefinition Width="*"/>
 
 
@@ -43,7 +44,7 @@
                    BackgroundColor="#F95F62"
                    Padding="8"
                    WidthRequest="100" Grid.Row="2" Grid.Column="1" Grid.RowSpan="2" >
-                <ListView x:Name="TodayList" ItemsSource="{Binding Tasks}" BackgroundColor="Transparent" RowHeight="50" >
+                <ListView x:Name="TodayList" ItemsSource="{Binding _todayList}" BackgroundColor="Transparent" RowHeight="50" >
                     <ListView.ItemTemplate>
                         <DataTemplate x:Name="TodayTemplate">
                             <ViewCell>
@@ -64,7 +65,7 @@
                                              Grid.Row="0" Grid.Column="0"
                                              HorizontalOptions="Center"
                                              VerticalOptions="Center"
-                                             Source="{local:ImageResource Student_Space_1.Images.Notes.png}"/>
+                                             Source="{local:ImageResource Student_Space_1.Images.Alarm.png}"/>
                                     <Button Text="{Binding TaskName}"  VerticalOptions="Center" FontSize=".5"  Grid.Row="0" Grid.Column="1" BackgroundColor="Transparent" TextColor="White" HorizontalOptions="Center"  Font="Josefin Sans" ></Button>
                                 </Grid>
                             </ViewCell>
@@ -103,7 +104,7 @@
                                              Grid.Row="0" Grid.Column="0"
                                              HorizontalOptions="Center"
                                              VerticalOptions="Center"
-                                             Source="{local:ImageResource Student_Space_1.Images.Notes.png}"/>
+                                             Source="{local:ImageResource Student_Space_1.Images.Notification.png}"/>
                                     <Button Text="{Binding TaskName}"  VerticalOptions="Center" FontSize=".5"  Grid.Row="0" Grid.Column="1" BackgroundColor="Transparent" TextColor="White" HorizontalOptions="Center"  Font="Josefin Sans" ></Button>
                                 </Grid>
                             </ViewCell>
@@ -119,11 +120,12 @@
                 Padding="8"
                     WidthRequest="100"
                     Grid.Row="4" Grid.RowSpan="3" Grid.Column="3"
+                   Grid.ColumnSpan="2"
                     BackgroundColor="#F95F62">
 
-                    <ListView x:Name="TaskList" ItemsSource="{Binding Tasks}" BackgroundColor="Transparent" RowHeight="50" >
+                    <ListView x:Name="TaskList" ItemsSource="{Binding _tasks}" BackgroundColor="Transparent" HasUnevenRows="True" RowHeight="50"  >
                         <ListView.ItemTemplate>
-                            <DataTemplate x:Name="TaskTemplate">
+                            <DataTemplate x:Name="myTemplate">
                                 <ViewCell>
                                     <Grid HorizontalOptions="StartAndExpand" VerticalOptions="EndAndExpand" ColumnSpacing="5">
 
@@ -143,7 +145,7 @@
                                              HorizontalOptions="Center"
                                              VerticalOptions="Center"
                                              Source="{local:ImageResource Student_Space_1.Images.Notes.png}"/>
-                                    <Button Text="{Binding TaskName}"  VerticalOptions="Center" FontSize=".5"  Grid.Row="0" Grid.Column="1" BackgroundColor="Transparent" TextColor="White" HorizontalOptions="Center"  Font="Josefin Sans" ></Button>    
+                                    <Button Text="{Binding TaskName}"  VerticalOptions="CenterAndExpand" FontSize=".5"  Grid.Row="0" Grid.Column="1" BackgroundColor="Transparent" TextColor="White" HorizontalOptions="CenterAndExpand"  Font="Josefin Sans" ></Button>    
                                     </Grid>
                                 </ViewCell>
                             </DataTemplate>
@@ -163,6 +165,14 @@
 
                 </StackLayout>
             </Frame>
+
+            <ImageButton BackgroundColor="Transparent"
+                                             RotationY="180"
+                                             Grid.Row="9" Grid.Column="4"
+                                             HorizontalOptions="Center"
+                                             VerticalOptions="Center"
+                                             Source="{local:ImageResource Student_Space_1.Images.Plus.png}"
+                                             Command="{Binding AddTask}"/>
 
 
 
