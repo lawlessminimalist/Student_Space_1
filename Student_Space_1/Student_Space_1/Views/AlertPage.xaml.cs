@@ -16,5 +16,12 @@ namespace Student_Space_1.Views
         {
             InitializeComponent();
         }
+
+        void OnTapGestureRecognizerTapped(object sender, EventArgs args)
+        {
+            var imageSender = (Image)sender;
+            // Do something
+            DisplayAlert("Alert", "Tap gesture recoganised", "OK");
+        }
     }
 }
