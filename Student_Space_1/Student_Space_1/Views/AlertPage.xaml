@@ -167,7 +167,7 @@
                     Grid.Row="8" Grid.RowSpan="1"  Grid.ColumnSpan="3" Grid.Column="1"
                     BackgroundColor="#F95F62">
                 <StackLayout Orientation="Horizontal">
-                    <Image Source="{local:ImageResource Student_Space_1.Images.Help.png}">
+                    <Image Source="{local:ImageResource Student_Space_1.Images.Calendar.png}">
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer
                                                 Tapped="OnTapGestureRecognizerTapped"  />
