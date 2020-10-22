@@ -82,6 +82,7 @@ namespace Student_Space.ViewModels
 
                     //Add Task to List of Tasks 
                     ToDoTasks.Add(new_task);
+                    
                 }
                 catch (Exception ex)
                 {

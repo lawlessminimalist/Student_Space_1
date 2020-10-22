@@ -31,6 +31,9 @@
                 <RowDefinition Height="2*" /><!-- Calendar Title 7 -->
                 <RowDefinition Height="12*" /><!-- Calendar 8-->
                 <RowDefinition Height="11*" /> <!-- Space 9 -->
+                <RowDefinition Height="1*" />
+                <!-- Space 10 -->
+
 
             </Grid.RowDefinitions>
 
@@ -90,7 +93,7 @@
                 Padding="8"
                 WidthRequest="100" Grid.Row="6" Grid.Column="1"
                 BackgroundColor="#F95F62">
-                <ListView x:Name="AlertList" ItemsSource="{Binding Tasks}" BackgroundColor="Transparent" RowHeight="65" >
+                <ListView x:Name="AlertList" ItemsSource="{Binding _alertList}" BackgroundColor="Transparent" RowHeight="50" >
                     <ListView.ItemTemplate>
                         <DataTemplate x:Name="AlertTemplate">
                             <ViewCell>
@@ -111,7 +114,7 @@
                                              Grid.Row="0" Grid.Column="0"
                                              HorizontalOptions="Center"
                                              VerticalOptions="Center"
-                                             Source="{local:ImageResource Student_Space_1.Images.Notification.jpg}"/>
+                                             Source="{local:ImageResource Student_Space_1.Images.Notification.png}"/>
                                     <Button Text="{Binding TaskName}"  VerticalOptions="Center" FontSize=".5"  Grid.Row="0" Grid.Column="1" BackgroundColor="Transparent" TextColor="White" HorizontalOptions="Center"  Font="Josefin Sans" ></Button>
                                 </Grid>
                             </ViewCell>
@@ -130,7 +133,7 @@
                    Grid.ColumnSpan="2"
                     BackgroundColor="#F95F62">
 
-                <ListView x:Name="TaskList" ItemsSource="{Binding _tasks}" BackgroundColor="Transparent" HasUnevenRows="True" RowHeight="65"  >
+                <ListView x:Name="TaskList" ItemsSource="{Binding _tasks}" BackgroundColor="Transparent" HasUnevenRows="True" RowHeight="65" SelectedItem="{Binding Selected_Item, Mode=TwoWay}" >
                         <ListView.ItemTemplate>
                             <DataTemplate x:Name="myTemplate">
                                 <ViewCell>
@@ -147,12 +150,12 @@
                                     </Grid.ColumnDefinitions>
                                         
                                         <ImageButton BackgroundColor="Transparent"
-                                             RotationY="180"
+                                             
                                              Grid.Row="0" Grid.Column="0"
                                              HorizontalOptions="Center"
                                              VerticalOptions="Center"
                                              Source="{local:ImageResource Student_Space_1.Images.Notes.png}"/>
-                                    <Button Text="{Binding TaskName}"  VerticalOptions="Center" FontSize=".5"  Grid.Row="0" Grid.Column="1" BackgroundColor="Transparent" TextColor="White" HorizontalOptions="Center"  Font="Josefin Sans" ></Button>    
+                                    <Button Text="{Binding TaskName}" Command="{Binding Path=BindingContext.OpenSettings}"  CommandParameter="{Binding .}" VerticalOptions="Center" FontSize=".5"  Grid.Row="0" Grid.Column="1" BackgroundColor="Transparent" TextColor="White" HorizontalOptions="Center"  Font="Josefin Sans" ></Button>    
                                     </Grid>
                                 </ViewCell>
                             </DataTemplate>
@@ -164,17 +167,65 @@
             <Label Text="Calendar" Grid.Row="7" Grid.Column="1" Grid.RowSpan="1"></Label>
             <Frame BorderColor="Black"
                 CornerRadius="5"
-                    Grid.Row="8" Grid.RowSpan="1"  Grid.ColumnSpan="3" Grid.Column="1"
+                    Grid.Row="8" Grid.RowSpan="2"  Grid.ColumnSpan="3" Grid.Column="1"
                     BackgroundColor="#F95F62">
-                <StackLayout Orientation="Horizontal">
-                    <Image Source="{local:ImageResource Student_Space_1.Images.Calendar.png}">
-                        <Image.GestureRecognizers>
-                            <TapGestureRecognizer
-                                                Tapped="OnTapGestureRecognizerTapped"  />
-                        </Image.GestureRecognizers>
-                    </Image>
-                    <Button Text="Test"  VerticalOptions="CenterAndExpand" FontSize=".5"  BackgroundColor="White" TextColor="White" HorizontalOptions="CenterAndExpand"  Font="Josefin Sans" ></Button>
-                </StackLayout>
+                <Grid HorizontalOptions="StartAndExpand" VerticalOptions="EndAndExpand" ColumnSpacing="5">
+
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*" />
+                        <RowDefinition Height="10*" />
+                        <!-- Space 0-->
+                    </Grid.RowDefinitions>
+                    
+                    <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="7*"/>
+                            <ColumnDefinition Width="4*"/>
+
+                        </Grid.ColumnDefinitions>
+
+                        <ImageButton BackgroundColor="Transparent"
+                                                     Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"
+                                                     HorizontalOptions="StartAndExpand"
+                                                     VerticalOptions="StartAndExpand"
+                                                     Source="{local:ImageResource Student_Space_1.Images.Calendar1.png}"
+                                                     Aspect="AspectFill"
+                                                     Command="{Binding OpenCalendar}"
+                                                     />
+
+                        <Label Text="This Month" HorizontalTextAlignment="Center" TextDecorations="Underline" Grid.Row="0" Grid.Column="1" Grid.RowSpan="1"></Label>
+
+
+                    <ListView x:Name="Cal_List" ItemsSource="{Binding _monthList}" BackgroundColor="Transparent" RowHeight="50" Grid.Row="1" Grid.Column="1"  SelectedItem="{Binding Selected_Item, Mode=TwoWay}">
+                            <ListView.ItemTemplate>
+                                <DataTemplate x:Name="myTemplate1">
+                                    <ViewCell>
+                                        <Grid HorizontalOptions="StartAndExpand" VerticalOptions="EndAndExpand">
+
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition/>
+                                            </Grid.RowDefinitions>
+
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="1*"/>
+                                                <ColumnDefinition Width="9*"/>
+
+                                            </Grid.ColumnDefinitions>
+
+                                            <ImageButton BackgroundColor="Transparent"
+                                                         RotationY="180"
+                                                         Grid.Row="0" Grid.Column="0"
+                                                         HorizontalOptions="Center"
+                                                         VerticalOptions="Center"
+                                                         Source="{local:ImageResource Student_Space_1.Images.DateTime.png}"/>
+                                        <Button Text="{Binding TaskName}"  VerticalOptions="Center" Command="{Binding Path=BindingContext.OpenSettings}" FontSize="Small"  Grid.Row="0" Grid.Column="1" BackgroundColor="Transparent" TextColor="White" HorizontalOptions="Center"  Font="Josefin Sans" ></Button>
+                                        </Grid>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView> 
+
+                </Grid>     
             </Frame>
 
             <ImageButton BackgroundColor="Transparent"

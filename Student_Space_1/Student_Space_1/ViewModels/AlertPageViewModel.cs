@@ -26,10 +26,25 @@ namespace Student_Space.ViewModels
             TaskListDB = TaskDB.Instance;
 
             GenerateToday();
+            GenerateMonth();
+            GenerateAlerts();
 
 
         }
 
+
+        public void GenerateAlerts()
+        {
+            for (int x = 0; x < _tasks.Count; x++)
+            {
+                if (_tasks[x].DueDate.Hour == DateTime.Now.Hour)
+                {
+                    Task_Item e = _tasks[x];
+                    _todayList.Add(e);
+                }
+
+            }
+        }
 
         public void GenerateToday()
         {
@@ -44,9 +59,40 @@ namespace Student_Space.ViewModels
             }
         }
 
+        public void GenerateMonth()
+        {
+            for (int x = 0; x < _tasks.Count; x++)
+            {
+                if (_tasks[x].DueDate.Month == DateTime.Now.Month)
+                {
+                    Task_Item e = _tasks[x];
+                    MonthList.Add(e);
+                }
+
+            }
+        }
+
+
+        async void OpenCalendar()
+        {
+            //Code Reference: https://devblogs.microsoft.com/xamarin/xamarin-forms-shell-query-parameters/
+
+            try
+            {
+                //Go to Next Page and Pass Selected Task as Data
+                await Shell.Current.GoToAsync($"{nameof(CalendarMonth)}");
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+
+        }
+
+
 
         public string TaskSetting { get; set; } //Variable that is passed to next page
-
 
         async void OpenSettings()
         {
@@ -88,7 +134,6 @@ namespace Student_Space.ViewModels
                         OpenSettings();
 
 
-                        Console.WriteLine("This Line should be Null no colour la");
                     }
 
                 }
@@ -133,6 +178,9 @@ namespace Student_Space.ViewModels
 
                 //Add Task to List of Tasks 
                 _tasks.Add(new_task);
+                GenerateMonth();
+                GenerateToday();
+                GenerateAlerts();
             }
         }
 
@@ -142,6 +190,9 @@ namespace Student_Space.ViewModels
         private TaskDB TaskListDB;
 
         private ObservableCollection<Task_Item> TodayList = new ObservableCollection<Task_Item>();
+        private ObservableCollection<Task_Item> MonthList = new ObservableCollection<Task_Item>();
+        private ObservableCollection<Task_Item> AlertList = new ObservableCollection<Task_Item>();
+
 
 
         private ObservableCollection<Task_Item> myVar;
@@ -153,7 +204,16 @@ namespace Student_Space.ViewModels
                 myVar = value;
                 OnPropertyChanged();
             }
+        }
 
+        public ObservableCollection<Task_Item> _alertList
+        {
+            get => MonthList; set { MonthList = value; OnPropertyChanged(); }
+        }
+
+        public ObservableCollection<Task_Item> _monthList
+        {
+            get => MonthList; set { MonthList = value; OnPropertyChanged(); }
         }
 
         public ObservableCollection<Task_Item> _todayList { get => TodayList; set { TodayList = value; OnPropertyChanged();}
