@@ -38,7 +38,7 @@ namespace Student_Space.ViewModels
             //Access Shared Observable Collection (List of Tasks)
             TaskListDB = TaskDB.Instance;
 
-            Title = "To Do List";
+            //Title = "To Do List";
 
 
         }
@@ -66,19 +66,28 @@ namespace Student_Space.ViewModels
             }
             else
             {
-                //Create a New Task
-                Task_Item new_task = new Task_Item
-                {
-                    TaskName = result,
-                    DueDate = duedate,
-                    DueTime = duetime,
-                    Priority = priority,
-                    Notes = notes,
-                    Reminders = reminders,
-                };
 
-                //Add Task to List of Tasks 
-                ToDoTasks.Add(new_task);
+                try
+                {
+                    //Create a New Task
+                    Task_Item new_task = new Task_Item
+                    {
+                        TaskName = result,
+                        DueDate = duedate,
+                        DueTime = duetime,
+                        Priority = priority,
+                        Notes = notes,
+                        Reminders = reminders,
+                    };
+
+                    //Add Task to List of Tasks 
+                    ToDoTasks.Add(new_task);
+                }
+                catch (Exception ex)
+                {
+                    await App.Current.MainPage.DisplayAlert("Alert", "something has gone wrong..." + ex, "Ok");
+                }
+
             }
         }
 
@@ -138,7 +147,7 @@ namespace Student_Space.ViewModels
                 }
                 catch (Exception ex)
                 {
-                    App.Current.MainPage.DisplayAlert("Error!", "No one something went wrong!" + ex, "Ok");
+                    App.Current.MainPage.DisplayAlert("Error!", "Something went wrong!" + ex, "Ok");
 
                 }
             }

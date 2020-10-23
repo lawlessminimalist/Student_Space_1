@@ -45,7 +45,7 @@ namespace Student_Space.ViewModels
                 }
                 catch (Exception ex)
                 {
-                    App.Current.MainPage.DisplayAlert("Alert", "something has gone wrong..." + ex, "Ok");
+                    App.Current.MainPage.DisplayAlert("Alert", "Error! Unable to get Data.." + ex, "Ok");
                 }
             }
             get { return DisplayContacts; }
@@ -107,7 +107,7 @@ namespace Student_Space.ViewModels
         public UnitContactViewModel()
         {
             SetupData();
-            Title = "Unit Contacts";
+            //Title = "Unit Contacts";
         }
 
         //Helper Function that returns specific format for Image to be Displayed

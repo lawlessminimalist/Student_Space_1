@@ -262,27 +262,33 @@ namespace Student_Space_1.ViewModels
          * */
         public void UpdateList()
         {
-            //Create New Task using Inputting Data
-            Task_Item update_task = new Task_Item
+            try
             {
-                TaskName = Name,
-                DueTime = Time,
-                DueDate = Date,
-                Priority = Colour,
-                Notes = UserNotes,
-                Reminders = Reminder,
-            };
+                //Create New Task using Inputting Data
+                Task_Item update_task = new Task_Item
+                {
+                    TaskName = Name,
+                    DueTime = Time,
+                    DueDate = Date,
+                    Priority = Colour,
+                    Notes = UserNotes,
+                    Reminders = Reminder,
+                };
 
-            //Delete the Selected Task
-            ToDoTasks.Remove(_selectedTask);
+                //Delete the Selected Task
+                ToDoTasks.Remove(_selectedTask);
 
-            //Add the New Task
-            ToDoTasks.Add(update_task);
+                //Add the New Task
+                ToDoTasks.Add(update_task);
 
 
-            //Go Back to Previous Page
-            App.Current.MainPage.Navigation.PopAsync();
-
+                //Go Back to Previous Page
+                App.Current.MainPage.Navigation.PopAsync();
+            }
+            catch (Exception ex)
+            {
+                App.Current.MainPage.DisplayAlert("Error!", "Something went wrong!" + ex, "Ok");
+            }
 
         }
 
@@ -297,7 +303,7 @@ namespace Student_Space_1.ViewModels
             EditTask = new Command(Edit);
             SaveTask = new Command(UpdateList);
 
-            Title = "To Do List Settings";
+            //Title = "To Do List Settings";
 
         }
 

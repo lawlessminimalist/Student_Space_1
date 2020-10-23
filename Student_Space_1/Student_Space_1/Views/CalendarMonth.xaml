@@ -3,8 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Student_Space_1;assembly=Student_Space_1"
              x:Class="Student_Space_1.Views.CalendarMonth">
-   
-    
+
+
+    <Shell.TitleView>
+        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="1" Margin="0,0,80,0">
+            <Image Source="{local:ImageResource Student_Space_1.Images.LogoNoText.png}" WidthRequest="50" HeightRequest="50" HorizontalOptions="Center" VerticalOptions="Center"/>
+        </StackLayout>
+    </Shell.TitleView>
+
     <ContentPage.Content>
         <Grid Margin="7, 7, 7, 7" >
             <Grid.RowDefinitions>
