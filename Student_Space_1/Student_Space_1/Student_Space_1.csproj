@@ -88,6 +88,8 @@
   <ItemGroup>
     <EmbeddedResource Include="Fonts\JosefinSans-VariableFont_wght.ttf" />
     <EmbeddedResource Include="Images\Alarm.png" />
+    <EmbeddedResource Include="Images\Calendar1.png" />
+
     <EmbeddedResource Include="Images\Background.png" />
     <EmbeddedResource Include="Images\Clock.png" />
     <EmbeddedResource Include="Images\DateTime.png" />
