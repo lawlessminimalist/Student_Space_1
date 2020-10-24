@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Student_Space_1.Models;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,10 +13,13 @@ namespace Student_Space_1.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AddEvent : ContentPage
+
     {
         public AddEvent()
         {
             InitializeComponent();
         }
+
+
     }
 }

@@ -15,9 +15,6 @@ namespace Student_Space_1.Views
     public partial class ToDo : ContentPage
 
     {
-
-
-
         public ToDo()
         {
             InitializeComponent();

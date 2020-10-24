@@ -75,7 +75,7 @@ namespace Student_Space_1.Views
         public void CalendarDates_Buttons()
         {
 
-            cvm.CurrentMonth = string.Format(Months[DateNow.Month - 1]);
+            
 
             Grid calendardatesgrid = new Grid
             {
