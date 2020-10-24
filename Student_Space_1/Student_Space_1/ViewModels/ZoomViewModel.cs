@@ -19,7 +19,7 @@ namespace Student_Space.ViewModels
         public ZoomViewModel()
         {
             SetupData();
-            Title = "Zoom Links";
+            //Title = "Zoom Links";
         }
 
 

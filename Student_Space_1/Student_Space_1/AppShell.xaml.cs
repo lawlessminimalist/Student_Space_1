@@ -31,6 +31,8 @@ namespace Student_Space
 
             //Routing to Enable Data Passing to the Settings Page
             Routing.RegisterRoute(nameof(ToDoSettings), typeof(ToDoSettings));
+            Routing.RegisterRoute(nameof(AddEvent), typeof(AddEvent));
+            Routing.RegisterRoute(nameof(CalendarWeek), typeof(CalendarWeek));
 
             foreach (var item in routes)
             {

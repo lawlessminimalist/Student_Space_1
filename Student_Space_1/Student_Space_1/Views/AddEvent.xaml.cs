@@ -10,18 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace Student_Space_1.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AlertPage : ContentPage
+    public partial class AddEvent : ContentPage
     {
-        public AlertPage()
+        public AddEvent()
         {
             InitializeComponent();
-        }
-
-        void OnTapGestureRecognizerTapped(object sender, EventArgs args)
-        {
-            var imageSender = (Image)sender;
-            // Do something
-            DisplayAlert("Alert", "Tap gesture recoganised", "OK");
         }
     }
 }

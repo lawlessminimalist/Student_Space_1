@@ -12,8 +12,14 @@
 
   <ItemGroup>
     <Compile Remove="Models\NewFolder\**" />
+    <Compile Remove="NewFolder1\**" />
+    <Compile Remove="NewFolder\**" />
     <EmbeddedResource Remove="Models\NewFolder\**" />
+    <EmbeddedResource Remove="NewFolder1\**" />
+    <EmbeddedResource Remove="NewFolder\**" />
     <None Remove="Models\NewFolder\**" />
+    <None Remove="NewFolder1\**" />
+    <None Remove="NewFolder\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -82,6 +88,8 @@
   <ItemGroup>
     <EmbeddedResource Include="Fonts\JosefinSans-VariableFont_wght.ttf" />
     <EmbeddedResource Include="Images\Alarm.png" />
+    <EmbeddedResource Include="Images\Calendar1.png" />
+
     <EmbeddedResource Include="Images\Background.png" />
     <EmbeddedResource Include="Images\Clock.png" />
     <EmbeddedResource Include="Images\DateTime.png" />
@@ -159,10 +167,16 @@
     <EmbeddedResource Update="AppShell.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\AddEvent.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\AlertPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Calendar.xaml">
+    <EmbeddedResource Update="Views\CalendarDay.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\CalendarWeek.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Grades.xaml">
@@ -189,11 +203,6 @@
     <EmbeddedResource Update="Views\Zoom.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="NewFolder1\" />
-    <Folder Include="NewFolder\" />
   </ItemGroup>
 
   <ItemGroup>

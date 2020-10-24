@@ -299,7 +299,7 @@ namespace Student_Space.ViewModels
         public UnitInfoViewModel()
         {
 
-            Title = "Unit Information";
+            //Title = "Unit Information";
             OpenWebCommand = new Command(async () => await Browser.OpenAsync("https://aka.ms/xamain-quickstart"));
             PickerAlert4 = new Command(get => MakeAlter());
             Open4 = new Command(get => OpenMenu4());

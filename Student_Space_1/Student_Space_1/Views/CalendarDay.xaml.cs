@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace Student_Space_1.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Calendar : ContentPage
+    public partial class CalendarDay : ContentPage
     {
-        public Calendar()
+        public CalendarDay()
         {
             InitializeComponent();
         }

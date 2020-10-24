@@ -31,11 +31,6 @@ namespace Student_Space_1.Views
         public void DaysofWeek_Buttons()
         {
 
-            Command DayButtonClick = new Command(() =>
-            {
-                //Go to Weekly View
-
-            });
 
    
 
@@ -69,7 +64,7 @@ namespace Student_Space_1.Views
                     BorderColor = Color.FromHex("#374B90"),
                     BorderWidth = 1,
                     HorizontalOptions = LayoutOptions.Center,
-                    Command = DayButtonClick,
+                    Command = cvm.GoToCurrentWeek,
                 };
                 Grid.SetColumn(button, col);
                 daysofweekgrid.Children.Add(button);
@@ -151,13 +146,26 @@ namespace Student_Space_1.Views
                         Grid.SetColumn(button, col);
                         calendardatesgrid.Children.Add(button);
                     }
+                    else if(counter == currentday && currentmonth == DateNow.Month)
+                    {
+                        Button button = new Button
+                        {
+                            Text = counter.ToString(),
+                            Padding = 0,
+                            FontSize = 16,
+                            CornerRadius = 0,
+                            BackgroundColor = Color.LightBlue,
+                            TextColor = Color.FromHex("#0f0f0f"),
+                            BorderColor = Color.FromHex("#374B90"),
+                            BorderWidth = 1,
+                            HorizontalOptions = LayoutOptions.Center,
+                        };
+                        Grid.SetRow(button, row);
+                        Grid.SetColumn(button, col);
+                        calendardatesgrid.Children.Add(button);
+                    }
                     else
                     {
-                        Command CalendarDateClick = new Command(() =>
-                        {
-                            //Go to Specified day
-
-                        });
 
                         Button button = new Button
                         {
@@ -170,7 +178,6 @@ namespace Student_Space_1.Views
                             BorderColor = Color.FromHex("#374B90"),
                             BorderWidth = 1,
                             HorizontalOptions = LayoutOptions.Center,
-                            Command = CalendarDateClick,
                         };
                         Grid.SetRow(button, row);
                         Grid.SetColumn(button, col);

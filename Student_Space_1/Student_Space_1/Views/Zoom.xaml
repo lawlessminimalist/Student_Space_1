@@ -9,6 +9,12 @@
     <ContentPage.BindingContext>
         <viewmodel:ZoomViewModel/>
     </ContentPage.BindingContext>
+
+    <Shell.TitleView>
+        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="1" Margin="0,0,80,0">
+            <Image Source="{local:ImageResource Student_Space_1.Images.LogoNoText.png}" WidthRequest="50" HeightRequest="50" HorizontalOptions="Center" VerticalOptions="Center"/>
+        </StackLayout>
+    </Shell.TitleView>
     
     <ContentPage.Content>
         <StackLayout Spacing="0" BackgroundColor="#508492A6">
