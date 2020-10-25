@@ -16,6 +16,9 @@ namespace Student_Space.ViewModels
     {
 
         //string containing the current subject that can be read and compared later
+        //there is a bug in which the value of the current subject cannot be changed once the subjectfield has been set and so once the field has been set,
+        //to view another subjects data, you will need to restart the application
+        
         public string _currentSubject;
         public string CurrentSubject
         {
