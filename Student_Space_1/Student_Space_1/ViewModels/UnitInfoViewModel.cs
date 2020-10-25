@@ -153,6 +153,46 @@ namespace Student_Space.ViewModels
         public ICommand Open2 { get; set; }
 
 
+        public bool _menu1isVisible = false;
+        public bool _menu1isntVisible = true;
+
+        public bool Menu1isVisible
+        {
+            get { return _menu1isVisible; }
+            set
+            {
+                _menu1isVisible = value;
+                OnPropertyChanged(nameof(Menu1isVisible));
+            }
+        }
+
+        public bool Menu1isntVisible
+        {
+            get { return _menu1isntVisible; }
+            set
+            {
+                _menu1isntVisible = value;
+                OnPropertyChanged(nameof(Menu1isntVisible));
+            }
+        }
+
+        public void OpenMenu1()
+        {
+            if (Menu1isVisible == true)
+            {
+                Menu1isVisible = false;
+                Menu1isntVisible = true;
+            }
+            else
+            {
+                Menu1isVisible = true;
+                Menu1isntVisible = false;
+                CurrentSubject = "CAB203";
+            }
+        }
+        public ICommand Open1 { get; set; }
+
+
 
 
 
@@ -252,7 +292,7 @@ namespace Student_Space.ViewModels
             }
             catch (Exception ex)
             {
-                App.Current.MainPage.DisplayAlert("Alert", "something has gone wrong..." + ex, "Ok");
+                App.Current.MainPage.DisplayAlert("Error", "An Arror Has Occured:   " + ex, "Ok");
             }
         }
         
@@ -265,6 +305,7 @@ namespace Student_Space.ViewModels
             Open4 = new Command(get => OpenMenu4());
             Open3 = new Command(get => OpenMenu3());
             Open2 = new Command(get => OpenMenu2());
+            Open1 = new Command(get => OpenMenu1());
             SetupData();
     }
 
@@ -335,8 +376,8 @@ namespace Student_Space.ViewModels
             {
                 new Announcement
             {
-                AnnouncementName = "CAB303 exam is online only",
-                AnnouncementInfo = "CAB303 exam is online only, please look at your individual ",
+                AnnouncementName = "IAB230 exam is online only",
+                AnnouncementInfo = "CAB230 exam is online only, please look at your individual ",
                 AnnouncementField = "Announcement",
                 AnnouncementSubject = "IAB230"
 
@@ -378,6 +419,167 @@ namespace Student_Space.ViewModels
                 AnnouncementName = "Lecture recording week 1: ",
                 AnnouncementInfo = "Your Week 1 lecture has been uploaded and can be seen at ",
                 AnnouncementField = "Lecture Recording",
+                AnnouncementSubject = "IAB230"
+
+            },
+                new Announcement
+            {
+                AnnouncementName = "Filler Announcement for random subject: ",
+                AnnouncementInfo = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ",
+                AnnouncementField = "Announcement",
+                AnnouncementSubject = "CAB230"
+
+            },
+                new Announcement
+            {
+                AnnouncementName = "Filler Announcement for CAB230: ",
+                AnnouncementInfo = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ",
+                AnnouncementField = "Announcement",
+                AnnouncementSubject = "CAB230"
+
+            }
+            ,
+                new Announcement
+            {
+                AnnouncementName = "Filler Announcement for CAB230 v2: ",
+                AnnouncementInfo = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ",
+                AnnouncementField = "Announcement",
+                AnnouncementSubject = "CAB230"
+
+            },
+                new Announcement
+            {
+                AnnouncementName = "Filler lecutre recording for random subject: ",
+                AnnouncementInfo = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ",
+                AnnouncementField = "Lecture Recording",
+                AnnouncementSubject = "CAB230"
+
+            },
+                new Announcement
+            {
+                AnnouncementName = "Filler Learning Resource for cab230: ",
+                AnnouncementInfo = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ",
+                AnnouncementField = "Learning Resource",
+                AnnouncementSubject = "CAB230"
+
+            },
+                new Announcement
+            {
+                AnnouncementName = "Filler Learning Resource for cab203: ",
+                AnnouncementInfo = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ",
+                AnnouncementField = "Learning Resource",
+                AnnouncementSubject = "CAB203"
+
+            },
+                new Announcement
+            {
+                AnnouncementName = "Filler Learning Resource for cab2033: ",
+                AnnouncementInfo = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ",
+                AnnouncementField = "Learning Resource",
+                AnnouncementSubject = "CAB203"
+
+            },
+                new Announcement
+            {
+                AnnouncementName = "NEW LEARNIGN RESOURCE WEEK 4: ",
+                AnnouncementInfo = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ",
+                AnnouncementField = "Learning Resource",
+                AnnouncementSubject = "CAB203"
+
+            },
+                new Announcement
+            {
+                AnnouncementName = "NEW LEARNIGN RESOURCE WEEK 4 UPLOAEDED: ",
+                AnnouncementInfo = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ",
+                AnnouncementField = "Announcement",
+                AnnouncementSubject = "CAB203"
+
+            },
+                new Announcement
+            {
+                AnnouncementName = "NEW LEARNIGN RESOURCE WEEK 4 UPLOAEDED repeated announcement: ",
+                AnnouncementInfo = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ",
+                AnnouncementField = "Announcement",
+                AnnouncementSubject = "CAB203"
+
+            },
+                new Announcement
+            {
+                AnnouncementName = "Assignement1 ",
+                AnnouncementInfo = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ",
+                AnnouncementField = "Assignement",
+                AnnouncementSubject = "CAB203"
+
+            },
+                new Announcement
+            {
+                AnnouncementName = "Assignement2 Group Assignment ",
+                AnnouncementInfo = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ",
+                AnnouncementField = "Assignement",
+                AnnouncementSubject = "CAB203"
+
+            },
+                new Announcement
+            {
+                AnnouncementName = "Assignement3 Workshop participation ",
+                AnnouncementInfo = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ",
+                AnnouncementField = "Assignement",
+                AnnouncementSubject = "CAB203"
+
+            },
+                new Announcement
+            {
+                AnnouncementName = "Assignement1: ",
+                AnnouncementInfo = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ",
+                AnnouncementField = "Assignement",
+                AnnouncementSubject = "CAB230"
+
+            },
+                new Announcement
+            {
+                AnnouncementName = "Assignement2: ",
+                AnnouncementInfo = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ",
+                AnnouncementField = "Assignement",
+                AnnouncementSubject = "CAB230"
+
+            },
+                new Announcement
+            {
+                AnnouncementName = "Assignement1: ",
+                AnnouncementInfo = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ",
+                AnnouncementField = "Assignement",
+                AnnouncementSubject = "CAB302"
+
+            },
+                new Announcement
+            {
+                AnnouncementName = "Assignement2: ",
+                AnnouncementInfo = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ",
+                AnnouncementField = "Assignement",
+                AnnouncementSubject = "CAB302"
+
+            },
+                new Announcement
+            {
+                AnnouncementName = "Exam1: ",
+                AnnouncementInfo = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ",
+                AnnouncementField = "Assignement",
+                AnnouncementSubject = "CAB302"
+
+            },
+                new Announcement
+            {
+                AnnouncementName = "IAB230 Assignement1: ",
+                AnnouncementInfo = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ",
+                AnnouncementField = "Assignement",
+                AnnouncementSubject = "IAB230"
+
+            },
+                new Announcement
+            {
+                AnnouncementName = "IAB230 Exam 1: ",
+                AnnouncementInfo = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ",
+                AnnouncementField = "Assignement",
                 AnnouncementSubject = "IAB230"
 
             }

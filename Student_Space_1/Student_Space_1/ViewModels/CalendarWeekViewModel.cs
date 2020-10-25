@@ -24,7 +24,7 @@ namespace Student_Space.ViewModels
 
         public CalendarWeekViewModel(CalendarWeek calendar)
         {
-
+            SetupData();
             this.calendar = calendar;
             GotoAddEvent = new Command(OpenAddEvent);
         }
@@ -34,7 +34,11 @@ namespace Student_Space.ViewModels
             await Shell.Current.GoToAsync(nameof(AddEvent));
         }
 
-
+        void SetupData()
+        {
+            DateTime today = DateTime.Today;
+            CurrentMonth = today.ToString("MMM");
+        }
 
 
     }

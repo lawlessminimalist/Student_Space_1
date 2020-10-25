@@ -1,10 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:Student_Space_1;assembly=Student_Space_1"
-             x:Class="Student_Space_1.Views.CalendarMonth">
+             xmlns:viewmodel="clr-namespace:Student_Space.ViewModels"
+             xmlns:local="clr-namespace:Student_Space_1;assembly=Student_Space_1" 
+             xmlns:viewmodel1="clr-namespace:Student_Space_1.ViewModels"
+             x:Class="Student_Space_1.Views.CalendarMonth"
+             Title="{Binding Title}">
 
-
+    <ContentPage.Resources>
+        <viewmodel1:ColourConverter x:Key="Converter" />
+    </ContentPage.Resources>
+    
     <Shell.TitleView>
         <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="1" Margin="0,0,80,0">
             <Image Source="{local:ImageResource Student_Space_1.Images.LogoNoText.png}" WidthRequest="50" HeightRequest="50" HorizontalOptions="Center" VerticalOptions="Center"/>
@@ -80,7 +86,7 @@
                         
                         <ImageButton BackgroundColor="Transparent"
                                      Source="{local:ImageResource Student_Space_1.Images.Plus.png}" 
-                                     Command="{Binding AddEvent}"/>
+                                     Command="{Binding AddTask}"/>
                         
                     </StackLayout>
                 </Grid>
@@ -127,8 +133,35 @@
                    CornerRadius="7" 
                    Padding="7"
                    HasShadow="False">
-                
-                
+
+                <StackLayout>
+                    <Label Text="{Binding CurrentDay}" TextColor="Black" FontSize="Medium"/>
+
+                    <ListView x:Name="TaskList" ItemsSource="{Binding Calendartask}" BackgroundColor="Transparent" SelectedItem="{Binding Selected_Item, Mode=TwoWay}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate x:Name="TaskTemplate">
+                                <ViewCell>
+                                    <Grid HorizontalOptions="StartAndExpand" VerticalOptions="EndAndExpand" ColumnSpacing="5">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="40*"/>
+                                            <ColumnDefinition Width="15*"/>
+                                            <ColumnDefinition Width="15*"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Label Grid.Column="1" HorizontalTextAlignment="Start" Text="{Binding TaskName}"  Margin="0,2,0,0" TextColor="Black" FontSize="Small" />
+                                        <Button Grid.Column="2" Command="{Binding Path=BindingContext.GoSetting, Source={x:Reference TaskList}}" VerticalOptions="StartAndExpand" HorizontalOptions="EndAndExpand" Margin="0,8,0,0" BackgroundColor="{Binding Priority, Converter={StaticResource Converter}}" FontSize="Small" HeightRequest="16" BorderRadius="8"/>
+
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
                 
                 
 

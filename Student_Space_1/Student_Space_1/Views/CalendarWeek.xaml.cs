@@ -25,7 +25,6 @@ namespace Student_Space_1.Views
             InitializeComponent();
             cvm = new CalendarWeekViewModel(this);
             BindingContext = cvm;
-            cvm.CurrentMonth = string.Format(Months[DateNow.Month - 1]);
             CalendarFrames();
             DaysofWeek_Buttons();
         }
@@ -103,10 +102,6 @@ namespace Student_Space_1.Views
             for (int col = 0; col < 7; col++)
             {
 
-                Label label = new Label
-                {
-                    Text = 
-                }
 
                 Button button = new Button
                 {
