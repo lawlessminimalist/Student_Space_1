@@ -16,6 +16,7 @@ namespace Student_Space.ViewModels
 
 
 
+
         public AlertPageViewModel()
         {
 
@@ -25,9 +26,17 @@ namespace Student_Space.ViewModels
             //Access Shared Observable Collection (List of Tasks)
             TaskListDB = TaskDB.Instance;
 
-            GenerateToday();
-            GenerateMonth();
-            GenerateAlerts();
+
+            try {
+                GenerateToday();
+                GenerateMonth();
+                GenerateAlerts();
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
 
 
         }

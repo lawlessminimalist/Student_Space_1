@@ -1,12 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Student_Space_1.Views.AddEvent">
+             x:Class="Student_Space_1.Views.AddEvent"
+             xmlns:viewmodel="clr-namespace:Student_Space.ViewModels"
+             xmlns:local="clr-namespace:Student_Space_1;assembly=Student_Space_1"
+             xmlns:viewmodel1="clr-namespace:Student_Space_1.ViewModels"
+             Title="{Binding Title}">
+
+    
+    
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Welcome to Xamarin.Forms!"
                 VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+                HorizontalOptions="CenterAndExpand"
+                   TextColor="Black"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
