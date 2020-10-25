@@ -44,7 +44,6 @@ namespace Student_Space.ViewModels
         public ICommand PreviousCalendarCommand { get; }
         public ICommand NextCalendarCommand { get; }
 
-        public
 
         public string month;
         public string CurrentMonth
