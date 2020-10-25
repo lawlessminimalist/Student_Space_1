@@ -12,8 +12,6 @@ namespace Student_Space.ViewModels
     {
 
         public ICommand AddTask { get; }
-        public ICommand NavigateCalendar { get; }
-        public ICommand Test { get; }
 
 
 
@@ -23,16 +21,16 @@ namespace Student_Space.ViewModels
 
             //Commands
             AddTask = new Command(AddItem);
-            NavigateCalendar = new Command(OpenCalendar);
             //Access Shared Observable Collection (List of Tasks)
             TaskListDB = TaskDB.Instance;
 
-
+            // try catch to update lists//
             try {
                 GenerateToday();
                 GenerateMonth();
                 GenerateAlerts();
             }
+            //handle error
             catch(Exception e)
             {
                 Console.WriteLine(e.Message);
@@ -42,10 +40,7 @@ namespace Student_Space.ViewModels
 
         }
 
-        void test() {
-            App.Current.MainPage.DisplayAlert("Error!", "No one something went wrong!", "Ok");
-        }
-
+        //function to find events due in the next hour
         public void GenerateAlerts()
         {
             for (int x = 0 ; x < _tasks.Count; x--)
@@ -58,7 +53,7 @@ namespace Student_Space.ViewModels
 
             }
         }
-
+        //code to find events due today
         public void GenerateToday()
         {
             for (int x = _tasks.Count - 1; x >= 0; x--) 
@@ -71,7 +66,7 @@ namespace Student_Space.ViewModels
 
             }
         }
-
+        //find events due this month and write to a list for the calendar widget
         public void GenerateMonth()
         {
             for (int x = 0; x < _tasks.Count; x++)
@@ -85,23 +80,6 @@ namespace Student_Space.ViewModels
             }
         }
 
-
-        public async void OpenCalendar()
-        {
-            //Code Reference: https://devblogs.microsoft.com/xamarin/xamarin-forms-shell-query-parameters/
-
-            try
-            {
-                //Go to Next Page and Pass Selected Task as Data
-                await Shell.Current.GoToAsync($"{nameof(CalendarMonth)}");
-
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex);
-            }
-
-        }
 
 
 
@@ -125,7 +103,7 @@ namespace Student_Space.ViewModels
         }
 
 
-
+        //code for writing selected items to the go to settings page
         private Task_Item _selectedTask { get; set; }
         public Task_Item Selected_Item
         {
@@ -159,7 +137,7 @@ namespace Student_Space.ViewModels
         }
 
 
-
+        //add item to the ToDo list DB
         async void AddItem()
         {
             //Assign Default Task Item Properties

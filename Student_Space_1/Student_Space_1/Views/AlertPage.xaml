@@ -50,7 +50,10 @@
             </Grid.ColumnDefinitions>
 
 
+            
+            <!--Today Label-->
             <Label Text="Today" Grid.Row="1" Grid.Column="1" Grid.RowSpan="1"></Label>
+            <!--Today Window-->
             <Frame BorderColor="Black"
                    CornerRadius="5"
                    BackgroundColor="#F95F62"
@@ -84,12 +87,14 @@
                 </ListView>
             </Frame>
 
-
+            <!--Welcome Label-->
             <Label Grid.Row="1" Grid.RowSpan="1" Grid.Column="3" Text="Welcome" FontSize="Large" FontFamily="Josefin Sans" TextColor="Black" ></Label>
+            <!--2nd Welcome Label-->
             <Label Grid.Row="2" Grid.RowSpan="2" Grid.Column="3" Text="Here's what's on today" FontSize="Medium" FontFamily="Josefin Sans" ></Label>
 
-
+            <!--Alert Label-->
             <Label Text="Alerts" Grid.Row="5" Grid.Column="1" Grid.RowSpan="1"></Label>
+            <!--Alert Frame-->
             <Frame BorderColor="Black"
                 CornerRadius="5"
                 Padding="8"
@@ -122,8 +127,9 @@
                 </ListView>
             </Frame>
 
-
+            <!--ToDo Label-->
             <Label Text="To Do" Grid.Row="3" Grid.Column="3" Grid.RowSpan="1"></Label>
+            <!--ToDo Window -->
             <Frame BorderColor="Black"
                 CornerRadius="5"
                 Padding="8"
@@ -162,7 +168,9 @@
 
             </Frame>
 
+            <!--Calendar Label-->
             <Label Text="Calendar" Grid.Row="7" Grid.Column="1" Grid.RowSpan="1"></Label>
+            <!--Calendar Frame-->
             <Frame BorderColor="Black"
                 CornerRadius="5"
                     Grid.Row="8" Grid.RowSpan="1"  Grid.ColumnSpan="3" Grid.Column="1"
@@ -183,29 +191,15 @@
                         </Grid.ColumnDefinitions>
 
 
-                    <!--<ImageButton BackgroundColor="Transparent"
-                                                     Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"
-                                                   
-                                                     Source="{local:ImageResource Student_Space_1.Images.Calendar1.png}"
-                                                     
-                                                     Command="{Binding Path=BindingContext.NavigateCalendar }"
-                                                     CommandParameter="{Binding .}"
-                                     
-                                                     />-->
-
-                     <Image Source="{local:ImageResource Student_Space_1.Images.Calendar1.png}" 
+                    <Image Source="{local:ImageResource Student_Space_1.Images.Calendar1.png}" 
                                                 BackgroundColor="Transparent"
                                                 Grid.Row="0" Grid.Column="0" Grid.RowSpan="2">
-                          <Image.GestureRecognizers>
-                            <TapGestureRecognizer
-                                Command="{Binding Path = BindingContext.NavigateCalendar}"/>
-                        </Image.GestureRecognizers>
                     </Image>
                        
 
                     <Label Text="This Month" HorizontalTextAlignment="Center" TextDecorations="Underline" Grid.Row="0" Grid.Column="1" Grid.RowSpan="1" FontSize="Small"></Label>
 
-
+                    <!--List of events due in a period of the current month-->
                     <ListView x:Name="Cal_List" ItemsSource="{Binding _monthList}" BackgroundColor="Transparent" HasUnevenRows="True" RowHeight="65" Grid.Row="1" Grid.Column="1"  SelectedItem="{Binding Selected_Item, Mode=TwoWay}">
                             <ListView.ItemTemplate>
                                 <DataTemplate x:Name="myTemplate1">
