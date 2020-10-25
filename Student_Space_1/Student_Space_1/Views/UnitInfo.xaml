@@ -5,7 +5,7 @@
              xmlns:viewmodel="clr-namespace:Student_Space.ViewModels"
              xmlns:local="clr-namespace:Student_Space_1;assembly=Student_Space_1"
              Title="{Binding Title}">
-
+<!-- Declares the binding context so that binding can be used-->
     <ContentPage.BindingContext>
         <viewmodel:UnitInfoViewModel/>
     </ContentPage.BindingContext>
@@ -24,7 +24,6 @@
                 >
 
                 <Grid ColumnSpacing="0" RowSpacing="0" HorizontalOptions="CenterAndExpand">
-                    <!--Grid Definitions-->
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
@@ -41,7 +40,7 @@
                 <BoxView Color="Transparent"
              WidthRequest="160"
              HeightRequest="30" />
-
+                <!-- Either this menu or the open one is visible to simulate the opening and closing of the dropdown-->
                 <Grid x:Name="MenuClose1" IsVisible="{Binding Menu1isntVisible}" RowSpacing="0" ColumnSpacing="0" BackgroundColor="#5660a8">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50" />

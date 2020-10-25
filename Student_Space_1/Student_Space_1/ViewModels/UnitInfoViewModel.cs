@@ -15,7 +15,7 @@ namespace Student_Space.ViewModels
     public class UnitInfoViewModel : BaseViewModel
     {
 
-
+        //string containing the current subject that can be read and compared later
         public string _currentSubject;
         public string CurrentSubject
         {
@@ -30,7 +30,7 @@ namespace Student_Space.ViewModels
 
 
 
-
+        //controls the last menu and shows whether the last menu is open or closed
         public bool _menu4isVisible = false;
         public bool _menu4isntVisible = true;
 
@@ -54,6 +54,7 @@ namespace Student_Space.ViewModels
             }
         }
 
+        //is the function that changes the visibility of the 4th menu
         public void OpenMenu4()
         {
             if (Menu4isVisible == true)
@@ -65,13 +66,14 @@ namespace Student_Space.ViewModels
             {
                 Menu4isVisible = true;
                 Menu4isntVisible = false;
+                //makes the current subject the 4th one so that only that one is queried insisde it
                 CurrentSubject = "IAB230";
             }
         }
         public ICommand Open4 { get; set; }
 
 
-
+        //the same code for the 4th menu for the 3rd
         public bool _menu3isVisible = false;
         public bool _menu3isntVisible = true;
 
@@ -112,7 +114,7 @@ namespace Student_Space.ViewModels
         public ICommand Open3 { get; set; }
 
 
-
+        //the same code for the 4th menuf or the second
         public bool _menu2isVisible = false;
         public bool _menu2isntVisible = true;
 
@@ -152,7 +154,7 @@ namespace Student_Space.ViewModels
         }
         public ICommand Open2 { get; set; }
 
-
+        //the same code for the previous menus for the 1st
         public bool _menu1isVisible = false;
         public bool _menu1isntVisible = true;
 
@@ -194,8 +196,10 @@ namespace Student_Space.ViewModels
 
 
 
+        //declaring all of the collections used in the view model
 
 
+        //pickeralert4 is the alert that pops up when the annoucnement is selected
         public ICommand PickerAlert4 { get; set; }
         public ObservableCollection<Announcement> Announcements{ get; set; }
 
@@ -207,6 +211,7 @@ namespace Student_Space.ViewModels
 
         private SubjectField _selectedField{ get; set; }
 
+        //changes the annoucnement to display in the second picker
         public ObservableCollection<Announcement> GetAnnouncements
         {
             set
@@ -229,7 +234,7 @@ namespace Student_Space.ViewModels
             get { return DisplayAnnouncements; }
         }
 
-
+        //changes the selected field value to what is inputted to the picker and then changes the display annoucnements list to only show ones in the current subject
         public SubjectField SelectedField
         {
             get { return _selectedField; }
@@ -264,6 +269,7 @@ namespace Student_Space.ViewModels
             }
         }
 
+        // changes to what announcement the user selects in the second picker
         private Announcement _selectedAnnouncement { get; set; }
 
         public Announcement SelectedAnnouncement
@@ -282,7 +288,7 @@ namespace Student_Space.ViewModels
 
         }
 
-        
+        //creates the announcement popup
         void MakeAlter()
         {
             try
@@ -296,10 +302,10 @@ namespace Student_Space.ViewModels
             }
         }
         
+        //constructor, creates everything in the viewmodel
         public UnitInfoViewModel()
         {
 
-            //Title = "Unit Information";
             OpenWebCommand = new Command(async () => await Browser.OpenAsync("https://aka.ms/xamain-quickstart"));
             PickerAlert4 = new Command(get => MakeAlter());
             Open4 = new Command(get => OpenMenu4());
@@ -316,7 +322,7 @@ namespace Student_Space.ViewModels
 
 
 
-
+        //populates the observable collections with data so they can actually be used
         void SetupData()
         {
             
