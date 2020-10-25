@@ -2,7 +2,6 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Student_Space.Services;
-using Student_Space.Views;
 using Student_Space_1.Views;
 using System.Security.Cryptography.X509Certificates;
 using System.Diagnostics;

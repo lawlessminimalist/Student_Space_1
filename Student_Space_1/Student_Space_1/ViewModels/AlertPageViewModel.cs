@@ -12,7 +12,8 @@ namespace Student_Space.ViewModels
     {
 
         public ICommand AddTask { get; }
-
+        public ICommand NavigateCalendar { get; }
+        public ICommand Test { get; }
 
 
 
@@ -22,7 +23,7 @@ namespace Student_Space.ViewModels
 
             //Commands
             AddTask = new Command(AddItem);
-
+            NavigateCalendar = new Command(OpenCalendar);
             //Access Shared Observable Collection (List of Tasks)
             TaskListDB = TaskDB.Instance;
 
@@ -41,12 +42,15 @@ namespace Student_Space.ViewModels
 
         }
 
+        void test() {
+            App.Current.MainPage.DisplayAlert("Error!", "No one something went wrong!", "Ok");
+        }
 
         public void GenerateAlerts()
         {
-            for (int x = 0; x < _tasks.Count; x++)
+            for (int x = 0 ; x < _tasks.Count; x--)
             {
-                if (_tasks[x].DueDate.Hour == DateTime.Now.Hour)
+                if (_tasks[x].DueTime.Hours == DateTime.Now.Hour)
                 {
                     Task_Item e = _tasks[x];
                     _todayList.Add(e);
@@ -57,7 +61,7 @@ namespace Student_Space.ViewModels
 
         public void GenerateToday()
         {
-            for (int x = 0; x < _tasks.Count; x++) 
+            for (int x = _tasks.Count - 1; x >= 0; x--) 
             {
                 if (_tasks[x].DueDate.Date == DateTime.Now.Date) 
                 {
@@ -82,7 +86,7 @@ namespace Student_Space.ViewModels
         }
 
 
-        async void OpenCalendar()
+        public async void OpenCalendar()
         {
             //Code Reference: https://devblogs.microsoft.com/xamarin/xamarin-forms-shell-query-parameters/
 

@@ -68,9 +68,44 @@ namespace Student_Space_1.Models
                 Reminders = null,
             };
 
+            Task_Item new_task4 = new Task_Item
+            {
+                TaskName = "Write Theory of Computational Complexity",
+                DueDate = DateTime.Parse("October 11, 2020"),
+                DueTime = new TimeSpan(15, 30, 00),
+                Priority = "#03D5C8",
+                Notes = "Kind of important",
+                Reminders = null,
+            };
+            Task_Item new_task5 = new Task_Item
+            {
+                TaskName = "Assignment 1 Due",
+                DueDate = DateTime.Parse("October 21, 2020"),
+                DueTime = new TimeSpan(15, 30, 00),
+                Priority = "#03D5C8",
+                Notes = "Please don't forget",
+                Reminders = null,
+            };
+
+            Task_Item new_task6 = new Task_Item
+            {
+                TaskName = "Email Coordinator",
+                DueDate = DateTime.Parse("October 25, 2020"),
+                DueTime = new TimeSpan(15, 30, 00),
+                Priority = "#03D5C8",
+                Notes = "This would be bad to forget",
+                Reminders = null,
+            }; 
+           
+
+
             _list.Add(new_task1);
             _list.Add(new_task2);
             _list.Add(new_task3);
+            _list.Add(new_task4);
+            _list.Add(new_task5);
+            _list.Add(new_task6);
+
         }
     }
 }

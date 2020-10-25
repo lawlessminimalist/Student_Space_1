@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Student_Space.ViewModels;
-using Student_Space.Views;
 using Xamarin.Forms;
 using Student_Space_1.Views;
 
